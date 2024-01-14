@@ -274,12 +274,15 @@ MonoBehaviour:
   m_botPrefab: {fileID: 0}
   m_enablePlayerJoiningByDefault: 1
   m_addToGameModeOnPlayerJoin: 1
-  OnPlayerJoinedEvent:
+  OnParticipantJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
-  OnPlayerLeftEvent:
+  OnParticipantLeftEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_enableSplitScreen: 1
+  m_splitScreenViewportCollection: {fileID: 11400000, guid: 484324a095948a149bef4eb4b92e1577,
+    type: 2}
 --- !u!114 &576524559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 0
@@ -452,6 +455,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 576524560}
   - {fileID: 410087041}
   - {fileID: 2108481926}
-  - {fileID: 576524560}
