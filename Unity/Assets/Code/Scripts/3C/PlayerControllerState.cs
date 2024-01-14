@@ -1,0 +1,3 @@
+public class PlayerControllerState : NobunAtelier.StateWithTransition<PlayerControllerStateDefinition, PlayerControllerStateCollection>
+{
+}
