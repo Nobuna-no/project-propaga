@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3401181200299017350}
   - component: {fileID: 1573497217058673708}
+  - component: {fileID: 4112010110672404861}
   m_Layer: 0
   m_Name: state-idle
   m_TagString: Untagged
@@ -47,12 +48,31 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateModules: []
+  m_stateModules:
+  - {fileID: 4112010110672404861}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 1
   m_nextState: {fileID: 0}
   m_stateDurationInSeconds: -1
+--- !u!114 &4112010110672404861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140780101562265233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStateExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4191230844171952435
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7122576415718701933}
   - component: {fileID: 3696590646972861688}
+  - component: {fileID: 4508709545209705399}
   m_Layer: 0
   m_Name: state-throw
   m_TagString: Untagged
@@ -100,14 +121,46 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: 2131463559337795275, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateModules: []
+  m_stateModules:
+  - {fileID: 4508709545209705399}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 0
   m_nextState: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
   m_stateDurationInSeconds: 0.3
-  m_animParamName: doAttack
+  m_animParamName: doThrow
+--- !u!114 &4508709545209705399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4191230844171952435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f8c3628dc5b6d40a259b8da80e0d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_actions:
+  - m_actionDelayInSeconds: {x: 0.05, y: 0.05}
+    m_loopAction: 0
+    m_onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour,
+            NobunAtelier.Core
+          m_MethodName: ThrowFirstItem
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4930461523042892907
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9031541975345830339}
   - component: {fileID: 7957109843998391356}
+  - component: {fileID: 5297989558588893287}
   m_Layer: 0
   m_Name: state-interact
   m_TagString: Untagged
@@ -155,14 +209,45 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: -3680261532397133372, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateModules: []
+  m_stateModules:
+  - {fileID: 5297989558588893287}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 0
   m_nextState: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateDurationInSeconds: 0.5
-  m_animParamName: doAttack
+  m_stateDurationInSeconds: 0.3
+  m_animParamName: doInteract
+--- !u!114 &5297989558588893287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930461523042892907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStateExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.PickupBehaviour, NobunAtelier.Core
+        m_MethodName: TryGather
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4938329332295107215
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5209322240722444706}
   - component: {fileID: 5260330492774634211}
+  - component: {fileID: 961019290656892846}
   m_Layer: 0
   m_Name: state-drop
   m_TagString: Untagged
@@ -210,14 +296,112 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: 2961972812571228265, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
+  m_stateModules:
+  - {fileID: 961019290656892846}
+  m_autoCaptureStateModule: 1
+  m_logDebug: 0
+  TransitionType: 0
+  m_nextState: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
+    type: 2}
+  m_stateDurationInSeconds: 0.1
+  m_animParamName: doDrop
+--- !u!114 &961019290656892846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938329332295107215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
+        m_MethodName: ItemsDropBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStateExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
+        m_MethodName: ItemsDropEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &5795412902097702501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4948024157371009379}
+  - component: {fileID: 6627807587447607838}
+  m_Layer: 0
+  m_Name: state-resurect-debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4948024157371009379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795412902097702501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5931944794079494507}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6627807587447607838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795412902097702501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158aa0559e35bd048bfd153e8bbd7379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Description: 
+  m_stateDefinition: {fileID: -981385721254977236, guid: 1b39bb58bc2141648a02f3e2a070ff57,
+    type: 2}
   m_stateModules: []
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 0
   m_nextState: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateDurationInSeconds: 0.15
-  m_animParamName: doHit
+  m_stateDurationInSeconds: 1
+  m_animParamName: doResurect
 --- !u!1 &5967380622457107882
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +414,6 @@ GameObject:
   - component: {fileID: 8351643655544191141}
   - component: {fileID: 752353188759453839}
   - component: {fileID: 1203606344285778442}
-  - component: {fileID: 5413543044589193246}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -257,6 +440,7 @@ Transform:
   - {fileID: 1030629662205028567}
   - {fileID: 7122576415718701933}
   - {fileID: 9031541975345830339}
+  - {fileID: 4948024157371009379}
   - {fileID: 4246157333128975013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -280,7 +464,7 @@ MonoBehaviour:
   m_autoCaptureModule: 1
   m_playerInput: {fileID: 0}
   m_actionMapName: Player
-  m_storageComponent: {fileID: 5413543044589193246}
+  m_storageComponent: {fileID: 0}
   m_interactActionName: Interact-Pick
   m_attackActionName: Attack-Throw
   m_dropActionName: Cancel-Drop
@@ -333,27 +517,6 @@ MonoBehaviour:
   m_enterInitialStateOnStart: 1
   m_nextStateOnStateMachineExit: {fileID: 0}
   m_displayDebug: 0
---- !u!114 &5413543044589193246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5967380622457107882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe22acbdf687a145ac376129d231834, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_backpackSockets: []
-  m_lerpSpeed: 20
-  m_lerpSpeedFactorPerIndex:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_socketUsageMaxCount: 3
 --- !u!1 &6092743598878300118
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +681,7 @@ MonoBehaviour:
   TransitionType: 0
   m_nextState: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateDurationInSeconds: 0.5
+  m_stateDurationInSeconds: 0.15
   m_animParamName: doAttack
 --- !u!114 &3857458253526684022
 MonoBehaviour:
@@ -534,7 +697,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnStateEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HitboxBehaviour, NobunAtelier.Core
+        m_MethodName: HitBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStateExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HitboxBehaviour, NobunAtelier.Core
+        m_MethodName: HitEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
