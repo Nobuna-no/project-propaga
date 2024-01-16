@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
-using UnityEngine.Splines;
 using UnityEngine.UI;
 
 public class TerrainCamera : MonoBehaviour
@@ -48,8 +43,8 @@ public class TerrainCamera : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 hitPos = hit.point;
-                ref TerrainGrid.Cell cell = ref terrainGrid.GetCell(hitPos);
-                DoAction(ref cell);
+                ref TerrainGrid.Cell cell = ref terrainGrid[hitPos];
+                DoAction(ref cell, terrainGrid.GetGridCoordinates(hitPos));
             }
         }
 
@@ -63,12 +58,12 @@ public class TerrainCamera : MonoBehaviour
         }
     } 
 
-    private void DoAction(ref TerrainGrid.Cell cell)
+    private void DoAction(ref TerrainGrid.Cell cell, Vector2Int gridPos)
     {
         switch(currentMode)
         {
             case EditMode.ToggleAvailability:
-                ToggleAvailability(ref cell);
+                ToggleAvailability(ref cell, gridPos);
                 break;
             case EditMode.SetZone1:
                 SetZone(ref cell, 1);
@@ -82,10 +77,11 @@ public class TerrainCamera : MonoBehaviour
         }
     }
 
-    private void ToggleAvailability(ref TerrainGrid.Cell cell)
+    private void ToggleAvailability(ref TerrainGrid.Cell cell, Vector2Int gridPos)
     {
         bool available = cell.state == TerrainGrid.CellState.Available;
         cell.state = available ? TerrainGrid.CellState.Unavailable : TerrainGrid.CellState.Available;
+        terrainGrid.UpdateAdjacentCells(gridPos);
     }
 
     private void SetZone(ref TerrainGrid.Cell cell, int zoneId)

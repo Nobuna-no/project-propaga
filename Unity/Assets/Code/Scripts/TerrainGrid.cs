@@ -1,12 +1,25 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using NaughtyAttributes;
+
 using Unity.VisualScripting;
+
 using UnityEditor;
+
 using UnityEngine;
 
+using NaughtyAttributes;
+
+/// <example>
+///Vector2Int gridCoord = terrainGrid.GetGridCoordinates(position);
+///ref TerrainGrid.Cell currentCell = ref terrainGrid[gridCoord];
+///currentCell.state = TerrainGrid.CellState.Occupied;
+///terrainGrid.UpdateAdjacentCells(gridCoord);
+/// 
+/// bool isLeftCellAvailable = currentCell.availableAdjacentCells.HasFlag(TerrainGrid.CellConnection.Left);
+/// OR
+/// TerrainGrid.Cell? leftCell = terrainGrid.GetLeftCell(gridCoord);
+/// bool isLeftCellAvailable = leftCell.HasValue ? leftCell.Value.state == TerrainGrid.CellState.Available : false;
+/// </example>
 public class TerrainGrid : MonoBehaviour
 {
     [Flags]
@@ -32,8 +45,8 @@ public class TerrainGrid : MonoBehaviour
     {
         public CellState state;
         public int zoneId;
-        public CellConnection availableConnections; 
-    }
+        public CellConnection availableAdjacentCells; // Indicates which direction has an available cell.
+    } 
     
     [Serializable]
     struct CellData
@@ -58,6 +71,76 @@ public class TerrainGrid : MonoBehaviour
     // (0, 0) is at the bottom left.
     Cell[,] cells;
 
+    public Cell this[int x, int y]
+    {
+        get => cells[x, y];
+        set => cells[x, y] = value;
+    }
+
+    public ref Cell this[Vector3 position]
+    {
+        get
+        {
+            Vector2Int coord = GetGridCoordinates(position);
+            return ref cells[coord.x, coord.y];
+        }
+    }
+
+    public ref Cell this[Vector2Int coord]
+    {
+        get
+        {
+            return ref cells[coord.x, coord.y];
+        }
+    }
+
+    public int Width => width;
+    public int Height => height;
+
+    public Cell? GetTopCell(Vector2Int coord)
+    {
+        int y = coord.y + 1;
+        if (y >= height)
+        {
+            return null;
+        }
+
+        return cells[coord.x, y];
+    }
+
+    public Cell? GetBottomCell(Vector2Int coord)
+    {
+        int y = coord.y - 1;
+        if (y < 0)
+        {
+            return null;
+        }
+
+        return cells[coord.x, y];
+    }
+
+    public Cell? GetRightCell(Vector2Int coord)
+    {
+        int x = coord.x + 1;
+        if (x >= width)
+        {
+            return null;
+        }
+
+        return cells[x, coord.y];
+    }
+
+    public Cell? GetLeftCell(Vector2Int coord)
+    {
+        int x = coord.x - 1;
+        if (x < 0)
+        {
+            return null;
+        }
+
+        return cells[x, coord.y];
+    }
+
     private void Awake()
     {
         Reset();
@@ -77,22 +160,24 @@ public class TerrainGrid : MonoBehaviour
                 connections |= i == width - 1 ? CellConnection.None : CellConnection.Right;
                 connections |= j == 0 ? CellConnection.None : CellConnection.Bottom;
                 connections |= j == height - 1 ? CellConnection.None : CellConnection.Top;
-                cells[i, j].availableConnections = connections;
+                cells[i, j].availableAdjacentCells = connections;
             }
         }
     }
 
-    public ref Cell GetCell(Vector3 pos)
+    // Returns the gid coordinates that contains this position (or the closest)
+    public Vector2Int GetGridCoordinates(Vector3 pos)
     {
         // Convert position from world space in Unity unit to world space in tiles
         // Then world space to grid space
         float x = (pos.x / tileSize) + OriginOffsetX;
         float y = (pos.z / tileSize) + OriginOffsetY;
 
-        int coordX = Mathf.FloorToInt(Mathf.Clamp(x, 0, width)); 
-        int coordY = Mathf.FloorToInt(Mathf.Clamp(y, 0, height));
-        
-        return ref cells[coordX, coordY];
+        return new Vector2Int
+        {
+            x = Mathf.FloorToInt(Mathf.Clamp(x, 0, width)),
+            y = Mathf.FloorToInt(Mathf.Clamp(y, 0, height))
+        };
     }
 
     // Returns the position in the middle of the cell
@@ -105,6 +190,33 @@ public class TerrainGrid : MonoBehaviour
         };
 
         return position;
+    }
+
+    // Given the coord, updates all the adjacent cells (but not the center) to availability of the center
+    public void UpdateAdjacentCells(Vector2Int coord)
+    {
+        Cell currentCell = cells[coord.x, coord.y];
+        bool isAvailable = currentCell.state == CellState.Available;
+        
+        if (coord.x > 0)
+            SetConnection(coord.x - 1, coord.y, CellConnection.Right, isAvailable);
+
+        if (coord.y > 0)
+            SetConnection(coord.x, coord.y - 1, CellConnection.Top, isAvailable);
+            
+        if (coord.x < width - 1)
+            SetConnection(coord.x + 1, coord.y, CellConnection.Left, isAvailable);
+            
+        if (coord.y < height - 1)
+            SetConnection(coord.x, coord.y + 1, CellConnection.Bottom, isAvailable);
+    }
+
+    public void SetConnection(int coordX, int coordY, CellConnection connect, bool enabled)
+    {
+        if (enabled)
+            cells[coordX, coordY].availableAdjacentCells |= connect;
+        else
+            cells[coordX, coordY].availableAdjacentCells &= ~connect;
     }
 
     private void OnDrawGizmos()
@@ -121,9 +233,11 @@ public class TerrainGrid : MonoBehaviour
                     case 3: cellColor = Color.red; break;
                     default: cellColor = Color.white; break;
                 }
+                cellColor.a = 0.5f;
                 Gizmos.color = cellColor;
                 Vector3 position = GetCellPosition(new Vector2Int(i, j));
                 Gizmos.DrawCube(position, new Vector3(tileSize, 2.0f, tileSize));
+                cellColor.a = 1.0f;
 
                 switch(cells == null ? CellState.Available : cells[i, j].state)
                 {
@@ -133,6 +247,16 @@ public class TerrainGrid : MonoBehaviour
                 }
                 Gizmos.color = cellColor;
                 Gizmos.DrawSphere(position, tileSize * 0.1f);
+
+                float halfSize = tileSize * 0.5f;
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Left) ? Color.red : Color.black;
+                Gizmos.DrawLine(position, position + Vector3.left * halfSize);
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Right) ? Color.red : Color.black;
+                Gizmos.DrawLine(position, position + Vector3.right * halfSize);
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Bottom) ? Color.red : Color.black;
+                Gizmos.DrawLine(position, position + Vector3.back * halfSize);
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Top) ? Color.red : Color.black;
+                Gizmos.DrawLine(position, position + Vector3.forward * halfSize);
             }
         }
     }
