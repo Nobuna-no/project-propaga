@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7207336804517757826}
   - component: {fileID: 1635742125638304654}
   - component: {fileID: 4523882821097793149}
-  - component: {fileID: 8231955791234681468}
+  - component: {fileID: 797336715516485756}
   m_Layer: 6
   m_Name: Pickable
   m_TagString: Untagged
@@ -46,7 +46,7 @@ Rigidbody:
   m_GameObject: {fileID: 1477615994281858141}
   serializedVersion: 4
   m_Mass: 3
-  m_Drag: 0.5
+  m_Drag: 1
   m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -62,7 +62,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1635742125638304654
 MonoBehaviour:
@@ -76,9 +76,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725cc0dcf5aaedf43b2f43bd86865ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isPickable: 1
+  m_targetRigidbody: {fileID: 0}
+  m_targetInteractionCollider: {fileID: 0}
   m_usePhysics: 1
+  m_dropEffect: 1
   m_dropEffectForce: 3
   m_dropEffectOrigin: {x: 0.1, y: 10, z: 0.1}
+  OnPickedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDroppedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnThrownEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!135 &4523882821097793149
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -98,16 +111,16 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &8231955791234681468
-BoxCollider:
+--- !u!135 &797336715516485756
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477615994281858141}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 58241f4009c0e02489a50f56c701ddbc, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -119,7 +132,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5547442310210828062
 GameObject:
@@ -184,7 +197,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b38742730e330c488cc8d7964788813, type: 2}
+  - {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

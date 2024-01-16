@@ -22,6 +22,7 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
 
     [Header("State Machine")]
     [SerializeField, Required] private PlayerControllerStateDefinition m_idleDefinition;
+    [SerializeField, Required] private PlayerControllerStateDefinition m_strugglingDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_interactDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_dropDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_attackDefinition;
@@ -48,6 +49,7 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
         Debug.Assert(m_stateMachine != null, $"{this.name}: Missing state machine.", this);
 
         Debug.Assert(m_idleDefinition != null, $"{this.name}: Missing idle state definition.", this);
+        Debug.Assert(m_strugglingDefinition != null, $"{this.name}: Missing struggling state definition.", this);
         Debug.Assert(m_interactDefinition != null, $"{this.name}: Missing interact state definition.", this);
         Debug.Assert(m_dropDefinition != null, $"{this.name}: Missing drop state definition.", this);
         Debug.Assert(m_attackDefinition != null, $"{this.name}: Missing attack state definition.", this);
@@ -76,9 +78,11 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
         base.DisableInput();
     }
 
+    // Can attack from idle and while being grabbed.
     private void OnAttackAction_performed(InputAction.CallbackContext obj)
     {
-        if (m_stateMachine.CurrentStateDefinition != m_idleDefinition)
+        if (m_stateMachine.CurrentStateDefinition != m_idleDefinition
+            && m_stateMachine.CurrentStateDefinition != m_strugglingDefinition)
         {
             return;
         }
@@ -86,6 +90,7 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
         m_wantToAttack = obj.ReadValue<float>() != 0;
     }
 
+    // Can drop only when idle.
     private void OnDropAction_performed(InputAction.CallbackContext obj)
     {
         if (m_stateMachine.CurrentStateDefinition != m_idleDefinition)
@@ -96,6 +101,7 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
         m_wantToDrop = obj.ReadValue<float>() != 0;
     }
 
+    // Can pick only when idle.
     private void OnInteractAction_performed(InputAction.CallbackContext obj)
     {
         if (m_stateMachine.CurrentStateDefinition != m_idleDefinition)
@@ -109,7 +115,8 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
     protected override void UpdateController(float deltaTime)
     {
         // We prevent any input to go through if we are not idling (even movement)
-        if (m_stateMachine.CurrentStateDefinition != m_idleDefinition)
+        if (m_stateMachine.CurrentStateDefinition != m_idleDefinition
+            && m_stateMachine.CurrentStateDefinition != m_strugglingDefinition)
         {
             return;
         }
@@ -140,7 +147,7 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
 
         // if (m_storageComponent.HasAvailableSocket)
         {
-            Debug.Log("Do try to interact");
+            // Debug.Log("Do try to interact");
             // m_storageComponent.ItemTryPeekFirst(out TransportableObjectBehaviour item)
             m_stateMachine.SetState(m_interactDefinition);
         }
