@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f692764043a4b6041a9f338965c88afd, type: 3}
   m_Name: Sandbox-player
   m_EditorClassIdentifier: 
-  m_InitialValue: 3
-  m_MaxValue: 3
+  m_InitialValue: 5
+  m_MaxValue: 5
   m_invulnerabilityDuration: 0.15
   m_burialType: 1
-  m_burialDelay: {x: 1, y: 1}
+  m_burialDelay: {x: 10, y: 10}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
