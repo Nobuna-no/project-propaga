@@ -841,6 +841,11 @@ PrefabInstance:
       propertyPath: m_storageComponent
       value: 
       objectReference: {fileID: 6748693467934643105}
+    - target: {fileID: 8351643655544191141, guid: f0abc294dc94eba43a62d465b55cc3a4,
+        type: 3}
+      propertyPath: m_controlledCharacter
+      value: 
+      objectReference: {fileID: 319658709471453954}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1037,6 +1042,18 @@ PrefabInstance:
       addedObject: {fileID: 2697380588402717225}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d004eb28b5b4eca42afa1f1bf2a7af49, type: 3}
+--- !u!114 &319658709471453954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1851680581694462244, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2152116211503397414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9c04d6ca6101d4da6ba8c5300fc08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1525770625113860850 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 644430388024299732, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
