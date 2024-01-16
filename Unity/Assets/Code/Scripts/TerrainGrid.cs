@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using NaughtyAttributes;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class TerrainGrid : MonoBehaviour
 {
-    [System.Flags]
+    [Flags]
     public enum CellConnection
     {
         None = 0,
@@ -22,11 +27,20 @@ public class TerrainGrid : MonoBehaviour
         Unavailable, // Cannot be occupied
     }
 
+    [Serializable]
     public struct Cell
     {
         public CellState state;
-        public GameObject occupyingObject;
+        public int zoneId;
         public CellConnection availableConnections; 
+    }
+    
+    [Serializable]
+    struct CellData
+    {
+        public int width;
+        public int height;
+        public Cell[] cells;
     }
 
     [SerializeField, Tooltip("In tiles.")]
@@ -45,6 +59,12 @@ public class TerrainGrid : MonoBehaviour
     Cell[,] cells;
 
     private void Awake()
+    {
+        Reset();
+    }
+
+    [Button]
+    private void Reset()
     {
         cells = new Cell[width,height];
         for (int i = 0 ; i < width ; ++i)
@@ -95,7 +115,49 @@ public class TerrainGrid : MonoBehaviour
             {
                 Vector3 position = GetCellPosition(new Vector2Int(i, j));
                 Gizmos.DrawWireCube(position, new Vector3(tileSize, 1.0f, tileSize));
+
+                if (cells == null)
+                    continue;
+
+                Color cellColor;
+                switch(cells[i, j].state)
+                {
+                    case CellState.Occupied: cellColor = Color.red; break;
+                    case CellState.Unavailable: cellColor = Color.green; break;
+                    default: cellColor = Color.white; break;
+                }
+                Gizmos.color = cellColor;
+                Gizmos.DrawSphere(position, tileSize * 0.1f);
             }
         }
     }
+
+#if UNITY_EDITOR
+    [Button]
+    private void Export()
+    {
+        string path = EditorUtility.SaveFilePanel("Save terrain preset", "", "TerrainPreset.json", "json").NullIfEmpty();
+        if (path == null)
+            return;
+
+        Debug.Log($"Saving to {path}");
+        CellData exportData = new CellData
+        {
+            width = width,
+            height = height,
+            cells = new Cell[width * height],
+        };
+
+        for (int i = 0 ; i < width ; ++i)
+        {
+            for (int j = 0 ; j < height ; ++j)
+            {
+                exportData.cells[i * height + j] = cells[i, j];
+            }
+        }
+
+        string exportJson = JsonUtility.ToJson(exportData);
+        File.WriteAllText(path, exportJson);
+    }
+#endif
 }
