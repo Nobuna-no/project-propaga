@@ -82,7 +82,7 @@ public class TerrainGrid : MonoBehaviour
         }
     }
 
-    public Cell GetCell(Vector3 pos)
+    public ref Cell GetCell(Vector3 pos)
     {
         // Convert position from world space in Unity unit to world space in tiles
         // Then world space to grid space
@@ -91,8 +91,8 @@ public class TerrainGrid : MonoBehaviour
 
         int coordX = Mathf.FloorToInt(Mathf.Clamp(x, 0, width)); 
         int coordY = Mathf.FloorToInt(Mathf.Clamp(y, 0, height));
-
-        return cells[coordX, coordY];
+        
+        return ref cells[coordX, coordY];
     }
 
     // Returns the position in the middle of the cell
@@ -107,24 +107,29 @@ public class TerrainGrid : MonoBehaviour
         return position;
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         for (int i = 0 ; i < width ; ++i)
         {
             for (int j = 0 ; j < height ; ++j)
             {
-                Vector3 position = GetCellPosition(new Vector2Int(i, j));
-                Gizmos.DrawWireCube(position, new Vector3(tileSize, 1.0f, tileSize));
-
-                if (cells == null)
-                    continue;
-
                 Color cellColor;
-                switch(cells[i, j].state)
+                switch(cells == null ? 0 : cells[i, j].zoneId)
+                {
+                    case 1: cellColor = Color.green; break;
+                    case 2: cellColor = Color.yellow; break;
+                    case 3: cellColor = Color.red; break;
+                    default: cellColor = Color.white; break;
+                }
+                Gizmos.color = cellColor;
+                Vector3 position = GetCellPosition(new Vector2Int(i, j));
+                Gizmos.DrawCube(position, new Vector3(tileSize, 2.0f, tileSize));
+
+                switch(cells == null ? CellState.Available : cells[i, j].state)
                 {
                     case CellState.Occupied: cellColor = Color.red; break;
-                    case CellState.Unavailable: cellColor = Color.green; break;
-                    default: cellColor = Color.white; break;
+                    case CellState.Unavailable: cellColor = Color.white; break;
+                    default: cellColor = Color.green; break;
                 }
                 Gizmos.color = cellColor;
                 Gizmos.DrawSphere(position, tileSize * 0.1f);
