@@ -73,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477615994281858141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725cc0dcf5aaedf43b2f43bd86865ec4, type: 3}
+  m_Script: {fileID: 11500000, guid: bdb42711b45c48d479f6eaa0f107b26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_isPickable: 1
@@ -92,6 +92,8 @@ MonoBehaviour:
   OnThrownEvent:
     m_PersistentCalls:
       m_Calls: []
+  itemDefinition: {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879,
+    type: 2}
 --- !u!135 &4523882821097793149
 SphereCollider:
   m_ObjectHideFlags: 0

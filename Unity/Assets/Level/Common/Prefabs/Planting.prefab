@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 3187837714420265340}
   - component: {fileID: 7363294101227141634}
   - component: {fileID: 5181922307797478514}
+  - component: {fileID: 1993174082449772467}
   m_Layer: 6
   m_Name: Planting
   m_TagString: Untagged
@@ -347,6 +348,42 @@ MonoBehaviour:
   mode: 0
   maxValue: 100
   initialSpeed: 1
+--- !u!114 &1993174082449772467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798795837539441906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6825a9f76ec6d24499e5131e930fbbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requireItem: 1
+  acceptedItems:
+  - {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
+  rejectedItems: []
+  OnInteractEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: NobunAtelier.StateMachineComponent`2[[NobunAtelier.GameStateDefinition,
+          NobunAtelier.Core
+        m_MethodName: SetState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4700269227887982029, guid: f055c25428f2f13409d3cbbf4721d8bd,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: NobunAtelier.GameStateDefinition, NobunAtelier.Core
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnInteractRejectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8245785967930523888
 GameObject:
   m_ObjectHideFlags: 0
