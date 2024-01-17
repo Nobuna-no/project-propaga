@@ -1,11 +1,17 @@
+using System.Collections.Generic;
+
+using UnityEngine;
+
+using NaughtyAttributes;
+
 using NobunAtelier;
 using NobunAtelier.Gameplay;
 
 public class InteractBehaviour : TriggerBehaviour
 {
     [SerializeField] private SocketStorageBehaviour m_storageComponent;
-    public List<TransportableObjectBehaviour> InteractableObjects => m_baseInteractableObjects;
-    private List<TransportableObjectBehaviour> m_baseInteractableObjects = new List<TransportableObjectBehaviour>();
+    public List<InteractableObjectBehaviour> InteractableObjects => m_baseInteractableObjects;
+    private List<InteractableObjectBehaviour> m_baseInteractableObjects = new List<InteractableObjectBehaviour>();
 
     public event System.Action OnInteractableObjectAdded;
 
@@ -32,10 +38,10 @@ public class InteractBehaviour : TriggerBehaviour
 
         if (m_storageComponent.ItemTryPeekFirst(out var obj))
         {
-            ObjectDefinition itemDef = (obj as PropagaTransportableObject)?.Item;
+            ObjectDefinition itemDef = (obj as PropagaTransportableObject)?.ItemDefinition;
             if (interactableObj.CheckDeposit(itemDef))
             {
-                m_storageComponent.ItemTryConsume(obj);
+                m_storageComponent.ItemTryConsume(out var objRef);
                 interactableObj.Use(obj);
             }
             else

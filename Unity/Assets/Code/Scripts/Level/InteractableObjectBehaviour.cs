@@ -29,7 +29,7 @@ public class InteractableObjectBehaviour : MonoBehaviour
     }
 
     // Item has been consumed, or there is no item, either way react to user action now
-    public virtual void Use(TransportableObjectBehaviour item)
+    public virtual void Use(TransportableObjectBehaviour item = null)
     {
         if (requireItem && item == null)
         {
