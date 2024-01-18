@@ -45,6 +45,7 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
             {
                 m_storageComponent.ItemTryConsume(out var objRef);
                 interactableObj.Use(obj);
+                obj.IsActive = false; // Remove the object
             }
             else
             {
