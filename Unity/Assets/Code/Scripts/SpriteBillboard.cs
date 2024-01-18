@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpriteBillboard : MonoBehaviour
 {
     [SerializeField] private bool freezeXZAxis = true;
-    [SerializeField] Camera camera;
+    [SerializeField] private new Camera camera;
 
     private void Start()
     {

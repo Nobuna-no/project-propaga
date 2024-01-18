@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 using NobunAtelier;
 
@@ -28,6 +29,9 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
 
     private float currentValue = 0.0f;
     private float currentSpeed = 1.0f;
+
+    [SerializeField]
+    private UnityEvent<float> OnProgressChanged;
 
     public float MaxValue
     {
@@ -62,6 +66,7 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         if (mode == Mode.TimeBased && CurrentStateDefinition == inProgressState)
         {
             currentValue += currentSpeed * deltaTime;
+            OnProgressChanged?.Invoke(Progress);
             if (currentValue >= maxValue)
                 SetState(doneState);
         }
@@ -78,6 +83,7 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         if (CurrentStateDefinition == inProgressState)
         {
             currentValue += amount;
+            OnProgressChanged?.Invoke(Progress);
             if (currentValue >= maxValue)
                 SetState(doneState);
         }

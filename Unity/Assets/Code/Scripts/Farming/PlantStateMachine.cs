@@ -21,8 +21,7 @@ public class PlantStateMachine : TaskStateMachine
     private float dropRadius = 2.0f;
 
     [Header("Plant Events")]
-    private UnityEvent OnHarvest;
-    private UnityEvent OnPlanting;
+    [SerializeField]
     private UnityEvent OnBoosting;
 
     protected override void Start()
@@ -63,7 +62,6 @@ public class PlantStateMachine : TaskStateMachine
             currentSeed = obj;
             MaxValue = obj.plantingTime;
             Begin();
-            OnPlanting?.Invoke();
         }
     }
 
@@ -89,6 +87,5 @@ public class PlantStateMachine : TaskStateMachine
         poolManager.SpawnObject(currentSeed.poolObject, transform.position, dropRadius, 2);
         ResetProgress();
         SetState(GetInitialStateDefinition());
-        OnHarvest?.Invoke();
     }
 }
