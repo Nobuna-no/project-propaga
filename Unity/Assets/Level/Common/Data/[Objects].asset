@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: Fruit
   m_EditorClassIdentifier: 
+  plantingTime: 0
+  growthBoost: 0
+  compostValue: 0.17
 --- !u!114 &-2793706150294387812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,6 +27,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: EnemyCorpse
   m_EditorClassIdentifier: 
+  plantingTime: 0
+  growthBoost: 0
+  compostValue: 0.17
 --- !u!114 &-616847871672504849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,8 +40,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
-  m_Name: Seed
+  m_Name: GreenSeed
   m_EditorClassIdentifier: 
+  plantingTime: 10
+  growthBoost: 0
+  compostValue: 0.34
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,9 +59,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dataDefinitions:
   - {fileID: -616847871672504849}
+  - {fileID: 8343732418903988243}
+  - {fileID: 5590416329515417463}
   - {fileID: -8722780140493509864}
   - {fileID: 4445279860148716808}
   - {fileID: -2793706150294387812}
+  - {fileID: 8574042131115452611}
 --- !u!114 &4445279860148716808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,3 +77,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: PlayerCorpse
   m_EditorClassIdentifier: 
+  plantingTime: 5
+  growthBoost: 0
+  compostValue: 0
+--- !u!114 &5590416329515417463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
+  m_Name: RedSeed
+  m_EditorClassIdentifier: 
+  plantingTime: 30
+  growthBoost: 0
+  compostValue: 1
+--- !u!114 &8343732418903988243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
+  m_Name: YellowSeed
+  m_EditorClassIdentifier: 
+  plantingTime: 20
+  growthBoost: 0
+  compostValue: 0.67
+--- !u!114 &8574042131115452611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
+  m_Name: Compost
+  m_EditorClassIdentifier: 
+  plantingTime: 0
+  growthBoost: 30
+  compostValue: 1

@@ -71,7 +71,7 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
 
     public void AddProgress(float amount)
     {
-        if (mode == Mode.ActionBased && CurrentStateDefinition == inProgressState)
+        if (CurrentStateDefinition == inProgressState)
         {
             currentValue += amount;
             if (currentValue >= maxValue)
