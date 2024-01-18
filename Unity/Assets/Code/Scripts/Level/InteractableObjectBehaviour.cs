@@ -17,11 +17,13 @@ public class InteractableObjectBehaviour : MonoBehaviour
     [Header("Events")]
     public Predicate<ObjectDefinition> Condition;
     public UnityEvent<ObjectDefinition> OnInteractEvent;
-    public UnityEvent OnInteractRejectedEvent;
 
     // Returns whether the object is interested in the item the character holds
-    public virtual bool CheckDeposit(ObjectDefinition item)
+    public virtual bool CheckInput(ObjectDefinition item)
     {
+        if (item == null)
+            return !requireItem;
+        
         List<ObjectDefinition> itemsToCheck = requireItem ? acceptedItems : rejectedItems;
         bool itemInList = itemsToCheck.Contains(item);
         bool itemOk = requireItem == itemInList;
@@ -35,12 +37,6 @@ public class InteractableObjectBehaviour : MonoBehaviour
     // Item has been consumed, or there is no item, either way react to user action now
     public virtual void Use(ObjectDefinition item = null)
     {
-        if (requireItem && item == null)
-        {
-            OnInteractRejectedEvent.Invoke();
-            return;
-        }
-
         OnInteractEvent?.Invoke(item);
     }
 }

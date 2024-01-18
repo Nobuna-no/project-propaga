@@ -248,9 +248,6 @@ MonoBehaviour:
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
-  OnInteractRejectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5954825034648725229
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +404,7 @@ MonoBehaviour:
   initialSpeed: 1
   poolManager: {fileID: 0}
   interactable: {fileID: 8339708304301649867}
-  dropRadius: 2
+  dropRadius: 1
 --- !u!1 &8245785967930523888
 GameObject:
   m_ObjectHideFlags: 0
