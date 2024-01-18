@@ -7,9 +7,9 @@ using UnityEngine.Splines;
 public class Roots : MonoBehaviour
 {
     [SerializeField]
-    private Transform origin;
-    [SerializeField]
-    private Transform dest;
+    private Transform parent;
+    //[SerializeField]
+    //private Transform dest;
     [SerializeField]
     SplineContainer splineContainer;
     [SerializeField]
@@ -23,19 +23,20 @@ public class Roots : MonoBehaviour
 
     private void Awake()
     {
+        splineContainer.transform.position = parent.position;
         splineExtrude.enabled = false;
         splineExtrude.Range = Vector2.zero;
         splineExtrude.Radius = 0;
+        Debug.Log("AWAKE");
+        // for (int i = splineContainer.Splines.Count - 1; i >= 0; i--)
+        // {
+        //     splineContainer.RemoveSplineAt(i);
+        // }
 
-        for (int i = splineContainer.Splines.Count - 1; i >= 0; i--)
-        {
-            splineContainer.RemoveSplineAt(i);
-        }
-
-        var spline = new Spline();
-        spline.Add(new BezierKnot(origin.position, 2, 2), TangentMode.Continuous);
-        spline.Add(new BezierKnot(dest.position), TangentMode.Continuous);
-        splineContainer.AddSpline(spline);
+        // var spline = new Spline();
+        // spline.Add(new BezierKnot(origin.position, 2, 2), TangentMode.Continuous);
+        // spline.Add(new BezierKnot(dest.position), TangentMode.Continuous);
+        // splineContainer.AddSpline(spline);
     }
 
     [Button]
@@ -64,7 +65,12 @@ public class Roots : MonoBehaviour
 
         splineExtrude.Range = new Vector2(0, Mathf.Lerp(0, 1, m_duration));
         splineExtrude.Radius = Mathf.Lerp(m_radiusExtension.x, m_radiusExtension.y, m_duration);
-      {
+        splineExtrude.Rebuild();
+
+        m_duration += Time.deltaTime / duration;
+
+        if (m_duration > 1f)
+        {
             m_hasAnimationStarted = false;
         }
     }

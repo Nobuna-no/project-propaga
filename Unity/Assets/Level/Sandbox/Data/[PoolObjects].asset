@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-119570049143775795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: sandbox-food
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 1635742125638304654, guid: d7464912a573fd8449c160cee4a2bb4a,
+    type: 3}
+  m_reserveSize: 10
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284aff0a38a1eff4daa2e74b95a6e68e, type: 3}
+  m_Name: '[PoolObjects]'
+  m_EditorClassIdentifier: 
+  m_dataDefinitions:
+  - {fileID: -119570049143775795}
