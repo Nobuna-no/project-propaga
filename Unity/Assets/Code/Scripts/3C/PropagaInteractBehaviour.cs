@@ -4,13 +4,15 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-using NobunAtelier;
 using NobunAtelier.Gameplay;
 
-public class InteractBehaviour : TriggerBehaviour
+public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
 {
     [SerializeField] private SocketStorageBehaviour m_storageComponent;
     public List<InteractableObjectBehaviour> InteractableObjects => m_baseInteractableObjects;
+
+    public int Priority => 0;
+
     private List<InteractableObjectBehaviour> m_baseInteractableObjects = new List<InteractableObjectBehaviour>();
 
     public event System.Action OnInteractableObjectAdded;
@@ -73,5 +75,15 @@ public class InteractBehaviour : TriggerBehaviour
             m_baseInteractableObjects.Remove(gatherable);
             OnInteractableObjectRemoved?.Invoke();
         }
+    }
+
+    public bool CanBeExecuted()
+    {
+        return enabled && m_baseInteractableObjects.Count > 0;
+    }
+
+    public void Execute()
+    {
+        TryInteract();
     }
 }
