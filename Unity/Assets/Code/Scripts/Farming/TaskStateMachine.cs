@@ -47,12 +47,17 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         set => currentSpeed = value;
     }
 
+    private void Update()
+    {
+        Tick(Time.deltaTime);
+    }
+
     public override void Tick(float deltaTime)
     {
         base.Tick(deltaTime);
         if (mode == Mode.TimeBased && CurrentStateDefinition == inProgressState)
         {
-            currentValue = currentSpeed * deltaTime;
+            currentValue += currentSpeed * deltaTime;
             if (currentValue >= maxValue)
                 SetState(doneState);
         }
