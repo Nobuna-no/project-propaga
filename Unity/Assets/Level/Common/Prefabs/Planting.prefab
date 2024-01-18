@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6535272761571090544}
   - component: {fileID: 5486945659516251805}
   - component: {fileID: 5489105297811913082}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: state-NotStarted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2312513059449831187}
   - component: {fileID: 3558719524718489103}
   - component: {fileID: 1949645358220861834}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: state-Done
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2387259403284563181}
   - component: {fileID: 2584333439778803530}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3187837714420265340}
   - component: {fileID: 5181922307797478514}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Planting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,6 +369,7 @@ Transform:
   - {fileID: 9020683198113517989}
   - {fileID: 2312513059449831187}
   - {fileID: 1767804213756969144}
+  - {fileID: 2462972166374999208}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5181922307797478514
@@ -405,6 +406,59 @@ MonoBehaviour:
   poolManager: {fileID: 0}
   interactable: {fileID: 8339708304301649867}
   dropRadius: 1
+--- !u!1 &7740189287857280197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2462972166374999208}
+  - component: {fileID: 3130004798870660842}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2462972166374999208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740189287857280197}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3187837714420265340}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3130004798870660842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740189287857280197}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8245785967930523888
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +470,7 @@ GameObject:
   - component: {fileID: 9020683198113517989}
   - component: {fileID: 3736569343699407182}
   - component: {fileID: 6575315485867343212}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: state-InProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}

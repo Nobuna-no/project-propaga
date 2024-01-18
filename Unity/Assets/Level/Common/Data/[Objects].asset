@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 1980971570602635416, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 10
+  plantingTime: 0.5
   growthBoost: 0
   compostValue: 0.34
 --- !u!114 &11400000
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 6038606854605171675, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 30
+  plantingTime: 2
   growthBoost: 0
   compostValue: 1
 --- !u!114 &8343732418903988243
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 2410790529743389293, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 20
+  plantingTime: 1
   growthBoost: 0
   compostValue: 0.67
 --- !u!114 &8574042131115452611
