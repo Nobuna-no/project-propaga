@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: Fruit
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 0}
   plantingTime: 0
   growthBoost: 0
   compostValue: 0.17
@@ -27,6 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: EnemyCorpse
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 0}
   plantingTime: 0
   growthBoost: 0
   compostValue: 0.17
@@ -42,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: GreenSeed
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 1980971570602635416, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
   plantingTime: 10
   growthBoost: 0
   compostValue: 0.34
@@ -77,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: PlayerCorpse
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 0}
   plantingTime: 5
   growthBoost: 0
   compostValue: 0
@@ -92,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: RedSeed
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 6038606854605171675, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
   plantingTime: 30
   growthBoost: 0
   compostValue: 1
@@ -107,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: YellowSeed
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 2410790529743389293, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
   plantingTime: 20
   growthBoost: 0
   compostValue: 0.67
@@ -122,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
   m_Name: Compost
   m_EditorClassIdentifier: 
+  poolObject: {fileID: 0}
   plantingTime: 0
   growthBoost: 30
   compostValue: 1

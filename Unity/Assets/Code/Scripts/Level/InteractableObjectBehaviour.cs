@@ -1,12 +1,10 @@
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.Events;
 
 using NaughtyAttributes;
-
-using NobunAtelier;
-using NobunAtelier.Gameplay;
 
 public class InteractableObjectBehaviour : MonoBehaviour
 {
@@ -17,7 +15,8 @@ public class InteractableObjectBehaviour : MonoBehaviour
     [SerializeField, HideIf("requireItem")]
     private List<ObjectDefinition> rejectedItems;
     [Header("Events")]
-    public UnityEvent<TransportableObjectBehaviour> OnInteractEvent;
+    public Predicate<ObjectDefinition> Condition;
+    public UnityEvent<ObjectDefinition> OnInteractEvent;
     public UnityEvent OnInteractRejectedEvent;
 
     // Returns whether the object is interested in the item the character holds
@@ -25,11 +24,16 @@ public class InteractableObjectBehaviour : MonoBehaviour
     {
         List<ObjectDefinition> itemsToCheck = requireItem ? acceptedItems : rejectedItems;
         bool itemInList = itemsToCheck.Contains(item);
-        return requireItem == itemInList;
+        bool itemOk = requireItem == itemInList;
+
+        if (Condition != null)
+            itemOk &= Condition.Invoke(item);
+        
+        return itemOk;
     }
 
     // Item has been consumed, or there is no item, either way react to user action now
-    public virtual void Use(TransportableObjectBehaviour item = null)
+    public virtual void Use(ObjectDefinition item = null)
     {
         if (requireItem && item == null)
         {

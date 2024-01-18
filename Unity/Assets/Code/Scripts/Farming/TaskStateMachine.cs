@@ -47,6 +47,10 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         set => currentSpeed = value;
     }
 
+    public bool IsInProgress => CurrentStateDefinition == inProgressState;
+    public bool IsDone => CurrentStateDefinition == doneState;
+    public bool HasNotStarted => CurrentStateDefinition == GetInitialStateDefinition();
+
     private void Update()
     {
         Tick(Time.deltaTime);
@@ -63,7 +67,7 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         }
     }
 
-    public void ResetProgress()
+    public virtual void ResetProgress()
     {
         currentValue = 0;
         currentSpeed = initialSpeed;
@@ -77,5 +81,15 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
             if (currentValue >= maxValue)
                 SetState(doneState);
         }
+    }
+
+    public virtual void Begin()
+    {
+        SetState(inProgressState);
+    }
+
+    public virtual void End()
+    {
+        SetState(doneState);
     }
 }
