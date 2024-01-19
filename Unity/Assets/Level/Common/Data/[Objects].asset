@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fruit
   m_EditorClassIdentifier: 
   poolObject: {fileID: 0}
-  plantingTime: 0
+  plantedObject: {fileID: 0}
   growthBoost: 0
   compostValue: 17
 --- !u!114 &-2793706150294387812
@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: EnemyCorpse
   m_EditorClassIdentifier: 
   poolObject: {fileID: 0}
-  plantingTime: 0
+  plantedObject: {fileID: 0}
   growthBoost: 0
   compostValue: 17
 --- !u!114 &-616847871672504849
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 1980971570602635416, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 10
+  plantedObject: {fileID: 4502538765781644920, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
   growthBoost: 0
   compostValue: 33
 --- !u!114 &11400000
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_Name: PlayerCorpse
   m_EditorClassIdentifier: 
   poolObject: {fileID: 0}
-  plantingTime: 5
+  plantedObject: {fileID: 0}
   growthBoost: 0
   compostValue: 0
 --- !u!114 &5590416329515417463
@@ -99,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 6038606854605171675, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 30
+  plantedObject: {fileID: -5000732105992000909, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
   growthBoost: 0
   compostValue: 100
 --- !u!114 &8343732418903988243
@@ -116,7 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 2410790529743389293, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 20
+  plantedObject: {fileID: 1882264854835292953, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
   growthBoost: 0
   compostValue: 67
 --- !u!114 &8574042131115452611
@@ -133,6 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: -8928023789282246289, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
-  plantingTime: 0
+  plantedObject: {fileID: 0}
   growthBoost: 30
   compostValue: 100

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f692764043a4b6041a9f338965c88afd, type: 3}
   m_Name: Plant
   m_EditorClassIdentifier: 
-  m_InitialValue: 3
-  m_MaxValue: 3
+  m_InitialValue: 2
+  m_MaxValue: 2
   m_invulnerabilityDuration: 0.15
   m_burialType: 0
   m_burialDelay: {x: 0, y: 0}

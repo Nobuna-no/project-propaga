@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
   m_Name: Compost
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: 1635742125638304654, guid: 740b0ad509b21b3418df408ef70b1f88,
+  m_poolablePrefab: {fileID: 5854615929752867784, guid: 740b0ad509b21b3418df408ef70b1f88,
     type: 3}
   m_reserveSize: 10
+--- !u!114 &-5000732105992000909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: RedPlant
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 4635777580646230212, guid: 091078e710982fa48a6385363df9a54b,
+    type: 3}
+  m_reserveSize: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,6 +47,24 @@ MonoBehaviour:
   - {fileID: 2410790529743389293}
   - {fileID: 6038606854605171675}
   - {fileID: -8928023789282246289}
+  - {fileID: 4502538765781644920}
+  - {fileID: 1882264854835292953}
+  - {fileID: -5000732105992000909}
+--- !u!114 &1882264854835292953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: YellowPlant
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 4635777580646230212, guid: 1f6d5213187b6424b8b49d4935b2c37f,
+    type: 3}
+  m_reserveSize: 3
 --- !u!114 &1980971570602635416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +95,21 @@ MonoBehaviour:
   m_poolablePrefab: {fileID: 1419832919050882121, guid: 039b52731dcda4d46840b52cbf561221,
     type: 3}
   m_reserveSize: 10
+--- !u!114 &4502538765781644920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: GreenPlant
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 6783203253779433349, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
+    type: 3}
+  m_reserveSize: 3
 --- !u!114 &6038606854605171675
 MonoBehaviour:
   m_ObjectHideFlags: 0

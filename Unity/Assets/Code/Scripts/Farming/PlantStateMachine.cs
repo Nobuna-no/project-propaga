@@ -11,12 +11,13 @@ using NobunAtelier.Gameplay;
 public class PlantStateMachine : TaskStateMachine
 {
     [SerializeField]
-    private PoolManager poolManager;
+    private FarmingObject farmingObj;
     [SerializeField]
     private InteractableObjectBehaviour interactable;
     [SerializeField]
     private SocketStorageBehaviour storage;
 
+    [SerializeField]
     private ObjectDefinition currentSeed;
 
     [Header("Plant Events")]
@@ -26,27 +27,13 @@ public class PlantStateMachine : TaskStateMachine
     protected override void Start()
     {
         base.Start();
-        interactable.Condition = IsPlanteable;
+        interactable.Condition = ImprovesGrowth;
     }
 
     public override void ResetProgress()
     {
         base.ResetProgress();
         currentSeed = null;
-    }
-
-    public override void SetState(GameStateDefinition newState)
-    {
-        base.SetState(newState);
-
-        if (IsInProgress)
-        {
-            interactable.Condition = ImprovesGrowth;
-        }
-        else if (HasNotStarted)
-        {
-            interactable.Condition = IsPlanteable;
-        }
     }
 
     public void Interact(ObjectDefinition obj)
@@ -56,17 +43,6 @@ public class PlantStateMachine : TaskStateMachine
             AddProgress(obj.growthBoost);
             OnBoosting?.Invoke();
         }
-        else
-        {
-            currentSeed = obj;
-            MaxValue = obj.plantingTime;
-            Begin();
-        }
-    }
-
-    private bool IsPlanteable(ObjectDefinition obj)
-    {
-        return obj != null && obj.plantingTime > 0.0f;
     }
 
     private bool ImprovesGrowth(ObjectDefinition obj)
@@ -85,27 +61,19 @@ public class PlantStateMachine : TaskStateMachine
 
         Transform socketR = sockets[0];
         Transform socketL = sockets[1];
-        TransportableObjectBehaviour seedR = SpawnSeed(socketR.position);
+        TransportableObjectBehaviour seedR = farmingObj.SpawnSeed(currentSeed, socketR.position);
         if (seedR)
         {
             seedR.Pick();
             storage.ItemTryAdd(seedR);
         }
 
-        TransportableObjectBehaviour seedL = SpawnSeed(socketL.position);
+        TransportableObjectBehaviour seedL = farmingObj.SpawnSeed(currentSeed, socketL.position);
         if (seedL)
         {
             seedL.Pick();
             storage.ItemTryAdd(seedL);
         }
-    }
-
-    private TransportableObjectBehaviour SpawnSeed(Vector3 position)
-    {
-        if (poolManager == null || currentSeed == null || currentSeed.poolObject == null)
-            return null;
-
-        return poolManager.SpawnObject(currentSeed.poolObject, position).GetComponent<TransportableObjectBehaviour>();
     }
 
     [Button]
@@ -114,11 +82,8 @@ public class PlantStateMachine : TaskStateMachine
         if (!IsDone)
             return;
         
-        if (poolManager != null && currentSeed != null && currentSeed.poolObject != null)
-        {
-            poolManager.SpawnObject(currentSeed.poolObject, transform.position, 1.0f, 2);
-        }
-
+        farmingObj.SpawnSeed(currentSeed, transform.position);
+        farmingObj.SpawnSeed(currentSeed, transform.position);
         SetState(GetInitialStateDefinition());
     }
 }

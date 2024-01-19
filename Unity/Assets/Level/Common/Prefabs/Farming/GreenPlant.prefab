@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1221371950006993479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.2, z: 0}
+  m_LocalPosition: {x: -0.371, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,7 +106,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 060d5838b2a892d4db9d2df0caa6cc24,
+          m_ObjectArgument: {fileID: -786970702, guid: c43fc85a78befae45a8ad5490946865b,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 160611908207890518}
   - component: {fileID: 6886812156408030611}
   - component: {fileID: 5709424120363316269}
-  - component: {fileID: 2301201181718305371}
+  - component: {fileID: 2797931042025131600}
   m_Layer: 6
   m_Name: hitbox
   m_TagString: Untagged
@@ -157,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 2873849438309664549}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,6 +221,18 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5877846935933173199}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
+        m_MethodName: FirstItemDrop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5181922307797478514}
         m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
         m_MethodName: SetState
@@ -251,8 +263,8 @@ MonoBehaviour:
       m_Calls: []
   m_CurrentLifeValue: 0
   m_debugHitDefinition: {fileID: 0}
---- !u!65 &2301201181718305371
-BoxCollider:
+--- !u!135 &2797931042025131600
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -270,7 +282,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 1.5}
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3004411197768970057
 GameObject:
@@ -347,7 +359,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c2208dfa28590434190e7ac210228bb6,
+          m_ObjectArgument: {fileID: 1366287974, guid: c43fc85a78befae45a8ad5490946865b,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
@@ -406,6 +418,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6783203253779433349}
+        m_TargetAssemblyTypeName: FarmingObject, Assembly-CSharp
+        m_MethodName: Despawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4880373266936056857
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,8 +439,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1767804213756969144}
-  - component: {fileID: 7371531318861758969}
   - component: {fileID: 8339708304301649867}
+  - component: {fileID: 9097321071418288601}
   m_Layer: 6
   m_Name: Interactions
   m_TagString: Untagged
@@ -433,33 +457,12 @@ Transform:
   m_GameObject: {fileID: 4880373266936056857}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3187837714420265340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7371531318861758969
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4880373266936056857}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8339708304301649867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,9 +479,6 @@ MonoBehaviour:
     type: 2}
   requireItem: 1
   acceptedItems:
-  - {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
-  - {fileID: 8343732418903988243, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
-  - {fileID: 5590416329515417463, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
   - {fileID: 8574042131115452611, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
   rejectedItems: []
   OnInteractEvent:
@@ -496,6 +496,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!135 &9097321071418288601
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4880373266936056857}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5954825034648725229
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,12 +594,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 060d5838b2a892d4db9d2df0caa6cc24, type: 3}
+  m_Sprite: {fileID: -786970702, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -596,8 +617,9 @@ GameObject:
   - component: {fileID: 5181922307797478514}
   - component: {fileID: 5877846935933173199}
   - component: {fileID: 3861969387870276657}
+  - component: {fileID: 6783203253779433349}
   m_Layer: 0
-  m_Name: Planting
+  m_Name: GreenPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -648,7 +670,7 @@ MonoBehaviour:
     type: 2}
   m_initialStateDefinition: {fileID: 4151535757131622249, guid: f055c25428f2f13409d3cbbf4721d8bd,
     type: 2}
-  m_enterInitialStateOnStart: 1
+  m_enterInitialStateOnStart: 0
   m_nextStateOnStateMachineExit: {fileID: 0}
   m_displayDebug: 0
   inProgressState: {fileID: 4700269227887982029, guid: f055c25428f2f13409d3cbbf4721d8bd,
@@ -673,9 +695,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  poolManager: {fileID: 0}
+  farmingObj: {fileID: 6783203253779433349}
   interactable: {fileID: 8339708304301649867}
   storage: {fileID: 5877846935933173199}
+  currentSeed: {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879,
+    type: 2}
   OnBoosting:
     m_PersistentCalls:
       m_Calls: []
@@ -734,6 +758,36 @@ MonoBehaviour:
   OnStateExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6783203253779433349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798795837539441906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccf60f441b14fd4ca554e645afa9d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OnInit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: TaskStateMachine, Assembly-CSharp
+        m_MethodName: Begin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_OnReset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7740189287857280197
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +814,7 @@ Transform:
   m_GameObject: {fileID: 7740189287857280197}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -862,7 +916,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: a8c6d0cc0dc63f94db0f76fdfb151d17,
+          m_ObjectArgument: {fileID: -2129954291, guid: c43fc85a78befae45a8ad5490946865b,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
@@ -922,7 +976,7 @@ Transform:
   m_GameObject: {fileID: 8255387120806673885}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.2, z: 0}
+  m_LocalPosition: {x: -0.363, y: 0.565, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -979,12 +1033,12 @@ PrefabInstance:
     - target: {fileID: 5091388652274486931, guid: a2a39bf8cbf1e15449180f7a493e965c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5091388652274486931, guid: a2a39bf8cbf1e15449180f7a493e965c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5091388652274486931, guid: a2a39bf8cbf1e15449180f7a493e965c,
         type: 3}
@@ -1029,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 5091388652274486931, guid: a2a39bf8cbf1e15449180f7a493e965c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5091388652274486931, guid: a2a39bf8cbf1e15449180f7a493e965c,
         type: 3}
