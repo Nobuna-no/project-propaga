@@ -469,6 +469,7 @@ MonoBehaviour:
   width: 21
   height: 21
   tileSize: 10
+  m_drawGizmos: 1
 --- !u!4 &1001046343
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,17 +1124,17 @@ PrefabInstance:
     - target: {fileID: 923356654452338273, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000014674353
+      value: 2.0100002
       objectReference: {fileID: 0}
     - target: {fileID: 923356654452338273, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.156855
+      value: 6.1568556
       objectReference: {fileID: 0}
     - target: {fileID: 923356654452338273, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.406854
+      value: -22.586855
       objectReference: {fileID: 0}
     - target: {fileID: 923356654452338273, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
@@ -1158,7 +1159,7 @@ PrefabInstance:
     - target: {fileID: 3560108685351539631, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000014674353
+      value: 2.0100002
       objectReference: {fileID: 0}
     - target: {fileID: 4410042747563449712, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
