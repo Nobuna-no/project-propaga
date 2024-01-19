@@ -19,9 +19,6 @@ public class PlantStateMachine : TaskStateMachine
 
     private ObjectDefinition currentSeed;
 
-    [SerializeField]
-    private float dropRadius = 2.0f;
-
     [Header("Plant Events")]
     [SerializeField]
     private UnityEvent OnBoosting;
@@ -29,7 +26,7 @@ public class PlantStateMachine : TaskStateMachine
     protected override void Start()
     {
         base.Start();
-        interactable.OnInteractEvent.AddListener(Interact);
+        interactable.Condition = IsPlanteable;
     }
 
     public override void ResetProgress()
@@ -52,7 +49,7 @@ public class PlantStateMachine : TaskStateMachine
         }
     }
 
-    private void Interact(ObjectDefinition obj)
+    public void Interact(ObjectDefinition obj)
     {
         if (IsInProgress)
         {
@@ -117,10 +114,11 @@ public class PlantStateMachine : TaskStateMachine
         if (!IsDone)
             return;
         
-        if (poolManager == null || currentSeed == null || currentSeed.poolObject == null)
-            return;
+        if (poolManager != null && currentSeed != null && currentSeed.poolObject != null)
+        {
+            poolManager.SpawnObject(currentSeed.poolObject, transform.position, 1.0f, 2);
+        }
 
-        poolManager.SpawnObject(currentSeed.poolObject, transform.position, dropRadius, 2);
         SetState(GetInitialStateDefinition());
     }
 }

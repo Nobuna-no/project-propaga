@@ -33,6 +33,16 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
     [SerializeField]
     private UnityEvent<float> OnProgressChanged;
 
+    protected float CurrentValue
+    {
+        get => currentValue;
+        set
+        {
+            currentValue = value;
+            OnProgressChanged?.Invoke(currentValue);
+        }
+    }
+
     public float MaxValue
     {
         get => maxValue;
@@ -50,6 +60,8 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         get => currentSpeed;
         set => currentSpeed = value;
     }
+
+    public float InitialSpeed => initialSpeed;
 
     public bool IsInProgress => CurrentStateDefinition == inProgressState;
     public bool IsDone => CurrentStateDefinition == doneState;

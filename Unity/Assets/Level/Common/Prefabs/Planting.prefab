@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 6886812156408030611}
   - component: {fileID: 5709424120363316269}
   - component: {fileID: 2301201181718305371}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,19 @@ MonoBehaviour:
   rejectedItems: []
   OnInteractEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5954825034648725229
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +674,6 @@ MonoBehaviour:
   poolManager: {fileID: 0}
   interactable: {fileID: 8339708304301649867}
   storage: {fileID: 5877846935933173199}
-  dropRadius: 1
   OnBoosting:
     m_PersistentCalls:
       m_Calls: []

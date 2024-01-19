@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
   m_Name: Compost
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: 0}
-  m_reserveSize: 3
+  m_poolablePrefab: {fileID: 1635742125638304654, guid: 740b0ad509b21b3418df408ef70b1f88,
+    type: 3}
+  m_reserveSize: 10
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
