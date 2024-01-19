@@ -27,6 +27,7 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
     [SerializeField, Required] private PlayerControllerStateDefinition m_dropDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_attackDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_throwDefinition;
+    [SerializeField, Required] private PlayerControllerStateDefinition m_rootedDefinition;
 
     public SocketStorageBehaviour StorageComponent => m_storageComponent;
 
@@ -184,5 +185,10 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
         return false;
     }
 
+    [Button(enabledMode: EButtonEnableMode.Playmode)]
+    private void ForceRootedState()
+    {
+        m_stateMachine.SetState(m_rootedDefinition);
+    }
 
 }

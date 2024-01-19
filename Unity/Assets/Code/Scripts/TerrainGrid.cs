@@ -14,7 +14,7 @@ using NaughtyAttributes;
 ///ref TerrainGrid.Cell currentCell = ref terrainGrid[gridCoord];
 ///currentCell.state = TerrainGrid.CellState.Occupied;
 ///terrainGrid.UpdateAdjacentCells(gridCoord);
-/// 
+///
 /// bool isLeftCellAvailable = currentCell.availableAdjacentCells.HasFlag(TerrainGrid.CellConnection.Left);
 /// OR
 /// TerrainGrid.Cell? leftCell = terrainGrid.GetLeftCell(gridCoord);
@@ -46,8 +46,8 @@ public class TerrainGrid : MonoBehaviour
         public CellState state;
         public int zoneId;
         public CellConnection availableAdjacentCells; // Indicates which direction has an available cell.
-    } 
-    
+    }
+
     [Serializable]
     struct CellData
     {
@@ -62,11 +62,12 @@ public class TerrainGrid : MonoBehaviour
     private int height = 10;
     [SerializeField, Tooltip("In Unity unit.")]
     private float tileSize = 1.0f;
-
+    [SerializeField]
+    private bool m_drawGizmos = true;
     // The world space origin (0, 0, 0) is the middle of the overall grid
     private float OriginOffsetX => width * 0.5f;
     private float OriginOffsetY => height * 0.5f;
-    
+
     // The terrain is made of cells, squares with points in the middle.
     // (0, 0) is at the bottom left.
     Cell[,] cells;
@@ -197,16 +198,16 @@ public class TerrainGrid : MonoBehaviour
     {
         Cell currentCell = cells[coord.x, coord.y];
         bool isAvailable = currentCell.state == CellState.Available;
-        
+
         if (coord.x > 0)
             SetConnection(coord.x - 1, coord.y, CellConnection.Right, isAvailable);
 
         if (coord.y > 0)
             SetConnection(coord.x, coord.y - 1, CellConnection.Top, isAvailable);
-            
+
         if (coord.x < width - 1)
             SetConnection(coord.x + 1, coord.y, CellConnection.Left, isAvailable);
-            
+
         if (coord.y < height - 1)
             SetConnection(coord.x, coord.y + 1, CellConnection.Bottom, isAvailable);
     }
@@ -221,6 +222,11 @@ public class TerrainGrid : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!m_drawGizmos)
+        {
+            return;
+        }
+
         for (int i = 0 ; i < width ; ++i)
         {
             for (int j = 0 ; j < height ; ++j)
