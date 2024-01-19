@@ -301,18 +301,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &684470913 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1121512276586701709, guid: e00b1106709183941985cf3447419002,
-    type: 3}
-  m_PrefabInstance: {fileID: 3313838632777521063}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aca86f14d44fbc459a61fa20d72c623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &702716792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1270,25 +1258,10 @@ PrefabInstance:
       propertyPath: poolManager
       value: 
       objectReference: {fileID: 507378849}
-    - target: {fileID: 1121512276586701709, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: m_stateModules.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1455999593215464907, guid: e00b1106709183941985cf3447419002,
         type: 3}
       propertyPath: m_Name
       value: Composter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272545572752068208, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: m_stateModules.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3449658280257747208, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: m_stateModules.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3996352338522163873, guid: e00b1106709183941985cf3447419002,
         type: 3}
@@ -1339,81 +1312,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 684470913}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 684470913}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetProgress
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DropCompost
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CompostStateMachine, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CompostStateMachine, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059088784825989250, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6251385716361509211, guid: e00b1106709183941985cf3447419002,
-        type: 3}
-      propertyPath: m_stateModules.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
