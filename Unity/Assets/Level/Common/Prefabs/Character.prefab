@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939510431918962308}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 3734660017373997753}
   - {fileID: 5985459646278372545}
   m_Father: {fileID: 3042406968937886770}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4092578349221329496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63497353b29a05b4896347e25d5459d5, type: 2}
+  - {fileID: 2100000, guid: df7272b16ef5906498e0b5f9b73e5195, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_priority: 0
   m_definition: {fileID: -3717837923963281518, guid: 0dac844019a319446b14d820d1ea7ce1,
     type: 2}
+  m_resetOnStart: 0
   m_objectToMakeDisappear: {fileID: 0}
   OnHit:
     m_PersistentCalls:
@@ -862,6 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_storageComponent: {fileID: 4644889866343721351}
+  m_consumptionCallbacks: []
 --- !u!1 &7556233817447706684
 GameObject:
   m_ObjectHideFlags: 0
