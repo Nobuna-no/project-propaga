@@ -1,14 +1,15 @@
-using System.Collections.Generic;
-
-using UnityEngine;
-
 using NaughtyAttributes;
-
 using NobunAtelier.Gameplay;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
 {
     [SerializeField] private SocketStorageBehaviour m_storageComponent;
+    [SerializeField] private InteractableCallback[] m_consumptionCallbacks;
+
     public List<InteractableObjectBehaviour> InteractableObjects => m_baseInteractableObjects;
 
     public int Priority => 0;
@@ -26,12 +27,12 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         {
             return;
         }
-        
+
         if (m_baseInteractableObjects.Count == 0)
         {
             return;
         }
-        
+
         var interactableObj = m_baseInteractableObjects[m_baseInteractableObjects.Count - 1];
         if (!interactableObj)
         {
@@ -41,8 +42,15 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         if (CanInteractWith(interactableObj, out var obj))
         {
             m_storageComponent.ItemTryConsume(out var objRef);
+
             interactableObj.Use(obj?.ItemDefinition);
             obj.IsActive = false; // Remove the object
+
+            // Raise any target interaction callback.
+            for (int i = 0, c = m_consumptionCallbacks.Length; i < c; i++)
+            {
+                m_consumptionCallbacks[i].CheckAndRaiseCallbackForTarget(interactableObj.Definition);
+            }
         }
     }
 
@@ -89,23 +97,44 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         {
             return false;
         }
-        
+
         if (m_baseInteractableObjects.Count == 0)
         {
             return false;
         }
-        
+
         var interactableObj = m_baseInteractableObjects[m_baseInteractableObjects.Count - 1];
         if (!interactableObj)
         {
             return false;
         }
-        
+
         return CanInteractWith(interactableObj, out var obj);
     }
 
     public void Execute()
     {
         TryInteract();
+    }
+
+    [Serializable]
+    private class InteractableCallback
+    {
+        [SerializeField]
+        private InteractableDefinition[] m_targets;
+
+        public UnityEvent OnInteraction;
+
+        public void CheckAndRaiseCallbackForTarget(InteractableDefinition obj)
+        {
+            for (int i = 0, c = m_targets.Length; i < c; ++i)
+            {
+                if (obj == m_targets[i])
+                {
+                    OnInteraction?.Invoke();
+                    return;
+                }
+            }
+        }
     }
 }

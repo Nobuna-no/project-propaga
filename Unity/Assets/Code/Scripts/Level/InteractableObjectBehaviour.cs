@@ -1,36 +1,43 @@
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.Events;
 
-using NaughtyAttributes;
-
 public class InteractableObjectBehaviour : MonoBehaviour
 {
+    [SerializeField, Required]
+    private InteractableDefinition m_definition;
+
     [SerializeField, Tooltip("If an item is required and none is provided, it will call OnInteractRejectedEvent")]
     private bool requireItem;
+
     [SerializeField, ShowIf("requireItem")]
     private List<ObjectDefinition> acceptedItems;
+
     [SerializeField, HideIf("requireItem")]
     private List<ObjectDefinition> rejectedItems;
+
     [Header("Events")]
     public Predicate<ObjectDefinition> Condition;
+
     public UnityEvent<ObjectDefinition> OnInteractEvent;
+
+    public InteractableDefinition Definition => m_definition;
 
     // Returns whether the object is interested in the item the character holds
     public virtual bool CheckInput(ObjectDefinition item)
     {
         if (item == null)
             return !requireItem;
-        
+
         List<ObjectDefinition> itemsToCheck = requireItem ? acceptedItems : rejectedItems;
         bool itemInList = itemsToCheck.Contains(item);
         bool itemOk = requireItem == itemInList;
 
         if (Condition != null)
             itemOk &= Condition.Invoke(item);
-        
+
         return itemOk;
     }
 
