@@ -14,6 +14,8 @@ public class PlantStateMachine : TaskStateMachine
     private PoolManager poolManager;
     [SerializeField]
     private InteractableObjectBehaviour interactable;
+    [SerializeField]
+    private SocketStorageBehaviour storage;
 
     private ObjectDefinition currentSeed;
 
@@ -75,6 +77,40 @@ public class PlantStateMachine : TaskStateMachine
         return obj.growthBoost > 0.0f;
     }
 
+    public void AddSeedsToStorage()
+    {
+        if (!IsDone)
+            return;
+
+        IReadOnlyList<Transform> sockets = storage.Sockets;
+        if (sockets.Count != 2)
+            return;
+
+        Transform socketR = sockets[0];
+        Transform socketL = sockets[1];
+        TransportableObjectBehaviour seedR = SpawnSeed(socketR.position);
+        if (seedR)
+        {
+            seedR.Pick();
+            storage.ItemTryAdd(seedR);
+        }
+
+        TransportableObjectBehaviour seedL = SpawnSeed(socketL.position);
+        if (seedL)
+        {
+            seedL.Pick();
+            storage.ItemTryAdd(seedL);
+        }
+    }
+
+    private TransportableObjectBehaviour SpawnSeed(Vector3 position)
+    {
+        if (poolManager == null || currentSeed == null || currentSeed.poolObject == null)
+            return null;
+
+        return poolManager.SpawnObject(currentSeed.poolObject, position).GetComponent<TransportableObjectBehaviour>();
+    }
+
     [Button]
     public void DropSeeds()
     {
@@ -85,7 +121,6 @@ public class PlantStateMachine : TaskStateMachine
             return;
 
         poolManager.SpawnObject(currentSeed.poolObject, transform.position, dropRadius, 2);
-        ResetProgress();
         SetState(GetInitialStateDefinition());
     }
 }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1221371950006993479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6835480572055432975}
+  m_Layer: 0
+  m_Name: SocketL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6835480572055432975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221371950006993479}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2387259403284563181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970907505433834949
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,9 +114,164 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
+        m_MethodName: ResetProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStateExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &2873849438309664549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160611908207890518}
+  - component: {fileID: 6886812156408030611}
+  - component: {fileID: 5709424120363316269}
+  - component: {fileID: 2301201181718305371}
+  m_Layer: 0
+  m_Name: hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160611908207890518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873849438309664549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3187837714420265340}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6886812156408030611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873849438309664549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe36ae8df5afd8e4ab652d8e2e2533dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 0
+  m_team: {fileID: -8935869680415108629, guid: 2ecc227bf2bdf1245b8f2608bbb0c163, type: 2}
+--- !u!114 &5709424120363316269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873849438309664549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b225866e85ebb6a41b3d76b01fac5042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 0
+  m_definition: {fileID: -8171649038898069249, guid: 0dac844019a319446b14d820d1ea7ce1,
+    type: 2}
+  m_resetOnStart: 1
+  m_objectToMakeDisappear: {fileID: 0}
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5877846935933173199}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
+        m_MethodName: FirstItemDrop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnInvulnerabilityBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInvulnerabilityEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4151535757131622249, guid: f055c25428f2f13409d3cbbf4721d8bd,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: NobunAtelier.GameStateDefinition, NobunAtelier.Core
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnBurial:
+    m_PersistentCalls:
+      m_Calls: []
+  OnResurrection:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisappearing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReset:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CurrentLifeValue: 0
+  m_debugHitDefinition: {fileID: 0}
+--- !u!65 &2301201181718305371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873849438309664549}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3004411197768970057
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,9 +355,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
+        m_MethodName: AddSeedsToStorage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5709424120363316269}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: Resurrect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5709424120363316269}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnStateExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5709424120363316269}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4880373266936056857
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +511,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8128320867549463322}
+  - {fileID: 6835480572055432975}
   m_Father: {fileID: 3187837714420265340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2584333439778803530
@@ -344,6 +580,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3187837714420265340}
   - component: {fileID: 5181922307797478514}
+  - component: {fileID: 5877846935933173199}
+  - component: {fileID: 3861969387870276657}
   m_Layer: 0
   m_Name: Planting
   m_TagString: Untagged
@@ -369,6 +607,7 @@ Transform:
   - {fileID: 9020683198113517989}
   - {fileID: 2312513059449831187}
   - {fileID: 1767804213756969144}
+  - {fileID: 160611908207890518}
   - {fileID: 2462972166374999208}
   - {fileID: 7649226374968987297}
   m_Father: {fileID: 0}
@@ -387,14 +626,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Description: A plant can be grown in this pot, based on time.
   m_stateDefinition: {fileID: 0}
-  m_stateModules: []
+  m_stateModules:
+  - {fileID: 3861969387870276657}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   m_referenceStateCollection: {fileID: 11400000, guid: f055c25428f2f13409d3cbbf4721d8bd,
     type: 2}
   m_initialStateDefinition: {fileID: 4151535757131622249, guid: f055c25428f2f13409d3cbbf4721d8bd,
     type: 2}
-  m_enterInitialStateOnStart: 0
+  m_enterInitialStateOnStart: 1
   m_nextStateOnStateMachineExit: {fileID: 0}
   m_displayDebug: 0
   inProgressState: {fileID: 4700269227887982029, guid: f055c25428f2f13409d3cbbf4721d8bd,
@@ -421,8 +661,64 @@ MonoBehaviour:
         m_CallState: 2
   poolManager: {fileID: 0}
   interactable: {fileID: 8339708304301649867}
+  storage: {fileID: 5877846935933173199}
   dropRadius: 1
   OnBoosting:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5877846935933173199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798795837539441906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe22acbdf687a145ac376129d231834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_backpackSockets:
+  - {fileID: 8128320867549463322}
+  - {fileID: 6835480572055432975}
+  m_lerpSpeed: 20
+  m_lerpSpeedFactorPerIndex:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_socketUsageMaxCount: 3
+  m_throwForce: 10
+  m_throwUpwardForce: 1
+--- !u!114 &3861969387870276657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798795837539441906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5709424120363316269}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStateExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7740189287857280197
@@ -588,6 +884,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &8255387120806673885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8128320867549463322}
+  m_Layer: 0
+  m_Name: SocketR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8128320867549463322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255387120806673885}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2387259403284563181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3210993817680724018
 PrefabInstance:
   m_ObjectHideFlags: 0
