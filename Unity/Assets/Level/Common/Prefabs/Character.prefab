@@ -379,6 +379,7 @@ MonoBehaviour:
   m_priority: 0
   m_definition: {fileID: -3717837923963281518, guid: 0dac844019a319446b14d820d1ea7ce1,
     type: 2}
+  m_resetOnStart: 0
   m_objectToMakeDisappear: {fileID: 0}
   OnHit:
     m_PersistentCalls:
@@ -598,7 +599,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &5235672214020572295
 SphereCollider:
@@ -862,6 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_storageComponent: {fileID: 4644889866343721351}
+  m_consumptionCallbacks: []
 --- !u!1 &7556233817447706684
 GameObject:
   m_ObjectHideFlags: 0

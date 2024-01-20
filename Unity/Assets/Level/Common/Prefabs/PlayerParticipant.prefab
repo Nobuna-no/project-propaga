@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5641018141002717583
 Transform:
   m_ObjectHideFlags: 0
@@ -284,6 +284,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1650917463981247514}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.TransportableObjectBehaviour,
+          NobunAtelier.Core
+        m_MethodName: set_IsPickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2321408722076820855}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 588505831432186374}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStateExit:
     m_PersistentCalls:
       m_Calls:
@@ -314,6 +351,43 @@ MonoBehaviour:
       - m_Target: {fileID: 7603980820158796714}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1650917463981247514}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.TransportableObjectBehaviour,
+          NobunAtelier.Core
+        m_MethodName: set_IsPickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2321408722076820855}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 588505831432186374}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1355,8 +1429,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4461544013323116369, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
         type: 3}
-      propertyPath: m_Constraints
-      value: 80
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4644889866343721351, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
         type: 3}
@@ -1420,9 +1494,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9c04d6ca6101d4da6ba8c5300fc08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &588505831432186374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1582752095852171296, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2152116211503397414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738479849208992263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b225866e85ebb6a41b3d76b01fac5042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1525770625113860850 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 644430388024299732, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2152116211503397414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1650917463981247514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 807524106509727292, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2152116211503397414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256169281308974300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938364bccfc085648be07b766bb25956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &2321408722076820855 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4461544013323116369, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
     type: 3}
   m_PrefabInstance: {fileID: 2152116211503397414}
   m_PrefabAsset: {fileID: 0}
@@ -1559,6 +1663,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5641018141002717583}
     m_Modifications:
+    - target: {fileID: 744502949679246688, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
+        type: 3}
+      propertyPath: OutputChannel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1261514625871212194, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1633,6 +1742,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851278619178001344, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00000004536837
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851278619178001344, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9231617
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851278619178001344, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.85209435
       objectReference: {fileID: 0}
     - target: {fileID: 5225527728235266661, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
         type: 3}

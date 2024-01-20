@@ -17,6 +17,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
     private InputAction m_confirmAction;
     private OmmrootNode m_targetBehavior;
+    private InteractableObjectBehaviour m_targetInteractable;
 
     [SerializeField] private UnityEvent OnGrowthConfirmation;
 
@@ -25,10 +26,13 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
     public void SetTargetOmmroot(InteractableObjectBehaviour target)
     {
+        m_targetInteractable = target;
         Debug.Assert(target != null, this);
         m_targetBehavior = target.GetComponentInParent<OmmrootNode>();
         Debug.Assert(m_targetBehavior != null,
             $"target object don't have an {typeof(OmmrootNode).Name} in its parent.", this);
+
+        target.Lock();
     }
 
     public override void EnableModuleInput(PlayerInput playerInput, InputActionMap activeActionMap)
@@ -87,6 +91,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowTopRoot();
             OnGrowthConfirmation?.Invoke();
+            m_targetInteractable.Release();
         }
         else if (IsCloseTo(yRotation, 90f))
         {
@@ -99,6 +104,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowRightRoot();
             OnGrowthConfirmation?.Invoke();
+            m_targetInteractable.Release();
         }
         else if (IsCloseTo(yRotation, 180f))
         {
@@ -111,6 +117,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowBottomRoot();
             OnGrowthConfirmation?.Invoke();
+            m_targetInteractable.Release();
         }
         else if (IsCloseTo(yRotation, 270f))
         {
@@ -123,6 +130,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowLeftRoot();
             OnGrowthConfirmation?.Invoke();
+            m_targetInteractable.Release();
         }
     }
 

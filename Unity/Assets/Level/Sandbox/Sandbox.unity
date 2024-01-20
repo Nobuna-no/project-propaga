@@ -1046,35 +1046,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2253089933907640468, guid: 87c1f06cbf838d24a89d90d904ce54ee,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00000004536837
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253089933907640468, guid: 87c1f06cbf838d24a89d90d904ce54ee,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.9231617
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253089933907640468, guid: 87c1f06cbf838d24a89d90d904ce54ee,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.85209435
-      objectReference: {fileID: 0}
-    - target: {fileID: 3638999669789101620, guid: 87c1f06cbf838d24a89d90d904ce54ee,
-        type: 3}
-      propertyPath: OutputChannel
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4410042747563449712, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
       propertyPath: m_Name
       value: PlayerParticipant
-      objectReference: {fileID: 0}
-    - target: {fileID: 4410042747563449712, guid: 87c1f06cbf838d24a89d90d904ce54ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5641018141002717583, guid: 87c1f06cbf838d24a89d90d904ce54ee,
         type: 3}
