@@ -19,6 +19,14 @@ public class OmmrootNode : MonoBehaviour
         Debug.Assert(m_rightSplineInstantiate != null);
         Debug.Assert(m_bottomSplineInstantiate != null);
         Debug.Assert(m_leftSplineInstantiate != null);
+
+        // Reset state of the object as prefab spawning sometime behave weirdly...
+        m_visual.SetActive(true);
+        m_interactableObject.Release();
+        m_topSplineInstantiate.gameObject.SetActive(false);
+        m_rightSplineInstantiate.gameObject.SetActive(false);
+        m_bottomSplineInstantiate.gameObject.SetActive(false);
+        m_leftSplineInstantiate.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -74,6 +82,7 @@ public class OmmrootNode : MonoBehaviour
     [Button]
     public void GrowTopRoot()
     {
+        m_topSplineInstantiate.gameObject.SetActive(true);
         m_topSplineInstantiate.enabled = true;
         m_topSplineInstantiate.Randomize();
 
@@ -89,6 +98,7 @@ public class OmmrootNode : MonoBehaviour
     [Button]
     public void GrowBottomRoot()
     {
+        m_bottomSplineInstantiate.gameObject.SetActive(true);
         m_bottomSplineInstantiate.enabled = true;
         m_bottomSplineInstantiate.Randomize();
 
@@ -103,6 +113,7 @@ public class OmmrootNode : MonoBehaviour
     [Button]
     public void GrowLeftRoot()
     {
+        m_leftSplineInstantiate.gameObject.SetActive(true);
         m_leftSplineInstantiate.enabled = true;
         m_leftSplineInstantiate.Randomize();
 
@@ -117,6 +128,7 @@ public class OmmrootNode : MonoBehaviour
     [Button]
     public void GrowRightRoot()
     {
+        m_rightSplineInstantiate.gameObject.SetActive(true);
         m_rightSplineInstantiate.enabled = true;
         m_rightSplineInstantiate.Randomize();
 
