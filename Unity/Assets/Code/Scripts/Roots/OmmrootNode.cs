@@ -23,16 +23,17 @@ public class OmmrootNode : MonoBehaviour
         // Reset state of the object as prefab spawning sometime behave weirdly...
         m_visual.SetActive(true);
         m_interactableObject.Release();
-        m_topSplineInstantiate.gameObject.SetActive(false);
-        m_rightSplineInstantiate.gameObject.SetActive(false);
-        m_bottomSplineInstantiate.gameObject.SetActive(false);
-        m_leftSplineInstantiate.gameObject.SetActive(false);
     }
 
     private void Start()
     {
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
         TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
+
+        m_topSplineInstantiate.Clear();
+        m_rightSplineInstantiate.Clear();
+        m_bottomSplineInstantiate.Clear();
+        m_leftSplineInstantiate.Clear();
     }
 
     public bool IsTopRootAccessible()
@@ -83,7 +84,6 @@ public class OmmrootNode : MonoBehaviour
     public void GrowTopRoot()
     {
         m_topSplineInstantiate.gameObject.SetActive(true);
-        m_topSplineInstantiate.enabled = true;
         m_topSplineInstantiate.Randomize();
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
@@ -99,7 +99,6 @@ public class OmmrootNode : MonoBehaviour
     public void GrowBottomRoot()
     {
         m_bottomSplineInstantiate.gameObject.SetActive(true);
-        m_bottomSplineInstantiate.enabled = true;
         m_bottomSplineInstantiate.Randomize();
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
@@ -114,7 +113,6 @@ public class OmmrootNode : MonoBehaviour
     public void GrowLeftRoot()
     {
         m_leftSplineInstantiate.gameObject.SetActive(true);
-        m_leftSplineInstantiate.enabled = true;
         m_leftSplineInstantiate.Randomize();
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
@@ -129,7 +127,6 @@ public class OmmrootNode : MonoBehaviour
     public void GrowRightRoot()
     {
         m_rightSplineInstantiate.gameObject.SetActive(true);
-        m_rightSplineInstantiate.enabled = true;
         m_rightSplineInstantiate.Randomize();
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);

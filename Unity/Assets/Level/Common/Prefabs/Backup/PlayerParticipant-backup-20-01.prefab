@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d05caa1b7ec60e4894cd38a450a0682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBehaviour: {fileID: 2981224485170175521}
+  m_healthBehaviour: {fileID: 2981224485170175521}
   m_dangerZoneHitDefinition: {fileID: -6189081570369504284, guid: e1f59d13ee1d5a54e9fbacb27d66ebe9,
     type: 2}
   m_damageDelayInSeconds: 1
@@ -1158,6 +1158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366165348369583923, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
+        type: 3}
+      propertyPath: m_ignoreMissingModule
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6708077756836222440, guid: ac3dd5ddcb7166e4992d15bf5c4d0642,
         type: 3}
