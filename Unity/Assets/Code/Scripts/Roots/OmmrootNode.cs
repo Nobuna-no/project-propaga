@@ -28,7 +28,7 @@ public class OmmrootNode : MonoBehaviour
     private void Start()
     {
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        TerrainGrid.Instance[gridCoord].state = TerrainCellState.Occupied;
+        TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
 
         m_topSplineInstantiate.Clear();
         m_rightSplineInstantiate.Clear();
@@ -39,10 +39,10 @@ public class OmmrootNode : MonoBehaviour
     public bool IsTopRootAccessible()
     {
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        TerrainCellDefinition cell = default;
+        TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetTopCell(gridCoord, ref cell))
         {
-            return cell.state == TerrainCellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -50,10 +50,10 @@ public class OmmrootNode : MonoBehaviour
     public bool IsBottomRootAccessible()
     {
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        TerrainCellDefinition cell = default;
+        TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetBottomCell(gridCoord, ref cell))
         {
-            return cell.state == TerrainCellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -61,10 +61,10 @@ public class OmmrootNode : MonoBehaviour
     public bool IsLeftRootAccessible()
     {
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        TerrainCellDefinition cell = default;
+        TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetLeftCell(gridCoord, ref cell))
         {
-            return cell.state == TerrainCellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -72,10 +72,10 @@ public class OmmrootNode : MonoBehaviour
     public bool IsRightRootAccessible()
     {
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        TerrainCellDefinition cell = default;
+        TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetRightCell(gridCoord, ref cell))
         {
-            return cell.state == TerrainCellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -89,7 +89,7 @@ public class OmmrootNode : MonoBehaviour
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
         gridCoord.y += 1;
 
-        TerrainGrid.Instance[gridCoord].state = TerrainCellState.Occupied;
+        TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
         SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
         UpdateInteractableUsability();
@@ -103,7 +103,7 @@ public class OmmrootNode : MonoBehaviour
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
         gridCoord.y -= 1;
-        TerrainGrid.Instance[gridCoord].state = TerrainCellState.Occupied;
+        TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
         SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
         UpdateInteractableUsability();
@@ -117,7 +117,7 @@ public class OmmrootNode : MonoBehaviour
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
         gridCoord.x -= 1;
-        TerrainGrid.Instance[gridCoord].state = TerrainCellState.Occupied;
+        TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
         SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
         UpdateInteractableUsability();
@@ -131,7 +131,7 @@ public class OmmrootNode : MonoBehaviour
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
         gridCoord.x += 1;
-        TerrainGrid.Instance[gridCoord].state = TerrainCellState.Occupied;
+        TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
         SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
         UpdateInteractableUsability();

@@ -43,8 +43,8 @@ public class TerrainCamera : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 hitPos = hit.point;
-                TerrainCellDefinition cell = terrainGrid[hitPos];
-                DoAction(cell, terrainGrid.GetGridCoordinates(hitPos));
+                ref TerrainGrid.Cell cell = ref terrainGrid[hitPos];
+                DoAction(ref cell, terrainGrid.GetGridCoordinates(hitPos));
             }
         }
 
@@ -58,33 +58,33 @@ public class TerrainCamera : MonoBehaviour
         }
     } 
 
-    private void DoAction(TerrainCellDefinition cell, Vector2Int gridPos)
+    private void DoAction(ref TerrainGrid.Cell cell, Vector2Int gridPos)
     {
         switch(currentMode)
         {
             case EditMode.ToggleAvailability:
-                ToggleAvailability(cell, gridPos);
+                ToggleAvailability(ref cell, gridPos);
                 break;
             case EditMode.SetZone1:
-                SetZone(cell, 1);
+                SetZone(ref cell, 1);
                 break;
             case EditMode.SetZone2:
-                SetZone(cell, 2);
+                SetZone(ref cell, 2);
                 break;
             case EditMode.SetZone3:
-                SetZone(cell, 3);
+                SetZone(ref cell, 3);
                 break;
         }
     }
 
-    private void ToggleAvailability(TerrainCellDefinition cell, Vector2Int gridPos)
+    private void ToggleAvailability(ref TerrainGrid.Cell cell, Vector2Int gridPos)
     {
-        bool available = cell.state == TerrainCellState.Available;
-        cell.state = available ? TerrainCellState.Unavailable : TerrainCellState.Available;
+        bool available = cell.state == TerrainGrid.CellState.Available;
+        cell.state = available ? TerrainGrid.CellState.Unavailable : TerrainGrid.CellState.Available;
         terrainGrid.UpdateAdjacentCells(gridPos);
     }
 
-    private void SetZone(TerrainCellDefinition cell, int zoneId)
+    private void SetZone(ref TerrainGrid.Cell cell, int zoneId)
     {
         cell.zoneId = zoneId;
     }
