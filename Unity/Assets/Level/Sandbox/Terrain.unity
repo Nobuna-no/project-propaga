@@ -469,6 +469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d84f40c2e70ea748a3f550f53779f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_dontDestroyOnLoad: 0
+  m_onlyDestroyDuplicatedComponent: 1
+  importAsset: {fileID: 4900000, guid: c5ea3a9239ec01a4e8a30a1daa02fc46, type: 3}
   width: 21
   height: 21
   tileSize: 10

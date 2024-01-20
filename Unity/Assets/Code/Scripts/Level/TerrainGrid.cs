@@ -45,7 +45,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
     }
 
     [Serializable]
-    private struct CellData
+    private struct TerrainData
     {
         public int width;
         public int height;
@@ -53,6 +53,8 @@ public class TerrainGrid : Singleton<TerrainGrid>
     }
 
     [Header("Ommworld")]
+    [SerializeField]
+    private TextAsset importAsset;
     [SerializeField, Tooltip("In tiles.")]
     private int width = 10;
 
@@ -195,13 +197,16 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     protected override void OnSingletonAwake()
     {
-        Reset();
+        cells = new Cell[width, height];
+        if (importAsset == null)
+            Reset();
+        else
+            Import();
     }
 
     [Button]
     private void Reset()
     {
-        cells = new Cell[width, height];
         for (int i = 0; i < width; ++i)
         {
             for (int j = 0; j < height; ++j)
@@ -318,8 +323,28 @@ public class TerrainGrid : Singleton<TerrainGrid>
         }
     }
 
-#if UNITY_EDITOR
+    private void Import()
+    {
+        if (importAsset == null)
+            return;
 
+        string importJson = importAsset.text;
+        TerrainData importData = JsonUtility.FromJson<TerrainData>(importJson);
+        if (width != importData.width || height != importData.height)
+        {
+            Debug.Log("Incompatible size in import terrain data.");
+        }
+        
+        for (int i = 0; i < width; ++i)
+        {
+            for (int j = 0; j < height; ++j)
+            {
+                cells[i, j] = importData.cells[i * height + j];
+            }
+        }
+    }
+
+#if UNITY_EDITOR
     [Button]
     private void Export()
     {
@@ -328,7 +353,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
             return;
 
         Debug.Log($"Saving to {path}");
-        CellData exportData = new CellData
+        TerrainData exportData = new TerrainData
         {
             width = width,
             height = height,
@@ -346,6 +371,5 @@ public class TerrainGrid : Singleton<TerrainGrid>
         string exportJson = JsonUtility.ToJson(exportData);
         File.WriteAllText(path, exportJson);
     }
-
 #endif
 }
