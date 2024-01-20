@@ -33,8 +33,7 @@ public class OmmrootNode : MonoBehaviour
         TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetTopCell(gridCoord, ref cell))
         {
-            return !m_topSplineInstantiate.enabled
-                && cell.state == TerrainGrid.CellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -45,8 +44,7 @@ public class OmmrootNode : MonoBehaviour
         TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetBottomCell(gridCoord, ref cell))
         {
-            return !m_bottomSplineInstantiate.enabled
-                && cell.state == TerrainGrid.CellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -57,8 +55,7 @@ public class OmmrootNode : MonoBehaviour
         TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetLeftCell(gridCoord, ref cell))
         {
-            return !m_leftSplineInstantiate.enabled
-                && cell.state == TerrainGrid.CellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }
@@ -69,8 +66,7 @@ public class OmmrootNode : MonoBehaviour
         TerrainGrid.Cell cell = default;
         if (TerrainGrid.Instance.TryGetRightCell(gridCoord, ref cell))
         {
-            return !m_rightSplineInstantiate.enabled
-                && cell.state == TerrainGrid.CellState.Available;
+            return cell.state == TerrainGrid.CellState.Available;
         }
         return false;
     }

@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_definition: {fileID: -5005016606831383665, guid: 0ec77d33ce27c7747b1250f61874a3c7,
     type: 2}
+  m_isInteractable: 1
   requireItem: 1
   acceptedItems:
   - {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
@@ -424,6 +425,7 @@ Transform:
   - {fileID: 3547327765953629619}
   - {fileID: 1791138645921756905}
   - {fileID: 7389897718521623134}
+  - {fileID: 1292766092650839086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5036671593728647353
@@ -1476,3 +1478,56 @@ MonoBehaviour:
   m_DeprecatedInstances: []
   m_AutoRefresh: 0
   m_Seed: -1785532382
+--- !u!1 &9080776790747236529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292766092650839086}
+  - component: {fileID: 2348960654619350520}
+  m_Layer: 7
+  m_Name: safe-area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1292766092650839086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080776790747236529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1017237325153983365}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2348960654619350520
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080776790747236529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -127,7 +127,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
     public bool TryGetBottomCell(Vector2Int coord, ref Cell cell)
     {
         int y = coord.y - 1;
-        if (y >= height)
+        if (y < 0)
         {
             return false;
         }
@@ -149,13 +149,13 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     public bool TryGetRightCell(Vector2Int coord, ref Cell cell)
     {
-        int y = coord.x + 1;
-        if (y >= height)
+        int x = coord.x + 1;
+        if (x >= width)
         {
             return false;
         }
 
-        cell = cells[coord.x, y];
+        cell = cells[x, coord.y];
         return true;
     }
 
@@ -172,13 +172,13 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     public bool TryGetLeftCell(Vector2Int coord, ref Cell cell)
     {
-        int y = coord.x - 1;
-        if (y >= height)
+        int x = coord.x - 1;
+        if (x < 0)
         {
             return false;
         }
 
-        cell = cells[coord.x, y];
+        cell = cells[x, coord.y];
         return true;
     }
 
