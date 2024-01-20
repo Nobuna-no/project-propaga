@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class SafeZoneBehaviour : TriggerBehaviour
 {
     [SerializeField, Required]
-    private HealthBehaviour healthBehaviour;
+    private HealthBehaviour m_healthBehaviour;
 
     [SerializeField, Required, Tooltip("Damage to apply when in  danger area")]
     private HitDefinition m_dangerZoneHitDefinition;
@@ -30,8 +30,8 @@ public class SafeZoneBehaviour : TriggerBehaviour
     private void Start()
     {
         gameObject.layer = m_safeAreaLayerMask;
-        healthBehaviour.OnDeath.AddListener(OnDeath);
-        healthBehaviour.OnResurrection.AddListener(OnResurrection);
+        m_healthBehaviour.OnDeath.AddListener(OnDeath);
+        m_healthBehaviour.OnResurrection.AddListener(OnResurrection);
     }
 
     private void OnDeath(HitInfo hit)
@@ -75,6 +75,11 @@ public class SafeZoneBehaviour : TriggerBehaviour
         m_safeAreaList.Remove(other);
         m_safeAreaCount = m_safeAreaList.Count;
 
+        if (m_healthBehaviour.IsDead)
+        {
+            return;
+        }
+
         if (m_safeAreaList.Count == 0)
         {
             EnterDangerZone();
@@ -103,7 +108,7 @@ public class SafeZoneBehaviour : TriggerBehaviour
             if (m_currentTimer <= 0)
             {
                 m_currentTimer = m_damageDelayInSeconds;
-                healthBehaviour.ApplyDamage(m_dangerZoneHitDefinition, transform.position, this.gameObject);
+                m_healthBehaviour.ApplyDamage(m_dangerZoneHitDefinition, transform.position, this.gameObject);
             }
 
             do
