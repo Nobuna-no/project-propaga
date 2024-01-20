@@ -471,11 +471,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dontDestroyOnLoad: 0
   m_onlyDestroyDuplicatedComponent: 1
-  importAsset: {fileID: 0}
+  importAsset: {fileID: 4900000, guid: 3fab059536ba7ec42a4edb23e36eb8b1, type: 3}
   width: 21
   height: 21
   tileSize: 10
-  m_drawGizmos: 1
+  m_drawGizmos: 0
 --- !u!4 &1001046343
 Transform:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 125
+  orthographic size: 108
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
