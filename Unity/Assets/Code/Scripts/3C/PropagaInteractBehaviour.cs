@@ -49,7 +49,7 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
             // Raise any target interaction callback.
             for (int i = 0, c = m_consumptionCallbacks.Length; i < c; i++)
             {
-                m_consumptionCallbacks[i].CheckAndRaiseCallbackForTarget(interactableObj.Definition);
+                m_consumptionCallbacks[i].CheckAndRaiseCallbackForTarget(interactableObj);
             }
         }
     }
@@ -123,15 +123,20 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         [SerializeField]
         private InteractableDefinition[] m_targets;
 
-        public UnityEvent OnInteraction;
+        public UnityEvent<InteractableObjectBehaviour> OnInteraction;
 
-        public void CheckAndRaiseCallbackForTarget(InteractableDefinition obj)
+        public void CheckAndRaiseCallbackForTarget(InteractableObjectBehaviour obj)
         {
+            if (obj == null)
+            {
+                return;
+            }
+
             for (int i = 0, c = m_targets.Length; i < c; ++i)
             {
-                if (obj == m_targets[i])
+                if (obj.Definition == m_targets[i])
                 {
-                    OnInteraction?.Invoke();
+                    OnInteraction?.Invoke(obj);
                     return;
                 }
             }

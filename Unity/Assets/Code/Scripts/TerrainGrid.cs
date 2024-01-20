@@ -1,13 +1,9 @@
+using NaughtyAttributes;
 using System;
 using System.IO;
-
 using Unity.VisualScripting;
-
 using UnityEditor;
-
 using UnityEngine;
-
-using NaughtyAttributes;
 
 /// <example>
 ///Vector2Int gridCoord = terrainGrid.GetGridCoordinates(position);
@@ -20,7 +16,7 @@ using NaughtyAttributes;
 /// TerrainGrid.Cell? leftCell = terrainGrid.GetLeftCell(gridCoord);
 /// bool isLeftCellAvailable = leftCell.HasValue ? leftCell.Value.state == TerrainGrid.CellState.Available : false;
 /// </example>
-public class TerrainGrid : MonoBehaviour
+public class TerrainGrid : Singleton<TerrainGrid>
 {
     [Flags]
     public enum CellConnection
@@ -49,28 +45,35 @@ public class TerrainGrid : MonoBehaviour
     }
 
     [Serializable]
-    struct CellData
+    private struct CellData
     {
         public int width;
         public int height;
         public Cell[] cells;
     }
 
+    [Header("Ommworld")]
     [SerializeField, Tooltip("In tiles.")]
     private int width = 10;
+
     [SerializeField, Tooltip("In tiles.")]
     private int height = 10;
+
     [SerializeField, Tooltip("In Unity unit.")]
     private float tileSize = 1.0f;
+
     [SerializeField]
     private bool m_drawGizmos = true;
+
     // The world space origin (0, 0, 0) is the middle of the overall grid
     private float OriginOffsetX => width * 0.5f;
+
     private float OriginOffsetY => height * 0.5f;
+    public float TileSize => tileSize;
 
     // The terrain is made of cells, squares with points in the middle.
     // (0, 0) is at the bottom left.
-    Cell[,] cells;
+    private Cell[,] cells;
 
     public Cell this[int x, int y]
     {
@@ -98,6 +101,18 @@ public class TerrainGrid : MonoBehaviour
     public int Width => width;
     public int Height => height;
 
+    public bool TryGetTopCell(Vector2Int coord, ref Cell cell)
+    {
+        int y = coord.y + 1;
+        if (y >= height)
+        {
+            return false;
+        }
+
+        cell = cells[coord.x, y];
+        return true;
+    }
+
     public Cell? GetTopCell(Vector2Int coord)
     {
         int y = coord.y + 1;
@@ -107,6 +122,18 @@ public class TerrainGrid : MonoBehaviour
         }
 
         return cells[coord.x, y];
+    }
+
+    public bool TryGetBottomCell(Vector2Int coord, ref Cell cell)
+    {
+        int y = coord.y - 1;
+        if (y < 0)
+        {
+            return false;
+        }
+
+        cell = cells[coord.x, y];
+        return true;
     }
 
     public Cell? GetBottomCell(Vector2Int coord)
@@ -120,6 +147,18 @@ public class TerrainGrid : MonoBehaviour
         return cells[coord.x, y];
     }
 
+    public bool TryGetRightCell(Vector2Int coord, ref Cell cell)
+    {
+        int x = coord.x + 1;
+        if (x >= width)
+        {
+            return false;
+        }
+
+        cell = cells[x, coord.y];
+        return true;
+    }
+
     public Cell? GetRightCell(Vector2Int coord)
     {
         int x = coord.x + 1;
@@ -129,6 +168,18 @@ public class TerrainGrid : MonoBehaviour
         }
 
         return cells[x, coord.y];
+    }
+
+    public bool TryGetLeftCell(Vector2Int coord, ref Cell cell)
+    {
+        int x = coord.x - 1;
+        if (x < 0)
+        {
+            return false;
+        }
+
+        cell = cells[x, coord.y];
+        return true;
     }
 
     public Cell? GetLeftCell(Vector2Int coord)
@@ -142,7 +193,7 @@ public class TerrainGrid : MonoBehaviour
         return cells[x, coord.y];
     }
 
-    private void Awake()
+    protected override void OnSingletonAwake()
     {
         Reset();
     }
@@ -150,10 +201,10 @@ public class TerrainGrid : MonoBehaviour
     [Button]
     private void Reset()
     {
-        cells = new Cell[width,height];
-        for (int i = 0 ; i < width ; ++i)
+        cells = new Cell[width, height];
+        for (int i = 0; i < width; ++i)
         {
-            for (int j = 0 ; j < height ; ++j)
+            for (int j = 0; j < height; ++j)
             {
                 cells[i, j].state = CellState.Available;
                 CellConnection connections = CellConnection.None;
@@ -227,32 +278,32 @@ public class TerrainGrid : MonoBehaviour
             return;
         }
 
-        for (int i = 0 ; i < width ; ++i)
+        for (int i = 0; i < width; ++i)
         {
-            for (int j = 0 ; j < height ; ++j)
+            for (int j = 0; j < height; ++j)
             {
                 Color cellColor;
-                switch(cells == null ? 0 : cells[i, j].zoneId)
+                switch (cells == null ? 0 : cells[i, j].zoneId)
                 {
                     case 1: cellColor = Color.green; break;
                     case 2: cellColor = Color.yellow; break;
                     case 3: cellColor = Color.red; break;
                     default: cellColor = Color.white; break;
                 }
-                cellColor.a = 0.5f;
+                cellColor.a = 0.1f;
                 Gizmos.color = cellColor;
                 Vector3 position = GetCellPosition(new Vector2Int(i, j));
                 Gizmos.DrawCube(position, new Vector3(tileSize, 2.0f, tileSize));
                 cellColor.a = 1.0f;
 
-                switch(cells == null ? CellState.Available : cells[i, j].state)
+                switch (cells == null ? CellState.Available : cells[i, j].state)
                 {
                     case CellState.Occupied: cellColor = Color.red; break;
                     case CellState.Unavailable: cellColor = Color.white; break;
                     default: cellColor = Color.green; break;
                 }
                 Gizmos.color = cellColor;
-                Gizmos.DrawSphere(position, tileSize * 0.1f);
+                Gizmos.DrawSphere(position, tileSize * 0.025f);
 
                 float halfSize = tileSize * 0.5f;
                 Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Left) ? Color.red : Color.black;
@@ -268,6 +319,7 @@ public class TerrainGrid : MonoBehaviour
     }
 
 #if UNITY_EDITOR
+
     [Button]
     private void Export()
     {
@@ -283,9 +335,9 @@ public class TerrainGrid : MonoBehaviour
             cells = new Cell[width * height],
         };
 
-        for (int i = 0 ; i < width ; ++i)
+        for (int i = 0; i < width; ++i)
         {
-            for (int j = 0 ; j < height ; ++j)
+            for (int j = 0; j < height; ++j)
             {
                 exportData.cells[i * height + j] = cells[i, j];
             }
@@ -294,5 +346,6 @@ public class TerrainGrid : MonoBehaviour
         string exportJson = JsonUtility.ToJson(exportData);
         File.WriteAllText(path, exportJson);
     }
+
 #endif
 }
