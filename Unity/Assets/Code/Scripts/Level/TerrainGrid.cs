@@ -18,38 +18,12 @@ using UnityEngine;
 /// </example>
 public class TerrainGrid : Singleton<TerrainGrid>
 {
-    [Flags]
-    public enum CellConnection
-    {
-        None = 0,
-        Top = 1 << 0,
-        Bottom = 1 << 1,
-        Right = 1 << 2,
-        Left = 1 << 3,
-        All = Top | Bottom | Right | Left,
-    }
-
-    public enum CellState
-    {
-        Available, // Free to be occupied
-        Occupied,
-        Unavailable, // Cannot be occupied
-    }
-
-    [Serializable]
-    public struct Cell
-    {
-        public CellState state;
-        public int zoneId;
-        public CellConnection availableAdjacentCells; // Indicates which direction has an available cell.
-    }
-
     [Serializable]
     private struct TerrainData
     {
         public int width;
         public int height;
-        public Cell[] cells;
+        public TerrainCellDefinition[] cells;
     }
 
     [Header("Ommworld")]
@@ -75,35 +49,35 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     // The terrain is made of cells, squares with points in the middle.
     // (0, 0) is at the bottom left.
-    private Cell[,] cells;
+    private TerrainCellDefinition[,] cells;
 
-    public Cell this[int x, int y]
+    public TerrainCellDefinition this[int x, int y]
     {
         get => cells[x, y];
         set => cells[x, y] = value;
     }
 
-    public ref Cell this[Vector3 position]
+    public TerrainCellDefinition this[Vector3 position]
     {
         get
         {
             Vector2Int coord = GetGridCoordinates(position);
-            return ref cells[coord.x, coord.y];
+            return cells[coord.x, coord.y];
         }
     }
 
-    public ref Cell this[Vector2Int coord]
+    public TerrainCellDefinition this[Vector2Int coord]
     {
         get
         {
-            return ref cells[coord.x, coord.y];
+            return cells[coord.x, coord.y];
         }
     }
 
     public int Width => width;
     public int Height => height;
 
-    public bool TryGetTopCell(Vector2Int coord, ref Cell cell)
+    public bool TryGetTopCell(Vector2Int coord, ref TerrainCellDefinition cell)
     {
         int y = coord.y + 1;
         if (y >= height)
@@ -115,7 +89,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return true;
     }
 
-    public Cell? GetTopCell(Vector2Int coord)
+    public TerrainCellDefinition GetTopCell(Vector2Int coord)
     {
         int y = coord.y + 1;
         if (y >= height)
@@ -126,7 +100,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return cells[coord.x, y];
     }
 
-    public bool TryGetBottomCell(Vector2Int coord, ref Cell cell)
+    public bool TryGetBottomCell(Vector2Int coord, ref TerrainCellDefinition cell)
     {
         int y = coord.y - 1;
         if (y < 0)
@@ -138,7 +112,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return true;
     }
 
-    public Cell? GetBottomCell(Vector2Int coord)
+    public TerrainCellDefinition GetBottomCell(Vector2Int coord)
     {
         int y = coord.y - 1;
         if (y < 0)
@@ -149,7 +123,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return cells[coord.x, y];
     }
 
-    public bool TryGetRightCell(Vector2Int coord, ref Cell cell)
+    public bool TryGetRightCell(Vector2Int coord, ref TerrainCellDefinition cell)
     {
         int x = coord.x + 1;
         if (x >= width)
@@ -161,7 +135,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return true;
     }
 
-    public Cell? GetRightCell(Vector2Int coord)
+    public TerrainCellDefinition GetRightCell(Vector2Int coord)
     {
         int x = coord.x + 1;
         if (x >= width)
@@ -172,7 +146,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return cells[x, coord.y];
     }
 
-    public bool TryGetLeftCell(Vector2Int coord, ref Cell cell)
+    public bool TryGetLeftCell(Vector2Int coord, ref TerrainCellDefinition cell)
     {
         int x = coord.x - 1;
         if (x < 0)
@@ -184,7 +158,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         return true;
     }
 
-    public Cell? GetLeftCell(Vector2Int coord)
+    public TerrainCellDefinition GetLeftCell(Vector2Int coord)
     {
         int x = coord.x - 1;
         if (x < 0)
@@ -197,7 +171,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     protected override void OnSingletonAwake()
     {
-        cells = new Cell[width, height];
+        cells = new TerrainCellDefinition[width, height];
         if (importAsset == null)
             Reset();
         else
@@ -211,12 +185,12 @@ public class TerrainGrid : Singleton<TerrainGrid>
         {
             for (int j = 0; j < height; ++j)
             {
-                cells[i, j].state = CellState.Available;
-                CellConnection connections = CellConnection.None;
-                connections |= i == 0 ? CellConnection.None : CellConnection.Left;
-                connections |= i == width - 1 ? CellConnection.None : CellConnection.Right;
-                connections |= j == 0 ? CellConnection.None : CellConnection.Bottom;
-                connections |= j == height - 1 ? CellConnection.None : CellConnection.Top;
+                cells[i, j].state = TerrainCellState.Available;
+                TerrainCellConnection connections = TerrainCellConnection.None;
+                connections |= i == 0 ? TerrainCellConnection.None : TerrainCellConnection.Left;
+                connections |= i == width - 1 ? TerrainCellConnection.None : TerrainCellConnection.Right;
+                connections |= j == 0 ? TerrainCellConnection.None : TerrainCellConnection.Bottom;
+                connections |= j == height - 1 ? TerrainCellConnection.None : TerrainCellConnection.Top;
                 cells[i, j].availableAdjacentCells = connections;
             }
         }
@@ -252,23 +226,23 @@ public class TerrainGrid : Singleton<TerrainGrid>
     // Given the coord, updates all the adjacent cells (but not the center) to availability of the center
     public void UpdateAdjacentCells(Vector2Int coord)
     {
-        Cell currentCell = cells[coord.x, coord.y];
-        bool isAvailable = currentCell.state == CellState.Available;
+        TerrainCellDefinition currentCell = cells[coord.x, coord.y];
+        bool isAvailable = currentCell.state == TerrainCellState.Available;
 
         if (coord.x > 0)
-            SetConnection(coord.x - 1, coord.y, CellConnection.Right, isAvailable);
+            SetConnection(coord.x - 1, coord.y, TerrainCellConnection.Right, isAvailable);
 
         if (coord.y > 0)
-            SetConnection(coord.x, coord.y - 1, CellConnection.Top, isAvailable);
+            SetConnection(coord.x, coord.y - 1, TerrainCellConnection.Top, isAvailable);
 
         if (coord.x < width - 1)
-            SetConnection(coord.x + 1, coord.y, CellConnection.Left, isAvailable);
+            SetConnection(coord.x + 1, coord.y, TerrainCellConnection.Left, isAvailable);
 
         if (coord.y < height - 1)
-            SetConnection(coord.x, coord.y + 1, CellConnection.Bottom, isAvailable);
+            SetConnection(coord.x, coord.y + 1, TerrainCellConnection.Bottom, isAvailable);
     }
 
-    public void SetConnection(int coordX, int coordY, CellConnection connect, bool enabled)
+    public void SetConnection(int coordX, int coordY, TerrainCellConnection connect, bool enabled)
     {
         if (enabled)
             cells[coordX, coordY].availableAdjacentCells |= connect;
@@ -301,23 +275,23 @@ public class TerrainGrid : Singleton<TerrainGrid>
                 Gizmos.DrawCube(position, new Vector3(tileSize, 2.0f, tileSize));
                 cellColor.a = 1.0f;
 
-                switch (cells == null ? CellState.Available : cells[i, j].state)
+                switch (cells == null ? TerrainCellState.Available : cells[i, j].state)
                 {
-                    case CellState.Occupied: cellColor = Color.red; break;
-                    case CellState.Unavailable: cellColor = Color.white; break;
+                    case TerrainCellState.Occupied: cellColor = Color.red; break;
+                    case TerrainCellState.Unavailable: cellColor = Color.white; break;
                     default: cellColor = Color.green; break;
                 }
                 Gizmos.color = cellColor;
                 Gizmos.DrawSphere(position, tileSize * 0.025f);
 
                 float halfSize = tileSize * 0.5f;
-                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Left) ? Color.red : Color.black;
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(TerrainCellConnection.Left) ? Color.red : Color.black;
                 Gizmos.DrawLine(position, position + Vector3.left * halfSize);
-                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Right) ? Color.red : Color.black;
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(TerrainCellConnection.Right) ? Color.red : Color.black;
                 Gizmos.DrawLine(position, position + Vector3.right * halfSize);
-                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Bottom) ? Color.red : Color.black;
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(TerrainCellConnection.Bottom) ? Color.red : Color.black;
                 Gizmos.DrawLine(position, position + Vector3.back * halfSize);
-                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Top) ? Color.red : Color.black;
+                Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(TerrainCellConnection.Top) ? Color.red : Color.black;
                 Gizmos.DrawLine(position, position + Vector3.forward * halfSize);
             }
         }
@@ -357,7 +331,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         {
             width = width,
             height = height,
-            cells = new Cell[width * height],
+            cells = new TerrainCellDefinition[width * height],
         };
 
         for (int i = 0; i < width; ++i)
