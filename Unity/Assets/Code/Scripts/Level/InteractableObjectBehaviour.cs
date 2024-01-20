@@ -28,15 +28,24 @@ public class InteractableObjectBehaviour : MonoBehaviour
     // Returns whether the object is interested in the item the character holds
     public virtual bool CheckInput(ObjectDefinition item)
     {
+        if (enabled == false)
+        {
+            return false;
+        }
+
         if (item == null)
+        {
             return !requireItem;
+        }
 
         List<ObjectDefinition> itemsToCheck = requireItem ? acceptedItems : rejectedItems;
         bool itemInList = itemsToCheck.Contains(item);
         bool itemOk = requireItem == itemInList;
 
         if (Condition != null)
+        {
             itemOk &= Condition.Invoke(item);
+        }
 
         return itemOk;
     }

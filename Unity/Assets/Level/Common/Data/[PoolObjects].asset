@@ -32,6 +32,7 @@ MonoBehaviour:
   - {fileID: 2410790529743389293}
   - {fileID: 6038606854605171675}
   - {fileID: -8928023789282246289}
+  - {fileID: 5268912355166820636}
 --- !u!114 &1980971570602635416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +63,21 @@ MonoBehaviour:
   m_poolablePrefab: {fileID: 1419832919050882121, guid: 039b52731dcda4d46840b52cbf561221,
     type: 3}
   m_reserveSize: 10
+--- !u!114 &5268912355166820636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: Ommroot-node
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -8221138753429120307, guid: 0eafd844b8c703e4d862a73f9c012a50,
+    type: 3}
+  m_reserveSize: 50
 --- !u!114 &6038606854605171675
 MonoBehaviour:
   m_ObjectHideFlags: 0
