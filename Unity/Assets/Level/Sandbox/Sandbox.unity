@@ -327,7 +327,7 @@ MonoBehaviour:
   m_canForceInstantiateInEmergency: 1
   m_resetPoolOnStart: 1
   m_objectsDefinition:
-  - {fileID: 5268912355166820636, guid: 50a64afcc4b34f64e96d9f6be02a5756, type: 2}
+  - {fileID: 1015575264742059357, guid: 50a64afcc4b34f64e96d9f6be02a5756, type: 2}
   m_spawnRadiusAxis: {x: 0, y: 0, z: 0}
   m_debugSpawnPositionDisplay: 0
 --- !u!1001 &167252733
@@ -461,18 +461,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Root_Sprout (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5036671593728647353, guid: 0eafd844b8c703e4d862a73f9c012a50,
-        type: 3}
-      propertyPath: m_nodePrefab
-      value: 
-      objectReference: {fileID: 5036671593728647353, guid: 0eafd844b8c703e4d862a73f9c012a50,
-        type: 3}
-    - target: {fileID: 5036671593728647353, guid: 0eafd844b8c703e4d862a73f9c012a50,
-        type: 3}
-      propertyPath: m_objectToSpawn
-      value: 
-      objectReference: {fileID: 5268912355166820636, guid: 50a64afcc4b34f64e96d9f6be02a5756,
-        type: 2}
     - target: {fileID: 7389897718521623134, guid: 0eafd844b8c703e4d862a73f9c012a50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1397,18 +1385,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Root_Sprout (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 5036671593728647353, guid: 0eafd844b8c703e4d862a73f9c012a50,
-        type: 3}
-      propertyPath: m_nodePrefab
-      value: 
-      objectReference: {fileID: 5036671593728647353, guid: 0eafd844b8c703e4d862a73f9c012a50,
-        type: 3}
-    - target: {fileID: 5036671593728647353, guid: 0eafd844b8c703e4d862a73f9c012a50,
-        type: 3}
-      propertyPath: m_objectToSpawn
-      value: 
-      objectReference: {fileID: 5268912355166820636, guid: 50a64afcc4b34f64e96d9f6be02a5756,
-        type: 2}
     - target: {fileID: 7389897718521623134, guid: 0eafd844b8c703e4d862a73f9c012a50,
         type: 3}
       propertyPath: m_LocalPosition.x

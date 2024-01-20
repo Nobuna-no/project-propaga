@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4721accaf8ef7594d80ffc38ea6b54e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objectToSpawn: {fileID: 5268912355166820636, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+  m_objectToSpawn: {fileID: 1015575264742059357, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
   m_interactableObject: {fileID: 1793148016435030622}
   m_visual: {fileID: 4193548515379286502}

@@ -50,6 +50,22 @@ MonoBehaviour:
   - {fileID: 4502538765781644920}
   - {fileID: 1882264854835292953}
   - {fileID: -5000732105992000909}
+  - {fileID: 1015575264742059357}
+--- !u!114 &1015575264742059357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: Ommroot Node
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -8221138753429120307, guid: 0eafd844b8c703e4d862a73f9c012a50,
+    type: 3}
+  m_reserveSize: 3
 --- !u!114 &1882264854835292953
 MonoBehaviour:
   m_ObjectHideFlags: 0
