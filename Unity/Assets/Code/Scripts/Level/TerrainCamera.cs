@@ -38,13 +38,14 @@ public class TerrainCamera : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
+            bool isDown = Input.GetMouseButtonDown(0);
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 hitPos = hit.point;
                 ref TerrainGrid.Cell cell = ref terrainGrid[hitPos];
-                DoAction(ref cell, terrainGrid.GetGridCoordinates(hitPos));
+                DoAction(ref cell, terrainGrid.GetGridCoordinates(hitPos), isDown);
             }
         }
 
@@ -58,12 +59,12 @@ public class TerrainCamera : MonoBehaviour
         }
     } 
 
-    private void DoAction(ref TerrainGrid.Cell cell, Vector2Int gridPos)
+    private void DoAction(ref TerrainGrid.Cell cell, Vector2Int gridPos, bool isDown)
     {
         switch(currentMode)
         {
             case EditMode.ToggleAvailability:
-                ToggleAvailability(ref cell, gridPos);
+                if (isDown) ToggleAvailability(ref cell, gridPos);
                 break;
             case EditMode.SetZone1:
                 SetZone(ref cell, 1);

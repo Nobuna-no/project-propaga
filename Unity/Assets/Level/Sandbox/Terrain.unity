@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dontDestroyOnLoad: 0
   m_onlyDestroyDuplicatedComponent: 1
-  importAsset: {fileID: 4900000, guid: c5ea3a9239ec01a4e8a30a1daa02fc46, type: 3}
+  importAsset: {fileID: 0}
   width: 21
   height: 21
   tileSize: 10
