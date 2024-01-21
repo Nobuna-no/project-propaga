@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 2272545572752068208}
   - component: {fileID: 5059088784825989250}
   m_Layer: 0
-  m_Name: state-Done
+  m_Name: state-Ripe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
