@@ -70,7 +70,7 @@ MonoBehaviour:
   doneState: {fileID: 6976636073754466253, guid: f055c25428f2f13409d3cbbf4721d8bd,
     type: 2}
   mode: 1
-  maxValue: 100
+  maxValue: 99
   initialSpeed: 1
   OnProgressChanged:
     m_PersistentCalls:

@@ -15,7 +15,7 @@ MonoBehaviour:
   poolObject: {fileID: 0}
   plantedObject: {fileID: 0}
   growthBoost: 0
-  compostValue: 17
+  compostValue: 15
 --- !u!114 &-2793706150294387812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   plantedObject: {fileID: -5000732105992000909, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
   growthBoost: 0
-  compostValue: 100
+  compostValue: 99
 --- !u!114 &6235102161090734054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   plantedObject: {fileID: 1882264854835292953, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
   growthBoost: 0
-  compostValue: 67
+  compostValue: 66
 --- !u!114 &8574042131115452611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,4 +155,4 @@ MonoBehaviour:
     type: 2}
   plantedObject: {fileID: 0}
   growthBoost: 30
-  compostValue: 100
+  compostValue: 99
