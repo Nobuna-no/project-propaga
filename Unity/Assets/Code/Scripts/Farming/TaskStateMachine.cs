@@ -39,7 +39,7 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
         set
         {
             currentValue = value;
-            OnProgressChanged?.Invoke(currentValue);
+            OnProgressChanged?.Invoke(Progress);
         }
     }
 
