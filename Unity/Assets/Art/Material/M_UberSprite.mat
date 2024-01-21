@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Billboard
+  m_Name: M_UberSprite
   m_Shader: {fileID: -6465566751694194690, guid: be26210699765f345ba4577fca1c51e3,
     type: 3}
   m_Parent: {fileID: 0}
