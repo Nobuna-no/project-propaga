@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 4414220619611571188}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3826835, y: 0.000000005052538, z: -0.0000000020928301, w: 0.92387956}
-  m_LocalPosition: {x: 0.6700002, y: 6.156855, z: -12.206855}
+  m_LocalPosition: {x: 0.67000014, y: 6.156855, z: -12.206855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -499,7 +499,7 @@ Transform:
   m_GameObject: {fileID: 7650803638451142164}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3826835, y: 0.000000005052538, z: -0.0000000020928301, w: 0.92387956}
-  m_LocalPosition: {x: 0.6700002, y: 6.156855, z: -12.206855}
+  m_LocalPosition: {x: 0.67000014, y: 6.156855, z: -12.206855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1200,11 +1200,6 @@ PrefabInstance:
       objectReference: {fileID: 2067926337448025403}
     - target: {fileID: 4471953686974397536, guid: f0abc294dc94eba43a62d465b55cc3a4,
         type: 3}
-      propertyPath: OnStateExit.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 5800589635796786234}
-    - target: {fileID: 4471953686974397536, guid: f0abc294dc94eba43a62d465b55cc3a4,
-        type: 3}
       propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8358864911099595398}
@@ -1213,11 +1208,6 @@ PrefabInstance:
       propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2067926337448025403}
-    - target: {fileID: 4471953686974397536, guid: f0abc294dc94eba43a62d465b55cc3a4,
-        type: 3}
-      propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 5800589635796786234}
     - target: {fileID: 4508709545209705399, guid: f0abc294dc94eba43a62d465b55cc3a4,
         type: 3}
       propertyPath: m_actions.Array.data[0].m_onAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1394,6 +1384,11 @@ PrefabInstance:
       propertyPath: OnResurrection.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2652037639890444346}
+    - target: {fileID: 1689531404548851090, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: rayOrigin
+      value: 
+      objectReference: {fileID: 3921455774109955388}
     - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
         type: 3}
       propertyPath: m_spriteFeedback
@@ -1562,12 +1557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938364bccfc085648be07b766bb25956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &5800589635796786234 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 7842925226072412731, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
-    type: 3}
-  m_PrefabInstance: {fileID: 4370883604528877057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6344097764768478820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7251565294493775973, guid: d004eb28b5b4eca42afa1f1bf2a7af49,

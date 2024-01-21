@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 7554512534338480057}
   - component: {fileID: 1582752095852171296}
   - component: {fileID: 4644889866343721351}
+  - component: {fileID: 1689531404548851090}
   - component: {fileID: 4461544013323116369}
   - component: {fileID: 5235672214020572295}
   m_Layer: 3
@@ -645,6 +646,24 @@ MonoBehaviour:
   m_doRotation: 0
   m_throwForce: 14
   m_throwUpwardForce: 0.4
+--- !u!114 &1689531404548851090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313554142022740001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecbf93a38ecd534285dae162ab00ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayOrigin: {fileID: 0}
+  rayTarget: {fileID: 3042406968937886770}
+  maxDistance: 100
+  includeMask:
+    serializedVersion: 2
+    m_Bits: 2
 --- !u!54 &4461544013323116369
 Rigidbody:
   m_ObjectHideFlags: 0
