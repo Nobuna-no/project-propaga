@@ -7,6 +7,7 @@ using NaughtyAttributes;
 
 using NobunAtelier;
 using NobunAtelier.Gameplay;
+using System.Net.Sockets;
 
 public class PlantStateMachine : TaskStateMachine
 {
@@ -33,7 +34,6 @@ public class PlantStateMachine : TaskStateMachine
     public override void ResetProgress()
     {
         base.ResetProgress();
-        currentSeed = null;
     }
 
     public void Interact(ObjectDefinition obj)
@@ -50,17 +50,49 @@ public class PlantStateMachine : TaskStateMachine
         return obj.growthBoost > 0.0f;
     }
 
-    public void AddSeedsToStorage()
+    //public void AddSeedsToStorage()
+    //{
+    //    if (!IsDone)
+    //        return;
+
+    //    IReadOnlyList<Transform> sockets = storage.Sockets;
+    //    if (sockets.Count != 2)
+    //        return;
+
+    //    Transform socketR = sockets[0];
+    //    Transform socketL = sockets[1];
+    //    TransportableObjectBehaviour seedR = farmingObj.SpawnSeed(currentSeed, socketR.position);
+    //    if (seedR)
+    //    {
+    //        seedR.Pick();
+    //        storage.ItemTryAdd(seedR);
+    //    }
+
+    //    TransportableObjectBehaviour seedL = farmingObj.SpawnSeed(currentSeed, socketL.position);
+    //    if (seedL)
+    //    {
+    //        seedL.Pick();
+    //        storage.ItemTryAdd(seedL);
+    //    }
+    //}
+
+    //[Button]
+    //public void DropSeeds()
+    //{
+    //    if (!IsDone)
+    //        return;
+
+    //    farmingObj.SpawnSeed(currentSeed, transform.position);
+    //    farmingObj.SpawnSeed(currentSeed, transform.position);
+    //    SetState(GetInitialStateDefinition());
+    //}
+
+    [Button]
+    public void DropOneSeed()
     {
-        if (!IsDone)
-            return;
-
-        IReadOnlyList<Transform> sockets = storage.Sockets;
-        if (sockets.Count != 2)
-            return;
-
-        Transform socketR = sockets[0];
-        Transform socketL = sockets[1];
+        // farmingObj.SpawnSeed(currentSeed, storage.Sockets[0].position);
+        Debug.Log("Dropping one seed", this);
+        Transform socketR = storage.Sockets[0];
         TransportableObjectBehaviour seedR = farmingObj.SpawnSeed(currentSeed, socketR.position);
         if (seedR)
         {
@@ -68,22 +100,13 @@ public class PlantStateMachine : TaskStateMachine
             storage.ItemTryAdd(seedR);
         }
 
-        TransportableObjectBehaviour seedL = farmingObj.SpawnSeed(currentSeed, socketL.position);
-        if (seedL)
-        {
-            seedL.Pick();
-            storage.ItemTryAdd(seedL);
-        }
-    }
-
-    [Button]
-    public void DropSeeds()
-    {
-        if (!IsDone)
-            return;
-        
-        farmingObj.SpawnSeed(currentSeed, transform.position);
-        farmingObj.SpawnSeed(currentSeed, transform.position);
-        SetState(GetInitialStateDefinition());
+        storage.FirstItemDrop();
+        //AddSeedsToStorage();
+        //TransportableObjectBehaviour seedR = farmingObj.SpawnSeed(currentSeed, storage.Sockets[0].position);
+        //if (seedR)
+        //{
+        //    seedR.Pick();
+        //    storage.ItemTryAdd(seedR);
+        //}
     }
 }

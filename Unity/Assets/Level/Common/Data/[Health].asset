@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InitialValue: 2
   m_MaxValue: 2
-  m_invulnerabilityDuration: 0.15
-  m_burialType: 0
-  m_burialDelay: {x: 0, y: 0}
+  m_invulnerabilityDuration: 0.1
+  m_burialType: 2
+  m_burialDelay: {x: 0.1, y: 0.1}
 --- !u!114 &-3717837923963281518
 MonoBehaviour:
   m_ObjectHideFlags: 0

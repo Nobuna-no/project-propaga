@@ -1,5 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &730635977287028967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5661244890209651340}
+  m_Layer: 0
+  m_Name: states
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5661244890209651340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730635977287028967}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6535272761571090544}
+  - {fileID: 9020683198113517989}
+  - {fileID: 2312513059449831187}
+  m_Father: {fileID: 3187837714420265340}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1221371950006993479
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +76,7 @@ GameObject:
   - component: {fileID: 6535272761571090544}
   - component: {fileID: 5486945659516251805}
   - component: {fileID: 5489105297811913082}
+  - component: {fileID: 6595540082906077814}
   m_Layer: 0
   m_Name: state-NotStarted
   m_TagString: Untagged
@@ -57,12 +92,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970907505433834949}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3187837714420265340}
+  m_Father: {fileID: 5661244890209651340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5486945659516251805
 MonoBehaviour:
@@ -81,6 +116,7 @@ MonoBehaviour:
     type: 2}
   m_stateModules:
   - {fileID: 5489105297811913082}
+  - {fileID: 6595540082906077814}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 1
@@ -101,19 +137,6 @@ MonoBehaviour:
   OnStateEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2584333439778803530}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -786970702, guid: c43fc85a78befae45a8ad5490946865b,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5181922307797478514}
         m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
         m_MethodName: ResetProgress
@@ -129,6 +152,20 @@ MonoBehaviour:
   OnStateExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6595540082906077814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970907505433834949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a2ec854727a18488c2ff4c4bf1f0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animator: {fileID: 1854227339554906174}
+  m_animParamName: reset
 --- !u!1 &2873849438309664549
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,9 +234,27 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5877846935933173199}
-        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
-        m_MethodName: FirstItemDrop
+      - m_Target: {fileID: 1854227339554906174}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnInvulnerabilityBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInvulnerabilityEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
+        m_MethodName: DropOneSeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -209,21 +264,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnInvulnerabilityBegin:
-    m_PersistentCalls:
-      m_Calls: []
-  OnInvulnerabilityEnd:
-    m_PersistentCalls:
-      m_Calls: []
   OnHeal:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5877846935933173199}
-        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
-        m_MethodName: FirstItemDrop
+      - m_Target: {fileID: 5181922307797478514}
+        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
+        m_MethodName: DropOneSeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -257,12 +306,25 @@ MonoBehaviour:
       m_Calls: []
   OnDisappearing:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6783203253779433349}
+        m_TargetAssemblyTypeName: PoolableBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnReset:
     m_PersistentCalls:
       m_Calls: []
   m_CurrentLifeValue: 0
   m_debugHitDefinition: {fileID: 0}
+  m_isVulnerable: 0
 --- !u!135 &2797931042025131600
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -293,10 +355,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2312513059449831187}
-  - component: {fileID: 3558719524718489103}
+  - component: {fileID: 733532984577487568}
   - component: {fileID: 1949645358220861834}
   m_Layer: 0
-  m_Name: state-Done
+  m_Name: state-Ripe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,14 +372,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3004411197768970057}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3187837714420265340}
+  m_Father: {fileID: 5661244890209651340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3558719524718489103
+--- !u!114 &733532984577487568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,31 +416,6 @@ MonoBehaviour:
   OnStateEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2584333439778803530}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1366287974, guid: c43fc85a78befae45a8ad5490946865b,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5181922307797478514}
-        m_TargetAssemblyTypeName: PlantStateMachine, Assembly-CSharp
-        m_MethodName: AddSeedsToStorage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5709424120363316269}
         m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
         m_MethodName: Resurrect
@@ -442,7 +479,7 @@ GameObject:
   - component: {fileID: 8339708304301649867}
   - component: {fileID: 9097321071418288601}
   m_Layer: 6
-  m_Name: Interactions
+  m_Name: interactions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_definition: {fileID: -6544304404480520575, guid: 0ec77d33ce27c7747b1250f61874a3c7,
     type: 2}
+  m_isInteractable: 1
   requireItem: 1
   acceptedItems:
   - {fileID: 8574042131115452611, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
@@ -496,6 +534,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_visual: {fileID: 0}
 --- !u!135 &9097321071418288601
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -527,6 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2387259403284563181}
   - component: {fileID: 2584333439778803530}
+  - component: {fileID: 1854227339554906174}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -605,6 +645,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1854227339554906174
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954825034648725229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4739c13cb044dd14abbd7a47687cc6d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6798795837539441906
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +678,6 @@ GameObject:
   - component: {fileID: 3187837714420265340}
   - component: {fileID: 5181922307797478514}
   - component: {fileID: 5877846935933173199}
-  - component: {fileID: 3861969387870276657}
   - component: {fileID: 6783203253779433349}
   m_Layer: 0
   m_Name: GreenPlant
@@ -638,10 +699,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5661244890209651340}
   - {fileID: 2387259403284563181}
-  - {fileID: 6535272761571090544}
-  - {fileID: 9020683198113517989}
-  - {fileID: 2312513059449831187}
   - {fileID: 1767804213756969144}
   - {fileID: 160611908207890518}
   - {fileID: 2462972166374999208}
@@ -662,8 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Description: A plant can be grown in this pot, based on time.
   m_stateDefinition: {fileID: 0}
-  m_stateModules:
-  - {fileID: 3861969387870276657}
+  m_stateModules: []
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   m_referenceStateCollection: {fileID: 11400000, guid: f055c25428f2f13409d3cbbf4721d8bd,
@@ -718,6 +776,7 @@ MonoBehaviour:
   m_backpackSockets:
   - {fileID: 8128320867549463322}
   - {fileID: 6835480572055432975}
+  m_socketUsageMaxCount: 3
   m_lerpSpeed: 20
   m_lerpSpeedFactorPerIndex:
     serializedVersion: 2
@@ -725,39 +784,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_socketUsageMaxCount: 3
+  m_useSocketLocalPositionAsOffset: 0
+  m_doRotation: 0
   m_throwForce: 10
   m_throwUpwardForce: 1
---- !u!114 &3861969387870276657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6798795837539441906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnStateEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5709424120363316269}
-        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
-        m_MethodName: set_IsVulnerable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnStateExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &6783203253779433349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +815,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5877846935933173199}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.SocketStorageBehaviour, NobunAtelier.Core
+        m_MethodName: ItemsDropEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnReset:
     m_PersistentCalls:
       m_Calls: []
@@ -799,7 +841,7 @@ GameObject:
   - component: {fileID: 2462972166374999208}
   - component: {fileID: 3130004798870660842}
   m_Layer: 0
-  m_Name: Collision
+  m_Name: collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9020683198113517989}
-  - component: {fileID: 3736569343699407182}
+  - component: {fileID: 6093029164881202004}
   - component: {fileID: 6575315485867343212}
   m_Layer: 0
   m_Name: state-InProgress
@@ -867,14 +909,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245785967930523888}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3187837714420265340}
+  m_Father: {fileID: 5661244890209651340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3736569343699407182
+--- !u!114 &6093029164881202004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,7 +925,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8245785967930523888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb38e18e0b03e549ae2f708a1b19a64, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c78ec3491414e442bb3cd6e9effc2ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Description: The task is in progress.
@@ -896,6 +938,13 @@ MonoBehaviour:
   TransitionType: 1
   m_nextState: {fileID: 0}
   m_stateDurationInSeconds: -1
+  m_spriteProgressions:
+  - m_progressionRange: {x: 0, y: 0.5}
+    m_animatorTrigger: toSprout
+  - m_progressionRange: {x: 0.5, y: 1}
+    m_animatorTrigger: toStem
+  m_targetAnimator: {fileID: 1854227339554906174}
+  m_lastStageAnimatorTrigger: toRipe
 --- !u!114 &6575315485867343212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,19 +960,6 @@ MonoBehaviour:
   OnStateEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2584333439778803530}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -2129954291, guid: c43fc85a78befae45a8ad5490946865b,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 719359592399168903}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -976,7 +1012,7 @@ Transform:
   m_GameObject: {fileID: 8255387120806673885}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.363, y: 0.565, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -994,11 +1030,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2698800088660911541, guid: a2a39bf8cbf1e15449180f7a493e965c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5091388652274486931, guid: a2a39bf8cbf1e15449180f7a493e965c,
         type: 3}
