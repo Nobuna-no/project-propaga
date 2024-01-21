@@ -47,11 +47,11 @@ public class BehaviourExecutor : MonoBehaviour
     [Button(enabledMode: EButtonEnableMode.Playmode)]
     public void RefreshBehaviourFeedback()
     {
-        BehaviourWithPriority[] bestBehaviours = GetBestBehaviours();
-        foreach (var behaviour in bestBehaviours)
-        {
-            behaviour.StartBehaviourFeedback();
-        }
+        // BehaviourWithPriority[] bestBehaviours = GetBestBehaviours();
+        // foreach (var behaviour in bestBehaviours)
+        // {
+        //     behaviour.StartBehaviourFeedback();
+        // }
     }
 
     public void Execute()
