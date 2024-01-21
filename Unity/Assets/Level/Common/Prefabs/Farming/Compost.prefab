@@ -63,6 +63,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Compost
       objectReference: {fileID: 0}
+    - target: {fileID: 1589677810101538748, guid: d7464912a573fd8449c160cee4a2bb4a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d6767cb65d203a4fabf76959ed4334a,
+        type: 3}
     - target: {fileID: 1635742125638304654, guid: d7464912a573fd8449c160cee4a2bb4a,
         type: 3}
       propertyPath: itemDefinition
