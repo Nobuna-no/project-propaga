@@ -70,6 +70,7 @@ MonoBehaviour:
   - {fileID: 4445279860148716808}
   - {fileID: -2793706150294387812}
   - {fileID: 8574042131115452611}
+  - {fileID: 6235102161090734054}
 --- !u!114 &4445279860148716808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +105,22 @@ MonoBehaviour:
     type: 2}
   growthBoost: 0
   compostValue: 100
+--- !u!114 &6235102161090734054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
+  m_Name: Ommseed
+  m_EditorClassIdentifier: 
+  poolObject: {fileID: 0}
+  plantedObject: {fileID: 0}
+  growthBoost: 0
+  compostValue: 0
 --- !u!114 &8343732418903988243
 MonoBehaviour:
   m_ObjectHideFlags: 0

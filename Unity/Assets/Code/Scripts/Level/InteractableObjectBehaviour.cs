@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InteractableObjectBehaviour : MonoBehaviour
+public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
 {
     [SerializeField, Required]
     private InteractableDefinition m_definition;
@@ -28,6 +28,11 @@ public class InteractableObjectBehaviour : MonoBehaviour
 
     public InteractableDefinition Definition => m_definition;
 
+
+    [Header("Feedback")]
+
+    [SerializeField] private SpriteRenderer m_visual;
+    public SpriteRenderer spriteRenderer => m_visual;
 
     public bool IsInteractable => m_isInteractable;
 
@@ -72,5 +77,20 @@ public class InteractableObjectBehaviour : MonoBehaviour
     public void Release()
     {
         m_isInteractable = true;
+    }
+
+    //public void SetActiveInteractionFeedback(bool enable)
+    //{
+    //    m_interactionFeedback.SetActive(enable);
+    //}
+
+    private void Awake()
+    {
+        if (m_visual == null)
+        {
+            m_visual = transform.parent.GetComponentInChildren<SpriteRenderer>();
+        }
+
+        Debug.Assert(m_visual != null, this);
     }
 }

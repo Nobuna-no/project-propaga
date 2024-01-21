@@ -14,6 +14,11 @@ public interface BehaviourWithPriority
     public bool CanBeExecuted();
 
     public void Execute();
+
+    public void StartBehaviourFeedback();
+
+    public delegate void OnBehaviorFeedbackAvailableDelegate();
+    public event OnBehaviorFeedbackAvailableDelegate OnDisplayAvailable;
 }
 
 public class BehaviourExecutor : MonoBehaviour
@@ -24,6 +29,29 @@ public class BehaviourExecutor : MonoBehaviour
     protected void Awake()
     {
         CaptureBehaviours();
+
+        foreach (var behaviour in m_behaviours)
+        {
+            behaviour.OnDisplayAvailable += RefreshBehaviourFeedback;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var behaviour in m_behaviours)
+        {
+            behaviour.OnDisplayAvailable -= RefreshBehaviourFeedback;
+        }
+    }
+
+    [Button(enabledMode: EButtonEnableMode.Playmode)]
+    public void RefreshBehaviourFeedback()
+    {
+        BehaviourWithPriority[] bestBehaviours = GetBestBehaviours();
+        foreach (var behaviour in bestBehaviours)
+        {
+            behaviour.StartBehaviourFeedback();
+        }
     }
 
     public void Execute()
@@ -61,7 +89,7 @@ public class BehaviourExecutor : MonoBehaviour
 
         for (int i = 0, c = m_behaviours.Count; i < c; i++)
         {
-            BehaviourWithPriority behaviour = m_behaviours[i]; 
+            BehaviourWithPriority behaviour = m_behaviours[i];
             if (behaviour == null || !behaviour.CanBeExecuted())
             {
                 continue;
@@ -71,7 +99,7 @@ public class BehaviourExecutor : MonoBehaviour
             {
                 break;
             }
-            
+
             bestBehaviours.Add(behaviour);
             bestPriority = behaviour.Priority;
         }
