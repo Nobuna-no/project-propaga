@@ -33,10 +33,10 @@ public class TaskStateMachine : StateMachineComponent<GameStateDefinition, GameS
     [SerializeField]
     private UnityEvent<float> OnProgressChanged;
 
-    protected float CurrentValue
+    public float CurrentValue
     {
         get => currentValue;
-        set
+        protected set
         {
             currentValue = value;
             OnProgressChanged?.Invoke(Progress);
