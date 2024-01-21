@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: plant-ripe-1s-idle
+  m_Name: A_RedPlant-ripe-2s-idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -38,7 +38,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1
+        time: 1.0166667
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -55,9 +55,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 883066820, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
+      value: {fileID: 1366287974, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
     - time: 1
-      value: {fileID: 883066820, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
+      value: {fileID: 1366287974, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -89,8 +89,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 883066820, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
-    - {fileID: 883066820, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
+    - {fileID: 1366287974, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
+    - {fileID: 1366287974, guid: c43fc85a78befae45a8ad5490946865b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -135,7 +135,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 1.0166667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -174,7 +174,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 1.0166667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -204,7 +204,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0166667
         value: 1
         inSlope: 0
         outSlope: 0

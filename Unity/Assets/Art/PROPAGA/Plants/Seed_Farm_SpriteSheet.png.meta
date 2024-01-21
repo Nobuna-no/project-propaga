@@ -93,11 +93,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_0
+      name: PlantGreen_01
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_1
+      name: PlantGreen_02
       rect:
         serializedVersion: 2
         x: 128
@@ -139,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_2
+      name: PlantGreen_03
       rect:
         serializedVersion: 2
         x: 256
@@ -160,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_3
+      name: PlantGreen_04
       rect:
         serializedVersion: 2
         x: 384
@@ -181,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_4
+      name: PlantGreen_05
       rect:
         serializedVersion: 2
         x: 512
@@ -202,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_5
+      name: PlantYello_01
       rect:
         serializedVersion: 2
         x: 0
@@ -223,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_6
+      name: PlantYello_02
       rect:
         serializedVersion: 2
         x: 128
@@ -244,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_7
+      name: PlantYello_03
       rect:
         serializedVersion: 2
         x: 256
@@ -265,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_8
+      name: PlantYello_04
       rect:
         serializedVersion: 2
         x: 384
@@ -286,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_9
+      name: PlantYello_05
       rect:
         serializedVersion: 2
         x: 512
@@ -307,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_10
+      name: PlantRed_01
       rect:
         serializedVersion: 2
         x: 0
@@ -328,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_11
+      name: PlantRed_02
       rect:
         serializedVersion: 2
         x: 128
@@ -349,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_12
+      name: PlantRed_03
       rect:
         serializedVersion: 2
         x: 256
@@ -370,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_13
+      name: PlantRed_04
       rect:
         serializedVersion: 2
         x: 384
@@ -391,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_14
+      name: PlantRed_05
       rect:
         serializedVersion: 2
         x: 512
@@ -412,7 +425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed_Farm_SpriteSheet_15
+      name: Dirt
       rect:
         serializedVersion: 2
         x: 0
@@ -443,22 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Seed_Farm_SpriteSheet_0: -2129954291
-      Seed_Farm_SpriteSheet_1: -45581877
-      Seed_Farm_SpriteSheet_10: 850245071
-      Seed_Farm_SpriteSheet_11: -539663297
-      Seed_Farm_SpriteSheet_12: -161831088
-      Seed_Farm_SpriteSheet_13: 401298302
-      Seed_Farm_SpriteSheet_14: 2047529413
-      Seed_Farm_SpriteSheet_15: -786970702
-      Seed_Farm_SpriteSheet_2: 1366287974
-      Seed_Farm_SpriteSheet_3: 1974799538
-      Seed_Farm_SpriteSheet_4: 883066820
-      Seed_Farm_SpriteSheet_5: -1057528312
-      Seed_Farm_SpriteSheet_6: -1590333624
-      Seed_Farm_SpriteSheet_7: 1123963506
-      Seed_Farm_SpriteSheet_8: 1732267512
-      Seed_Farm_SpriteSheet_9: 883235962
+      Dirt: -786970702
+      PlantGreen_01: 1366287974
+      PlantGreen_02: -2129954291
+      PlantGreen_03: 1974799538
+      PlantGreen_04: 883066820
+      PlantGreen_05: -1057528312
+      PlantRed_01: 850245071
+      PlantRed_02: -539663297
+      PlantRed_03: -161831088
+      PlantRed_04: 401298302
+      PlantRed_05: 2047529413
+      PlantYello_01: -1057528312
+      PlantYello_02: -1590333624
+      PlantYello_03: 1123963506
+      PlantYello_04: 1732267512
+      PlantYello_05: 883235962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

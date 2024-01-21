@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1854227339554906174, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 3cf80b6380d075c42acd8b9022af793d,
+        type: 2}
     - target: {fileID: 1949645358220861834, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
         type: 3}
       propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -17,12 +23,12 @@ PrefabInstance:
     - target: {fileID: 2584333439778803530, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2584333439778803530, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.73987746
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2584333439778803530, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
         type: 3}

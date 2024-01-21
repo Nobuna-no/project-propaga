@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AC_RedPlant
+  m_Controller: {fileID: 9100000, guid: 4739c13cb044dd14abbd7a47687cc6d4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 14445c600f1996b438b561b4c79ad3c8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 668439cb629c8674e8e5a40b71ad237a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8735705a30b74d84cba8c52536760b3b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 65dfb81f464ffdd4788e81521accdbc8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4006be21ccf76e74795caa373738fd2f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7cad700d29a8fe14da766474d1dc4990, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0b88e3cb3692cf14fbb7ccfc51a50f53, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 249a34ccb7435554ba9d795bf47aeadd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c7250ddcef7664c4dbd1dd637dabc6d5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9db681460fe304242831b03f59523ed6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9e1d5a40741c2c8478751924869a699f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6690e324eaf470640bdf9461d7a7108d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ff4fcb444a1247c4a95951e9dcdbe813, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4384021d796fef943a0515807891f421, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 87066c45d584c5f4f911cf2d86704fb1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2e8bc2bcc7861144fb3f1d8cf3425400, type: 2}
