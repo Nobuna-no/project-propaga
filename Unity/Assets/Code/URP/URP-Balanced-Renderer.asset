@@ -128,7 +128,7 @@ MonoBehaviour:
   materials:
     blur: {fileID: 2100000, guid: 593a6eebee33aaf40a7e62dbfa6de1b4, type: 2}
     render: {fileID: 2100000, guid: 413da83cedbf35148aa3f2ef5167e8b6, type: 2}
-    blit: {fileID: -876546973899608171, guid: f976f11250ea63c4ca4a8571e801e2dc, type: 3}
+    blit: {fileID: 2100000, guid: b95736b3c26eac546af8439967cf0fb5, type: 2}
   settings:
     horizontalBlur: 0.05
     verticalBlur: 0.05
