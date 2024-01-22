@@ -109,12 +109,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_interactionFeedback
       value: 
-      objectReference: {fileID: 48186759957347450}
+      objectReference: {fileID: 0}
     - target: {fileID: 1419832919050882121, guid: da19fa10ad3bb3140823b3a32f3851a4,
         type: 3}
       propertyPath: m_targetInteractionCollider
       value: 
       objectReference: {fileID: 8208601373300341809}
+    - target: {fileID: 6990302320590195781, guid: da19fa10ad3bb3140823b3a32f3851a4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7791449162450076151, guid: da19fa10ad3bb3140823b3a32f3851a4,
         type: 3}
       propertyPath: m_Sprite
@@ -126,12 +131,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da19fa10ad3bb3140823b3a32f3851a4, type: 3}
---- !u!1 &48186759957347450 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5372479714734778865, guid: da19fa10ad3bb3140823b3a32f3851a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 5342905573516006795}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &3109553724029032910 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 6990302320590195781, guid: da19fa10ad3bb3140823b3a32f3851a4,
