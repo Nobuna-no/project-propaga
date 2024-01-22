@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2901179584745126495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64bdc909d945bcb479b5452d165c0f1c, type: 3}
+  m_Name: FogRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  materials:
+    blur: {fileID: 2100000, guid: 593a6eebee33aaf40a7e62dbfa6de1b4, type: 2}
+    render: {fileID: 2100000, guid: 413da83cedbf35148aa3f2ef5167e8b6, type: 2}
+    blit: {fileID: -876546973899608171, guid: f976f11250ea63c4ca4a8571e801e2dc, type: 3}
+  settings:
+    horizontalBlur: 0.05
+    verticalBlur: 0.05
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,10 +54,12 @@ MonoBehaviour:
       type: 3}
     probeSamplingDebugTexture: {fileID: 2800000, guid: 24ec0e140fb444a44ab96ee80844e18e,
       type: 3}
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: -2901179584745126495}
+  m_RendererFeatureMap: a1c5a6ed89f0bcd7
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
     copyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}

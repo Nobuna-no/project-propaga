@@ -1,0 +1,122 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class FogRenderPass : ScriptableRenderPass
+{
+    private static readonly int horizontalBlurId =
+        Shader.PropertyToID("_HorizontalBlur");
+    private static readonly int verticalBlurId =
+        Shader.PropertyToID("_VerticalBlur");
+
+    private FogSettings defaultSettings;
+    private FogMaterialSettings materials;
+	List<ShaderTagId> passNames = new List<ShaderTagId>();
+    FilteringSettings filteringSettings = new FilteringSettings(RenderQueueRange.all);
+
+	private RenderTextureDescriptor textureDescriptor;
+    private RTHandle safeZoneTextureHandle;
+    private RTHandle blurTextureHandle;
+
+    public FogRenderPass(FogMaterialSettings materials, FogSettings defaultSettings)
+    {
+        this.materials = materials;
+        this.defaultSettings = defaultSettings;
+
+		passNames.Add(new ShaderTagId("SRPDefaultUnlit"));
+		passNames.Add(new ShaderTagId("UniversalForward"));
+		passNames.Add(new ShaderTagId("UniversalForwardOnly"));
+
+		textureDescriptor = new RenderTextureDescriptor(Screen.width,
+            Screen.height, RenderTextureFormat.Default, 0);
+    }
+
+    public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
+    {
+        // Set the texture size to be the same as the camera target size.
+        textureDescriptor.width = cameraTextureDescriptor.width;
+        textureDescriptor.height = cameraTextureDescriptor.height;
+
+        // Check if the descriptor has changed, and reallocate the RTHandle if necessary
+        RenderingUtils.ReAllocateIfNeeded(ref safeZoneTextureHandle, textureDescriptor);
+        RenderingUtils.ReAllocateIfNeeded(ref blurTextureHandle, textureDescriptor);
+
+        ConfigureTarget(safeZoneTextureHandle);
+        ConfigureClear(ClearFlag.Color, Color.black);
+    }
+
+    private void UpdateFogSettings()
+    {
+        // Use the Volume settings or the default settings if no Volume is set.
+        var volumeComponent =
+            VolumeManager.instance.stack.GetComponent<FogVolumeComponent>();
+        float horizontalFog = volumeComponent.horizontalBlur.overrideState ? 
+            volumeComponent.horizontalBlur.value : defaultSettings.horizontalBlur;
+        float verticalFog = volumeComponent.verticalBlur.overrideState ?
+            volumeComponent.verticalBlur.value : defaultSettings.verticalBlur;
+
+		if (materials.blur != null)
+		{
+			materials.blur.SetFloat(horizontalBlurId, horizontalFog);
+			materials.blur.SetFloat(verticalBlurId, verticalFog);
+		}
+
+        filteringSettings.layerMask = volumeComponent.layerMask.overrideState ?
+            volumeComponent.layerMask.value : defaultSettings.layerMask;
+	}
+
+    private RendererListParams GetRenderingList(ref RenderingData renderingData)
+	{
+		ref CullingResults cullingResults = ref renderingData.cullResults;
+		SortingCriteria sortingCriteria = renderingData.cameraData.defaultOpaqueSortFlags;
+		DrawingSettings drawingSettings = RenderingUtils.CreateDrawingSettings(passNames, ref renderingData, sortingCriteria);
+        drawingSettings.overrideMaterial = materials.render;
+        drawingSettings.overrideMaterialPassIndex = 0;
+
+        return new RendererListParams(cullingResults, drawingSettings, filteringSettings);
+	}
+
+	public override void Execute(ScriptableRenderContext context,
+        ref RenderingData renderingData)
+    {
+        //Get a CommandBuffer from pool.
+        CommandBuffer cmd = CommandBufferPool.Get();
+
+        RTHandle cameraTargetHandle =
+            renderingData.cameraData.renderer.cameraColorTargetHandle;
+
+		UpdateFogSettings();
+
+        RenderObjects(cmd, context, ref renderingData);
+
+        Blur(cmd, safeZoneTextureHandle, safeZoneTextureHandle);
+
+        Blit(cmd, safeZoneTextureHandle, cameraTargetHandle, materials.blit);
+
+        //Execute the command buffer and release it back to the pool.
+        context.ExecuteCommandBuffer(cmd);
+        CommandBufferPool.Release(cmd);
+    }
+
+    private void Blur(CommandBuffer cmd, RTHandle source, RTHandle destination)
+    {
+        Blit(cmd, source, blurTextureHandle, materials.blur, 0);
+        Blit(cmd, blurTextureHandle, destination, materials.blur, 1);
+    }
+
+    private void RenderObjects(CommandBuffer cmd, ScriptableRenderContext context,
+		ref RenderingData renderingData)
+	{
+		RendererListParams rendererListParams = GetRenderingList(ref renderingData);
+		RendererList rendererList = context.CreateRendererList(ref rendererListParams);
+
+        cmd.DrawRendererList(rendererList);
+    }
+
+    public void Dispose()
+    {
+        if (blurTextureHandle != null) blurTextureHandle.Release();
+        if (safeZoneTextureHandle != null) safeZoneTextureHandle.Release();
+    }
+}
