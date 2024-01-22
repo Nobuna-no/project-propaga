@@ -11,6 +11,7 @@ public class PropagaGameModeManager : GameModeManager
     List<HealthBehaviour> playerHealths = new List<HealthBehaviour>();
 
     public UnityEvent OnAllPlayerDead;
+    public UnityEvent OnVictory;
     
     public override void GameModeStart()
     {
@@ -57,5 +58,11 @@ public class PropagaGameModeManager : GameModeManager
             Debug.Log("All players died");
             OnAllPlayerDead?.Invoke();
         }
+    }
+
+    public void Victory()
+    {
+        Debug.Log("Victory !!");
+        OnVictory?.Invoke();
     }
 }
