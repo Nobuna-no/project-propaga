@@ -22,8 +22,6 @@ public class FarmingSpot : MonoBehaviour
         if (m_poolManager == null || obj == null || obj.plantedObject == null)
             return;
 
-        Debug.Log($"Now planting {obj.name} => {obj.plantedObject.name}.", this);
-
         PoolableBehaviour poolBehaviour = m_poolManager.SpawnObject(obj.plantedObject, transform.position + m_offset);
         FarmingObject farmObj = poolBehaviour as FarmingObject;
         farmObj.Init(this);

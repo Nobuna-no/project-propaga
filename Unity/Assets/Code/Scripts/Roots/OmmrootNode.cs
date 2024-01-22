@@ -5,7 +5,9 @@ using UnityEngine.Splines;
 
 public class OmmrootNode : MonoBehaviour
 {
-    [SerializeField] private PoolObjectDefinition m_objectToSpawn;
+    [SerializeField] private PoolObjectDefinition m_greenAreaNodeToSpawn;
+    [SerializeField] private PoolObjectDefinition m_yellowAreaNodeToSpawn;
+    [SerializeField] private PoolObjectDefinition m_redAreaNodeToSpawn;
     [SerializeField] private InteractableObjectBehaviour m_interactableObject;
     [SerializeField] private GameObject m_visual;
     [SerializeField] private SplineInstantiate m_topSplineInstantiate;
@@ -91,7 +93,7 @@ public class OmmrootNode : MonoBehaviour
 
         TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
-        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
+        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord), TerrainGrid.Instance[gridCoord].zoneId);
         UpdateInteractableUsability();
     }
 
@@ -105,7 +107,7 @@ public class OmmrootNode : MonoBehaviour
         gridCoord.y -= 1;
         TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
-        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
+        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord), TerrainGrid.Instance[gridCoord].zoneId);
         UpdateInteractableUsability();
     }
 
@@ -119,7 +121,7 @@ public class OmmrootNode : MonoBehaviour
         gridCoord.x -= 1;
         TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
-        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
+        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord), TerrainGrid.Instance[gridCoord].zoneId);
         UpdateInteractableUsability();
     }
 
@@ -133,13 +135,24 @@ public class OmmrootNode : MonoBehaviour
         gridCoord.x += 1;
         TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
-        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord));
+        SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord), TerrainGrid.Instance[gridCoord].zoneId);
         UpdateInteractableUsability();
     }
 
-    private void SpawnNewNode(Vector3 position)
+    private void SpawnNewNode(Vector3 position, int areaId)
     {
-        OmmrootNodePool.Instance.SpawnObject(m_objectToSpawn, position);
+        if (areaId <= 1)
+        {
+            OmmrootNodePool.Instance.SpawnObject(m_greenAreaNodeToSpawn, position);
+        }
+        else if (areaId == 2)
+        {
+            OmmrootNodePool.Instance.SpawnObject(m_yellowAreaNodeToSpawn, position);
+        }
+        else
+        {
+            OmmrootNodePool.Instance.SpawnObject(m_redAreaNodeToSpawn, position);
+        }
     }
 
     private void UpdateInteractableUsability()

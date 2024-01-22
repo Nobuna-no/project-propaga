@@ -30,7 +30,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 4635777580646230212, guid: 091078e710982fa48a6385363df9a54b,
     type: 3}
-  m_reserveSize: 3
+  m_reserveSize: 10
   m_reserveGrowCount: 10
 --- !u!114 &11400000
 MonoBehaviour:
@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 1882264854835292953}
   - {fileID: -5000732105992000909}
   - {fileID: 1015575264742059357}
+  - {fileID: 6523788166931917982}
+  - {fileID: 5713357216782380246}
 --- !u!114 &1015575264742059357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,12 +65,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
-  m_Name: Ommroot Node
+  m_Name: Ommroot Node Green
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: -8221138753429120307, guid: 0eafd844b8c703e4d862a73f9c012a50,
     type: 3}
-  m_reserveSize: 1
-  m_reserveGrowCount: 1
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
 --- !u!114 &1882264854835292953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 4635777580646230212, guid: 1f6d5213187b6424b8b49d4935b2c37f,
     type: 3}
-  m_reserveSize: 3
+  m_reserveSize: 10
   m_reserveGrowCount: 10
 --- !u!114 &1980971570602635416
 MonoBehaviour:
@@ -131,8 +133,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 6783203253779433349, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
     type: 3}
-  m_reserveSize: 3
+  m_reserveSize: 10
   m_reserveGrowCount: 10
+--- !u!114 &5713357216782380246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: Ommroot Node Red
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 8939804635657477905, guid: 9ed9c8d4b401c8141861964095d1f069,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
 --- !u!114 &6038606854605171675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +167,19 @@ MonoBehaviour:
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 10
+--- !u!114 &6523788166931917982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: Ommroot Node Yellow
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 2192822108622353635, guid: 54a7a0a8375e8184ba966fd446e3888a,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5

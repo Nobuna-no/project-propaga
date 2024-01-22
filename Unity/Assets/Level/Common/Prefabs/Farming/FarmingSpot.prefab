@@ -139,7 +139,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7169109221324995240
 GameObject:
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2989080163863853458}
-  - component: {fileID: 9172945772217974665}
+  - component: {fileID: 8657946070136509216}
   m_Layer: 0
   m_Name: collision
   m_TagString: Untagged
@@ -259,8 +259,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 159859050716187161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &9172945772217974665
-SphereCollider:
+--- !u!136 &8657946070136509216
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -277,6 +277,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.4
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 0.6
+  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}

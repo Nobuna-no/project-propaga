@@ -39,7 +39,7 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
     // Returns whether the object is interested in the item the character holds
     public virtual bool CheckInput(ObjectDefinition item)
     {
-        if (enabled == false || !m_isInteractable)
+        if (isActiveAndEnabled == false || !m_isInteractable)
         {
             return false;
         }

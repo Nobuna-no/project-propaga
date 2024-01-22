@@ -68,23 +68,32 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
             return;
         }
 
-        var interactableObj = m_baseInteractableObjects[m_baseInteractableObjects.Count - 1];
-        if (!interactableObj)
+        InteractableObjectBehaviour interactableObj = null;
+        for (int i = m_baseInteractableObjects.Count - 1; i >= 0; --i)
         {
-            return;
-        }
-
-        if (CanInteractWith(interactableObj, out var obj))
-        {
-            m_storageComponent.ItemTryConsume(out var objRef);
-
-            interactableObj.Use(obj?.ItemDefinition);
-            obj.IsActive = false; // Remove the object
-
-            // Raise any target interaction callback.
-            for (int i = 0, c = m_consumptionCallbacks.Length; i < c; i++)
+            if (m_baseInteractableObjects[i].isActiveAndEnabled)
             {
-                m_consumptionCallbacks[i].CheckAndRaiseCallbackForTarget(interactableObj);
+                interactableObj = m_baseInteractableObjects[i];
+
+                if (CanInteractWith(interactableObj, out var obj))
+                {
+                    m_storageComponent.ItemTryConsume(out var objRef);
+
+                    interactableObj.Use(obj?.ItemDefinition);
+                    obj.IsActive = false; // Remove the object
+
+                    // Raise any target interaction callback.
+                    for (int j = 0, c = m_consumptionCallbacks.Length; j < c; j++)
+                    {
+                        m_consumptionCallbacks[j].CheckAndRaiseCallbackForTarget(interactableObj);
+                    }
+
+                    break;
+                }
+            }
+            else
+            {
+                m_baseInteractableObjects.RemoveAt(i);
             }
         }
     }
@@ -101,16 +110,26 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
             return false;
         }
 
-        var interactableObj = m_baseInteractableObjects[m_baseInteractableObjects.Count - 1];
-        if (!interactableObj)
+        for (int i = m_baseInteractableObjects.Count - 1; i >= 0; --i)
         {
-            return false;
+            var interactableObj = m_baseInteractableObjects[i];
+            if (interactableObj.isActiveAndEnabled)
+            {
+                if (CanInteractWith(interactableObj, out var obj))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                m_baseInteractableObjects.RemoveAt(i);
+            }
         }
 
-        return CanInteractWith(interactableObj, out var obj);
+        return false;
     }
 
-    public void Execute()
+        public void Execute()
     {
         TryInteract();
     }

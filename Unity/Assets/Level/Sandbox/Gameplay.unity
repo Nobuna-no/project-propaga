@@ -354,6 +354,8 @@ MonoBehaviour:
   m_resetPoolOnStart: 1
   m_objectsDefinition:
   - {fileID: 1015575264742059357, guid: 50a64afcc4b34f64e96d9f6be02a5756, type: 2}
+  - {fileID: 6523788166931917982, guid: 50a64afcc4b34f64e96d9f6be02a5756, type: 2}
+  - {fileID: 5713357216782380246, guid: 50a64afcc4b34f64e96d9f6be02a5756, type: 2}
   m_spawnRadiusAxis: {x: 0, y: 0, z: 0}
   m_debugSpawnPositionDisplay: 0
 --- !u!1001 &166274316
@@ -1257,11 +1259,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerParticipant-backup-20-01
       objectReference: {fileID: 0}
-    - target: {fileID: 3921455774109955388, guid: bac89ebcd62110148b1c022280eb999a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6700002
-      objectReference: {fileID: 0}
     - target: {fileID: 4948716843515500884, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1311,11 +1308,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7540980721613406136, guid: bac89ebcd62110148b1c022280eb999a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6700002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2094,7 +2086,7 @@ PrefabInstance:
     - target: {fileID: 2268985274002457345, guid: 0eafd844b8c703e4d862a73f9c012a50,
         type: 3}
       propertyPath: m_Name
-      value: P_Root_Sprout
+      value: P_Ommroot_Node
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

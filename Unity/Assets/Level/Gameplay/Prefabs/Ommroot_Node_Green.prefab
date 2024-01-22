@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 5036671593728647353}
   - component: {fileID: -8221138753429120307}
   m_Layer: 0
-  m_Name: Ommroot-node
+  m_Name: Ommroot_Node_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,7 +441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4721accaf8ef7594d80ffc38ea6b54e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objectToSpawn: {fileID: 1015575264742059357, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+  m_greenAreaNodeToSpawn: {fileID: 1015575264742059357, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
+  m_yellowAreaNodeToSpawn: {fileID: 6523788166931917982, guid: 50a64afcc4b34f64e96d9f6be02a5756,
+    type: 2}
+  m_redAreaNodeToSpawn: {fileID: 5713357216782380246, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
   m_interactableObject: {fileID: 1793148016435030622}
   m_visual: {fileID: 4193548515379286502}

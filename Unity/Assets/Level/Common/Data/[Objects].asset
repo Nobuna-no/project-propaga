@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
-  m_Name: GreenSeed
+  m_Name: Ommseed Green
   m_EditorClassIdentifier: 
   poolObject: {fileID: 1980971570602635416, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
-  m_Name: RedSeed
+  m_Name: Ommseed Red
   m_EditorClassIdentifier: 
   poolObject: {fileID: 6038606854605171675, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b799328208d88ac4387c6e2e8fd2fcf2, type: 3}
-  m_Name: YellowSeed
+  m_Name: Ommseed Yellow
   m_EditorClassIdentifier: 
   poolObject: {fileID: 2410790529743389293, guid: 50a64afcc4b34f64e96d9f6be02a5756,
     type: 2}

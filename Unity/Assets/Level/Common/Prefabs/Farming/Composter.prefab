@@ -654,7 +654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 512724419850424518}
-  - component: {fileID: 2669349817146650668}
+  - component: {fileID: 5060845825856908184}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -677,8 +677,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3996352338522163873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2669349817146650668
-BoxCollider:
+--- !u!135 &5060845825856908184
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -696,7 +696,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8912798141746425184
 PrefabInstance:
