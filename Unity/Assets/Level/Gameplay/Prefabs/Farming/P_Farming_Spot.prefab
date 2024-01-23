@@ -103,6 +103,7 @@ MonoBehaviour:
   - {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
   - {fileID: 5590416329515417463, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
   - {fileID: 8343732418903988243, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
+  - {fileID: 4445279860148716808, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
   rejectedItems: []
   OnInteractEvent:
     m_PersistentCalls:

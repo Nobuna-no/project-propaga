@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7207336804517757826}
   - component: {fileID: 1635742125638304654}
   - component: {fileID: 4523882821097793149}
-  - component: {fileID: 797336715516485756}
   m_Layer: 6
   m_Name: P_Pickable
   m_TagString: Untagged
@@ -94,6 +93,7 @@ MonoBehaviour:
       m_Calls: []
   itemDefinition: {fileID: -616847871672504849, guid: aa3e84bfc135e1e439474e1d28833879,
     type: 2}
+  m_canBeConsumed: 1
   m_visual: {fileID: 0}
 --- !u!135 &4523882821097793149
 SphereCollider:
@@ -115,27 +115,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &797336715516485756
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477615994281858141}
-  m_Material: {fileID: 13400000, guid: 58241f4009c0e02489a50f56c701ddbc, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9132542469526311583
 GameObject:

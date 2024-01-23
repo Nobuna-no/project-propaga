@@ -34,7 +34,11 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
     [SerializeField] private SpriteRenderer m_visual;
     public SpriteRenderer spriteRenderer => m_visual;
 
-    public bool IsInteractable => m_isInteractable;
+    public bool IsInteractable
+    {
+        get => m_isInteractable;
+        set => m_isInteractable = value;
+    }
 
     // Returns whether the object is interested in the item the character holds
     public virtual bool CheckInput(ObjectDefinition item)

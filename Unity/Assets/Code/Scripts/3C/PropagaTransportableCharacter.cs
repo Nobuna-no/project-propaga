@@ -1,7 +1,7 @@
 using NobunAtelier.Gameplay;
 using UnityEngine;
 
-public class PropagaTransportableCharacter : NobunAtelier.Gameplay.TransportableObjectBehaviour
+public class PropagaTransportableCharacter : PropagaTransportableObject
 {
     [Header("PROPAGA Transportable Character")]
     [SerializeField]

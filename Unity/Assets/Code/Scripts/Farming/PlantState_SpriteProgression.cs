@@ -5,21 +5,9 @@ using UnityEngine;
 
 public class PlantState_SpriteProgression : GameState
 {
-    [System.Serializable]
-    private class AnimatorProgression
-    {
-        [SerializeField, MinMaxRangeSlider(0, 1)]
-        private Vector2 m_progressionRange = Vector2.zero;
-
-        [SerializeField]
-        private string m_animatorTrigger;
-
-        public Vector2 ProgressionRange => m_progressionRange;
-        public string AnimatorTrigger => m_animatorTrigger;
-    }
-
     [SerializeField] private AnimatorProgression[] m_spriteProgressions;
     [SerializeField] private Animator m_targetAnimator;
+
     [SerializeField, AnimatorParam("m_targetAnimator")]
     private string m_lastStageAnimatorTrigger;
 
@@ -75,5 +63,18 @@ public class PlantState_SpriteProgression : GameState
         }
 
         m_targetAnimator.SetTrigger(m_currentStatus.AnimatorTrigger);
+    }
+
+    [System.Serializable]
+    private class AnimatorProgression
+    {
+        [SerializeField, MinMaxRangeSlider(0, 1)]
+        private Vector2 m_progressionRange = Vector2.zero;
+
+        [SerializeField]
+        private string m_animatorTrigger;
+
+        public Vector2 ProgressionRange => m_progressionRange;
+        public string AnimatorTrigger => m_animatorTrigger;
     }
 }

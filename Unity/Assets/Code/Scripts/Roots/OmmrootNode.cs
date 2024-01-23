@@ -24,7 +24,7 @@ public class OmmrootNode : MonoBehaviour
 
         // Reset state of the object as prefab spawning sometime behave weirdly...
         m_visual.SetActive(true);
-        m_interactableObject.Release();
+        m_interactableObject.IsInteractable = true;
     }
 
     private void Start()

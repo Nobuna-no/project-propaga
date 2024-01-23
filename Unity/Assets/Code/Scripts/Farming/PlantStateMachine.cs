@@ -29,6 +29,7 @@ public class PlantStateMachine : TaskStateMachine
     {
         base.Start();
         interactable.Condition = ImprovesGrowth;
+        Debug.Assert(storage.Sockets.Count == 2, this);
     }
 
     public override void ResetProgress()
@@ -86,14 +87,13 @@ public class PlantStateMachine : TaskStateMachine
     //    farmingObj.SpawnSeed(currentSeed, transform.position);
     //    SetState(GetInitialStateDefinition());
     //}
-
+    bool m_dropRight = false;
     [Button]
     public void DropOneSeed()
     {
         // farmingObj.SpawnSeed(currentSeed, storage.Sockets[0].position);
-        Debug.Log("Dropping one seed", this);
-        Transform socketR = storage.Sockets[0];
-        TransportableObjectBehaviour seedR = farmingObj.SpawnSeed(currentSeed, socketR.position);
+        Transform socket = storage.Sockets[m_dropRight ? 0 : 1];
+        TransportableObjectBehaviour seedR = farmingObj.SpawnSeed(currentSeed, socket.position);
         if (seedR)
         {
             seedR.Pick();

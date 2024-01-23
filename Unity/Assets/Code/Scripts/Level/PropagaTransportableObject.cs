@@ -9,19 +9,23 @@ public interface IPropagaSpriteProvider
 
 public class PropagaTransportableObject : TransportableObjectBehaviour, IPropagaSpriteProvider
 {
-    [SerializeField]
-    private ObjectDefinition itemDefinition;
+    [Header("PROPAGA Transportable Object")]
+    [SerializeField] private ObjectDefinition itemDefinition;
+    [SerializeField, Tooltip("Can the object be consumed by an interactable?")]
+    private bool m_canBeConsumed = true;
 
-    [Header("Feedback")]
+    [Header("PROPAGA Feedback")]
     [SerializeField] private SpriteRenderer m_visual;
 
     public ObjectDefinition ItemDefinition => itemDefinition;
 
     public SpriteRenderer spriteRenderer => m_visual;
-    //public void SetActiveInteractionFeedback(bool enable)
-    //{
-    //    m_visual.SetActive(enable);
-    //}
+
+    public bool CanBeConsumed
+    {
+        get => m_canBeConsumed;
+        set => m_canBeConsumed = value;
+    }
 
     protected override void Awake()
     {
@@ -34,4 +38,5 @@ public class PropagaTransportableObject : TransportableObjectBehaviour, IPropaga
 
         Debug.Assert(m_visual != null, this);
     }
+
 }

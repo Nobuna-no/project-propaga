@@ -51,6 +51,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillImage: {fileID: 1974467145350980459}
+  m_colorProgressions:
+  - m_progressionRange: {x: 0, y: 0.3}
+    m_color: {r: 0.69411767, g: 0.054901965, b: 0.054901965, a: 1}
+  - m_progressionRange: {x: 0.3, y: 0.6}
+    m_color: {r: 1, g: 0.8000001, b: 0, a: 1}
+  - m_progressionRange: {x: 0.70000005, y: 1}
+    m_color: {r: 0.28364772, g: 0.7830189, b: 0.1071111, a: 1}
 --- !u!1 &5549769790758868081
 GameObject:
   m_ObjectHideFlags: 0

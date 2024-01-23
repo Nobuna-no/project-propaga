@@ -140,7 +140,7 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         if (m_storageComponent.ItemTryPeekFirst(out var transportObj))
         {
             obj = transportObj as PropagaTransportableObject;
-            interactAccepted = interactableObj.CheckInput(obj.ItemDefinition);
+            interactAccepted = obj.CanBeConsumed && interactableObj.CheckInput(obj.ItemDefinition);
         }
         else
         {

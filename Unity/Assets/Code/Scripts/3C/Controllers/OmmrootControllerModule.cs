@@ -32,7 +32,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
         Debug.Assert(m_targetBehavior != null,
             $"target object don't have an {typeof(OmmrootNode).Name} in its parent.", this);
 
-        target.Lock();
+        m_targetInteractable.IsInteractable = false;
     }
 
     public override void EnableModuleInput(PlayerInput playerInput, InputActionMap activeActionMap)
@@ -91,7 +91,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowTopRoot();
             OnGrowthConfirmation?.Invoke();
-            m_targetInteractable.Release();
+            m_targetInteractable.IsInteractable = true;
         }
         else if (IsCloseTo(yRotation, 90f))
         {
@@ -104,7 +104,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowRightRoot();
             OnGrowthConfirmation?.Invoke();
-            m_targetInteractable.Release();
+            m_targetInteractable.IsInteractable = true;
         }
         else if (IsCloseTo(yRotation, 180f))
         {
@@ -117,7 +117,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowBottomRoot();
             OnGrowthConfirmation?.Invoke();
-            m_targetInteractable.Release();
+            m_targetInteractable.IsInteractable = true;
         }
         else if (IsCloseTo(yRotation, 270f))
         {
@@ -130,7 +130,7 @@ public class OmmrootControllerModule : PlayerControllerModuleBase
 
             m_targetBehavior.GrowLeftRoot();
             OnGrowthConfirmation?.Invoke();
-            m_targetInteractable.Release();
+            m_targetInteractable.IsInteractable = true;
         }
     }
 
