@@ -39,7 +39,7 @@ public class PlantState_SpriteProgression : GameState
         float progress = m_plantSM.CurrentValue / m_plantSM.MaxValue;
         if (progress >= m_nextProgressionRangeStart)
         {
-            RefreshSpriteProgression(m_plantSM.CurrentValue / m_plantSM.MaxValue);
+            RefreshSpriteProgression(progress);
         }
     }
 

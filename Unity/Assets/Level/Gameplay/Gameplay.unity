@@ -248,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 159859050716187161, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159859050716187161, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
@@ -292,9 +292,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402342630284941036, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
+      propertyPath: m_offset.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402342630284941036, guid: b2a58b5af66d43045864d754a6bf680b,
+        type: 3}
       propertyPath: m_poolManager
       value: 
       objectReference: {fileID: 2076248755}
+    - target: {fileID: 3402342630284941036, guid: b2a58b5af66d43045864d754a6bf680b,
+        type: 3}
+      propertyPath: m_playerCorpseDefinition
+      value: 
+      objectReference: {fileID: 4445279860148716808, guid: aa3e84bfc135e1e439474e1d28833879,
+        type: 2}
     - target: {fileID: 3879532726765715458, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
       propertyPath: m_Name
@@ -542,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 159859050716187161, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159859050716187161, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
@@ -621,7 +632,7 @@ PrefabInstance:
     - target: {fileID: 159859050716187161, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159859050716187161, guid: b2a58b5af66d43045864d754a6bf680b,
         type: 3}
@@ -1042,6 +1053,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
   m_visual: {fileID: 251608218}
 --- !u!1001 &498191518
 PrefabInstance:
@@ -1287,7 +1301,12 @@ PrefabInstance:
     - target: {fileID: 1059775377046745432, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
       propertyPath: m_Name
-      value: PlayerParticipant-backup-20-01
+      value: P_3C_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059775377046745432, guid: bac89ebcd62110148b1c022280eb999a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4948716843515500884, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}

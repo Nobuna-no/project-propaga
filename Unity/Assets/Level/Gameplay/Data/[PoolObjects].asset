@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
-  m_Name: GreenSeed
+  m_Name: Seed Green
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 1419832919050882121, guid: da19fa10ad3bb3140823b3a32f3851a4,
     type: 3}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
-  m_Name: YellowSeed
+  m_Name: Seed Yellow
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 1419832919050882121, guid: 039b52731dcda4d46840b52cbf561221,
     type: 3}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
-  m_Name: RedSeed
+  m_Name: Seed Red
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 1419832919050882121, guid: 22ec2c2575398fe4495e8fb7ba330c34,
     type: 3}

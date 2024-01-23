@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public class InteractionInfo
+{
+    public ObjectDefinition ObjectDefinition;
+    public PropagaTransportableObject Target;
+}
+
 public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
 {
     [SerializeField, Required]
@@ -25,6 +31,7 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
     public Predicate<ObjectDefinition> Condition;
 
     public UnityEvent<ObjectDefinition> OnInteractEvent;
+    public UnityEvent<InteractionInfo> OnInteractionEvent;
 
     public InteractableDefinition Definition => m_definition;
 
@@ -66,9 +73,14 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
     }
 
     // Item has been consumed, or there is no item, either way react to user action now
-    public virtual void Use(ObjectDefinition item = null)
+    public virtual void Use(PropagaTransportableObject transportableObject, ObjectDefinition item = null)
     {
         OnInteractEvent?.Invoke(item);
+        OnInteractionEvent?.Invoke(new InteractionInfo()
+        {
+            ObjectDefinition = item,
+            Target = transportableObject
+        }); ;
     }
 
     [Button]

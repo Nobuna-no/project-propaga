@@ -168,6 +168,7 @@ MonoBehaviour:
   - {fileID: -534289748970661565}
   - {fileID: -981385721254977236}
   - {fileID: 1410273868820949612}
+  - {fileID: 7506685191855557797}
 --- !u!114 &1410273868820949612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
   m_Name: rooted
   m_EditorClassIdentifier: 
-  m_description: Play resurrection animation while waiting 1 second before going
-    back to idle.
+  m_description: "EN ROOT!!! \nImportant that the Oomroot controller is set active
+    AFTER that Ommy controller is disable, otherwise the player input is going to
+    be deactivated."
   m_requiredPriorState: {fileID: 0}
 --- !u!114 &2131463559337795275
 MonoBehaviour:
@@ -237,4 +239,18 @@ MonoBehaviour:
   m_Name: struggling
   m_EditorClassIdentifier: 
   m_description: Play Struggling animation until dropped or thrown.
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &7506685191855557797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: planted
+  m_EditorClassIdentifier: 
+  m_description: 
   m_requiredPriorState: {fileID: 0}

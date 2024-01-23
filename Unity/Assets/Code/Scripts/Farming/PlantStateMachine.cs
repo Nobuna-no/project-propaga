@@ -29,7 +29,6 @@ public class PlantStateMachine : TaskStateMachine
     {
         base.Start();
         interactable.Condition = ImprovesGrowth;
-        Debug.Assert(storage.Sockets.Count == 2, this);
     }
 
     public override void ResetProgress()
@@ -49,6 +48,16 @@ public class PlantStateMachine : TaskStateMachine
     private bool ImprovesGrowth(ObjectDefinition obj)
     {
         return obj.growthBoost > 0.0f;
+    }
+
+    public void AttackObjectToSocket(PropagaTransportableObject obj)
+    {
+        storage.ItemTryAdd(obj);
+    }
+
+    public void DropObjectFromSocket()
+    {
+        storage.FirstItemDrop();
     }
 
     //public void AddSeedsToStorage()

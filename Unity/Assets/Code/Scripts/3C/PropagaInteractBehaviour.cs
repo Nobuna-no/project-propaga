@@ -68,19 +68,19 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
             return;
         }
 
-        InteractableObjectBehaviour interactableObj = null;
         for (int i = m_baseInteractableObjects.Count - 1; i >= 0; --i)
         {
             if (m_baseInteractableObjects[i].isActiveAndEnabled)
             {
-                interactableObj = m_baseInteractableObjects[i];
+                InteractableObjectBehaviour interactableObj = m_baseInteractableObjects[i];
 
                 if (CanInteractWith(interactableObj, out var obj))
                 {
+                    // consume the we picked earlier item
                     m_storageComponent.ItemTryConsume(out var objRef);
 
-                    interactableObj.Use(obj?.ItemDefinition);
                     obj.IsActive = false; // Remove the object
+                    interactableObj.Use(obj, obj?.ItemDefinition);
 
                     // Raise any target interaction callback.
                     for (int j = 0, c = m_consumptionCallbacks.Length; j < c; j++)
@@ -129,7 +129,7 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         return false;
     }
 
-        public void Execute()
+    public void Execute()
     {
         TryInteract();
     }

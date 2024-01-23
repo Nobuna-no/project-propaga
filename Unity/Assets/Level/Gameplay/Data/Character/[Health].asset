@@ -32,7 +32,7 @@ MonoBehaviour:
   m_InitialValue: 5
   m_MaxValue: 5
   m_invulnerabilityDuration: 0.15
-  m_burialType: 1
+  m_burialType: 0
   m_burialDelay: {x: 10, y: 10}
 --- !u!114 &-842998785934231668
 MonoBehaviour:
