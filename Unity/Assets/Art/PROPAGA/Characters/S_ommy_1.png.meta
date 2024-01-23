@@ -93,11 +93,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_0
+      name: ommy_death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_1
+      name: ommy_death_1
       rect:
         serializedVersion: 2
         x: 128
@@ -139,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_2
+      name: ommy_death_2
       rect:
         serializedVersion: 2
         x: 256
@@ -160,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_3
+      name: ommy_death_3
       rect:
         serializedVersion: 2
         x: 0
@@ -181,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_4
+      name: ommy_death_4
       rect:
         serializedVersion: 2
         x: 128
@@ -202,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_5
+      name: ommy_death_5
       rect:
         serializedVersion: 2
         x: 256
@@ -223,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_6
+      name: ommy_death_6
       rect:
         serializedVersion: 2
         x: 0
@@ -244,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Seed Death Sprite Sheet 1_7
+      name: ommy_death_7
       rect:
         serializedVersion: 2
         x: 128
@@ -264,6 +277,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ommy_rooting
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9df97f8fc6ec4640a4d4764d18b573a
+      internalID: -1843786984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -275,14 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Seed Death Sprite Sheet 1_0: -110210681
-      Seed Death Sprite Sheet 1_1: 154511535
-      Seed Death Sprite Sheet 1_2: 646556467
-      Seed Death Sprite Sheet 1_3: -787601588
-      Seed Death Sprite Sheet 1_4: 632102108
-      Seed Death Sprite Sheet 1_5: 916213293
-      Seed Death Sprite Sheet 1_6: 892289481
-      Seed Death Sprite Sheet 1_7: 269474999
+      ommy_death_0: -110210681
+      ommy_death_1: 154511535
+      ommy_death_2: 646556467
+      ommy_death_3: -787601588
+      ommy_death_4: 632102108
+      ommy_death_5: 916213293
+      ommy_death_6: 892289481
+      ommy_death_7: 269474999
+      ommy_rooting: -1843786984
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

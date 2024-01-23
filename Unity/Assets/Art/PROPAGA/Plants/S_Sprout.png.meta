@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5865a50f10277d34c9140785c7581a92
+guid: 7d7fc7380b3a2954291307f173a6f777
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -110,11 +110,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ommy_idle_0
+      name: sprout_empty
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 512
         width: 128
         height: 128
       alignment: 7
@@ -124,14 +124,182 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6bc2d8b597958247baead6db67002ab
-      internalID: 1662579828
+      spriteID: b8cb08c358e98dd4f8a16ac0f7c00793
+      internalID: -1190473130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_idle_1
+      name: sprout_grow_0
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 512
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa66969eb0c85b4c85b79ac804f43a0
+      internalID: -1205706362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ffa38fe4f56b841a95fe2c238bc864
+      internalID: 686328046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af1c6a3084e5b74893b820c170577f1
+      internalID: -1384307072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2433381ad28c1c40a8ed37707d7c8c3
+      internalID: -127726483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 385
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ebf284c6989d54b9d88c47a05f131a
+      internalID: 1691016838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b6f52fc3bccaf4b9ab1e5092467721
+      internalID: -1708847561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ff8ffdcc44a9b43aac53423547b43b
+      internalID: -838358610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 257
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5216623b4f1605e4d8ddbb9367080084
+      internalID: 1257161882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_8
       rect:
         serializedVersion: 2
         x: 128
@@ -145,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e4001722c447e34e8a5ca56be1b9b3c
-      internalID: 1912788687
+      spriteID: 14cd635ff38f43343b7418740d85dc57
+      internalID: -1381809419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_idle_2
+      name: sprout_grow_9
       rect:
         serializedVersion: 2
         x: 256
@@ -166,18 +334,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34f5354c8bf78214c83877cfb118cb64
-      internalID: -1649015352
+      spriteID: 3c649185de613394fb510ea9d60b4ec5
+      internalID: -1258316172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_walk_0
+      name: sprout_grow_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 383
+        y: 256
         width: 128
         height: 128
       alignment: 7
@@ -187,14 +355,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b4a8852d98eae49898beb3b10f0d21
-      internalID: 289402313
+      spriteID: 3fcaf361f46c02548b67710cb5e29e84
+      internalID: 1480247643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_walk_1
+      name: sprout_grow_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1fa715aa887ff44afab92af157d1cc
+      internalID: -298675282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout_grow_12
       rect:
         serializedVersion: 2
         x: 128
@@ -208,18 +397,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c046b9b98dd252438731a1baa05e355
-      internalID: 1117128504
+      spriteID: 51b932cb8971b114196dc24eaff76aff
+      internalID: -1758544402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_walk_2
+      name: sprout_damaged
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 384
+        y: 129
         width: 128
         height: 128
       alignment: 7
@@ -229,35 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a93516ce616cc22498733531488d5edd
-      internalID: -827976099
+      spriteID: 295980246ef957f41aaa7f4b82bfae80
+      internalID: -2139135183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_walk_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75acf08dbb38a9d4f9ff12bfcbd6d948
-      internalID: 560327807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ommy_walk_4
+      name: sprout_idle_0
       rect:
         serializedVersion: 2
         x: 128
@@ -271,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4d20bb277a36114dbdb7ee21fe9c98a
-      internalID: -688778124
+      spriteID: 6a5014debdadb34499c676ae417e3e1c
+      internalID: -929059556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_walk_5
+      name: sprout_idle_1
       rect:
         serializedVersion: 2
         x: 256
@@ -292,20 +460,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bea24eca463b65840832aaa8550b6067
-      internalID: -608181610
+      spriteID: 26c4ecfeb075ed4468439a3784a11970
+      internalID: -894095817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ommy_0
+      name: sprout_idle_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 384
         y: 0
-        width: 384
-        height: 384
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,8 +481,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc1efe6e62fad4a478ba33dab6c93438
-      internalID: -1058509887
+      spriteID: 241bf0da3b60f18408bce0b58e49b9c2
+      internalID: 1156940729
       vertices: []
       indices: 
       edges: []
@@ -322,7 +490,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 487b012503910d74e9f68a0ce5f0a82f
+    spriteID: fcc077cd7065a1a4ab5cf5f74823c71e
     internalID: 0
     vertices: []
     indices: 
@@ -330,16 +498,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ommy_0: -1058509887
-      ommy_idle_0: 1912788687
-      ommy_idle_1: -1649015352
-      ommy_idle_2: 289402313
-      ommy_walk_0: 289402313
-      ommy_walk_1: 1117128504
-      ommy_walk_2: 560327807
-      ommy_walk_3: -688778124
-      ommy_walk_4: -608181610
-      ommy_walk_5: -608181610
+      sprout_damaged: -2139135183
+      sprout_empty: -1190473130
+      sprout_grow_0: -1205706362
+      sprout_grow_1: 686328046
+      sprout_grow_10: 1480247643
+      sprout_grow_11: -298675282
+      sprout_grow_12: -1758544402
+      sprout_grow_2: -1384307072
+      sprout_grow_3: -127726483
+      sprout_grow_4: 1691016838
+      sprout_grow_5: -1708847561
+      sprout_grow_6: -838358610
+      sprout_grow_7: 1257161882
+      sprout_grow_8: -1381809419
+      sprout_grow_9: -1258316172
+      sprout_idle_0: -929059556
+      sprout_idle_1: -894095817
+      sprout_idle_2: 1156940729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

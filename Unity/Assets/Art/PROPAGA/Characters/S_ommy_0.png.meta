@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spritesheet Placeholders_0
+      name: ommy_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_1
+      name: ommy_idle_1
       rect:
         serializedVersion: 2
         x: 128
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_2
+      name: ommy_idle_2
       rect:
         serializedVersion: 2
         x: 256
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_4
+      name: ommy_walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_5
+      name: ommy_walk_1
       rect:
         serializedVersion: 2
         x: 128
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_6
+      name: ommy_walk_2
       rect:
         serializedVersion: 2
         x: 256
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_8
+      name: ommy_walk_3
       rect:
         serializedVersion: 2
         x: 0
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_9
+      name: ommy_walk_4
       rect:
         serializedVersion: 2
         x: 128
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet Placeholders_10
+      name: ommy_walk_5
       rect:
         serializedVersion: 2
         x: 256
@@ -456,22 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Spritesheet Placeholders_0: -1783592418
-      Spritesheet Placeholders_1: -388573100
-      Spritesheet Placeholders_10: -627464049
-      Spritesheet Placeholders_2: 1355780552
-      Spritesheet Placeholders_4: -784248542
-      Spritesheet Placeholders_5: -1526048476
-      Spritesheet Placeholders_6: 119730545
-      Spritesheet Placeholders_8: -1923988574
-      Spritesheet Placeholders_9: -310366531
       ommy_dead: 48292083
+      ommy_idle_0: -1783592418
+      ommy_idle_1: -388573100
+      ommy_idle_2: 1355780552
       ommy_punch_0: -519701783
       ommy_punch_1: 771788849
       ommy_punch_2: -597556226
       ommy_punch_3: 1043483497
       ommy_punch_4: -1971205866
       ommy_punch_5: -1971205866
+      ommy_walk_0: -784248542
+      ommy_walk_1: -1526048476
+      ommy_walk_2: 119730545
+      ommy_walk_3: -1923988574
+      ommy_walk_4: -310366531
+      ommy_walk_5: -627464049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
