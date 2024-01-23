@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4461544013323116369}
   - component: {fileID: 5235672214020572295}
   - component: {fileID: 5682624503254515159}
+  - component: {fileID: 3202852107293130347}
   m_Layer: 3
   m_Name: P_3C_Ommy_Character
   m_TagString: Untagged
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_velocityModules:
   - {fileID: 2313371875755316026}
   - {fileID: 5682624503254515159}
+  - {fileID: 3202852107293130347}
   m_rotationModules:
   - {fileID: 7075112053734962797}
   - {fileID: 5772703982080360152}
@@ -523,6 +525,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_priority: 0
+--- !u!114 &3202852107293130347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313554142022740001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c373188e7640045ac2f708be7aa7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 3
+  m_ForwardZ: 1
+  m_useAttackerPositionInsteadOfImpactPosition: 1
+  m_velocity: {x: 0, y: 0, z: 0}
+  OnPushBackBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2313371875755316026}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPushBackEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2313371875755316026}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &5143397073780477448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,11 +1143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_team: {fileID: -5005627473083841947, guid: 2ecc227bf2bdf1245b8f2608bbb0c163, type: 2}
   m_target: 6
-  m_hitDefinition: {fileID: -3457947807821785213, guid: e1f59d13ee1d5a54e9fbacb27d66ebe9,
+  m_hitDefinition: {fileID: -2362741987968979966, guid: e1f59d13ee1d5a54e9fbacb27d66ebe9,
     type: 2}
   m_hitOriginTeam: {fileID: 7554512534338480057}
   m_hitOriginGao: {fileID: 4313554142022740001}
-  m_impactOriginSocket: {fileID: 813209062000660775}
+  m_impactOriginSocket: {fileID: 3042406968937886770}
   OnHitboxEnabled:
     m_PersistentCalls:
       m_Calls: []

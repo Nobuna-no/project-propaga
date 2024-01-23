@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_definition: {fileID: -6544304404480520575, guid: 0ec77d33ce27c7747b1250f61874a3c7,
     type: 2}
-  m_isInteractable: 0
+  m_isInteractable: 1
   requireItem: 1
   acceptedItems:
   - {fileID: 8574042131115452611, guid: aa3e84bfc135e1e439474e1d28833879, type: 2}
@@ -736,7 +736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3187837714420265340
 Transform:
   m_ObjectHideFlags: 0
@@ -787,7 +787,7 @@ MonoBehaviour:
   doneState: {fileID: 6976636073754466253, guid: f055c25428f2f13409d3cbbf4721d8bd,
     type: 2}
   mode: 0
-  maxValue: 10
+  maxValue: 30
   initialSpeed: 1
   OnProgressChanged:
     m_PersistentCalls:

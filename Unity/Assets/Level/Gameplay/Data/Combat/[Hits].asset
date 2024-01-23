@@ -103,6 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
   m_Name: hit-3-dmg
   m_EditorClassIdentifier: 
-  m_damageAmount: 1
+  m_damageAmount: 3
   m_pushBackDefinition: {fileID: -5070713211163877027, guid: 02248517152ee17488d5f7f6eb4a9f0a,
     type: 2}
