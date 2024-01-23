@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104744b779002c44a8aba46c0db43365, type: 3}
+  m_Name: '[Ommroot States]'
+  m_EditorClassIdentifier: 
+  m_dataDefinitions:
+  - {fileID: 2589948365781865594}
+  - {fileID: 7025770596524398499}
+--- !u!114 &2589948365781865594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: ommroot-idle
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &7025770596524398499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: ommroot-invalid-direction
+  m_EditorClassIdentifier: 
+  m_description: Negative feedback when player tries to grow root in a non accessible
+    direction.
+  m_requiredPriorState: {fileID: 0}

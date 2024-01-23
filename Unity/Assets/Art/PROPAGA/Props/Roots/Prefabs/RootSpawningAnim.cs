@@ -6,23 +6,45 @@ using UnityEngine.Splines;
 public class RootSpawningAnim : MonoBehaviour
 {
     [SerializeField]
+    private Sprite[] m_spriteSkins;
+
+    [SerializeField]
     private Vector3 offset = Vector3.one;
+
     [SerializeField]
     private Vector3 originOffset = Vector3.zero;
+
     [SerializeField, MinMaxRangeSlider(0, 10)]
     private Vector2 m_durationRange = new Vector2(1, 2);
-    private float m_currentTime = 0;
-    // Start is called before the first frame update
 
-    private Vector3 splineOrigin = Vector3.zero;
-    private Vector3 splineEnd = Vector3.zero;
     [SerializeField]
     private float m_growthDelayByDistance = 1;
+
+    [SerializeField]
+    private SpriteRenderer m_spriteRenderer;
+
+    private SplineContainer m_parentSplineContainer;
+    private Vector3 splineOrigin = Vector3.zero;
+    private Vector3 splineEnd = Vector3.zero;
     private Vector3 m_origin;
+    private float m_currentTime = 0;
     private float m_normalizeDistanceOnThePath = 0;
-    SplineContainer m_parentSplineContainer;
     private float m_duration = 0;
-    void Start()
+
+    private void Awake()
+    {
+        if (m_spriteRenderer != null)
+        {
+            m_spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        Debug.Assert(m_spriteRenderer != null, this);
+        Debug.Assert(m_spriteSkins != null && m_spriteSkins.Length > 0, this);
+
+        m_spriteRenderer.sprite = m_spriteSkins[Random.Range(0, m_spriteSkins.Length)];
+    }
+
+    private void Start()
     {
         m_currentTime = 0;
         m_duration = Random.Range(m_durationRange.x, m_durationRange.y);
@@ -45,7 +67,7 @@ public class RootSpawningAnim : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (m_currentTime >= 0)
         {

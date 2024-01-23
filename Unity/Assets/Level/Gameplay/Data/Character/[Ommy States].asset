@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8552845302656159287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: attack
+  m_EditorClassIdentifier: 
+  m_description: '- 0.2 sec duration lock -> idle
+
+    - Play attack animation
+
+    -
+    Handle hitbox'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-7057779701895778711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: thrown
+  m_EditorClassIdentifier: 
+  m_description: '- 2 sec duration lock -> idle
+
+    - Play thrown animation
+
+    -
+    Disable character collision and movement module
+
+    - Active anti-passthrough'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-4455230071792867386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: hit
+  m_EditorClassIdentifier: 
+  m_description: '- hitstun .15s then go idle
+
+    - Play hit animation
+
+    - Drop
+    first storage item (if any)'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-4129481202304526675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: dropped
+  m_EditorClassIdentifier: 
+  m_description: '- .2s sec duration lock -> idle
+
+    - Disable character collision
+    and movement module
+
+    - No need for animation, gently put down :D
+
+    - Active
+    anti-passthrough'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-3680261532397133372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: interact
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-1996716971183954561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: idle
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-981385721254977236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: resurrecting
+  m_EditorClassIdentifier: 
+  m_description: Play resurrection animation while waiting 1 second before going
+    back to idle.
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &-534289748970661565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: dead
+  m_EditorClassIdentifier: 
+  m_description: '- Play die animation
+
+    - Disable storage component
+
+    - Disable
+    interaction component'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104744b779002c44a8aba46c0db43365, type: 3}
+  m_Name: '[Ommy States]'
+  m_EditorClassIdentifier: 
+  m_dataDefinitions:
+  - {fileID: -1996716971183954561}
+  - {fileID: -3680261532397133372}
+  - {fileID: 2961972812571228265}
+  - {fileID: 2131463559337795275}
+  - {fileID: 3921332938582189215}
+  - {fileID: -4129481202304526675}
+  - {fileID: -7057779701895778711}
+  - {fileID: -8552845302656159287}
+  - {fileID: -4455230071792867386}
+  - {fileID: -534289748970661565}
+  - {fileID: -981385721254977236}
+  - {fileID: 1410273868820949612}
+--- !u!114 &1410273868820949612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: rooted
+  m_EditorClassIdentifier: 
+  m_description: Play resurrection animation while waiting 1 second before going
+    back to idle.
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &2131463559337795275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: throw-object
+  m_EditorClassIdentifier: 
+  m_description: '- 0.3 sec duration lock -> idle
+
+    - Play throw animation
+
+    -
+    Disable transportable component to prevent collision issue'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &2961972812571228265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: drop-object
+  m_EditorClassIdentifier: 
+  m_description: '- 0.5 sec duration lock -> idle
+
+    - Play drop animation? (maybe
+    we don''t need it?)
+
+    - Drop all items
+
+    - Disable transportable component
+    to prevent collision issue'
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &3921332938582189215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: struggling
+  m_EditorClassIdentifier: 
+  m_description: Play Struggling animation until dropped or thrown.
+  m_requiredPriorState: {fileID: 0}

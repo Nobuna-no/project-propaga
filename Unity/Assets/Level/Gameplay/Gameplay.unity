@@ -1289,16 +1289,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerParticipant-backup-20-01
       objectReference: {fileID: 0}
-    - target: {fileID: 2427388353494435356, guid: bac89ebcd62110148b1c022280eb999a,
-        type: 3}
-      propertyPath: m_stateModules.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427388353494435356, guid: bac89ebcd62110148b1c022280eb999a,
-        type: 3}
-      propertyPath: 'm_stateModules.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4948716843515500884, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
       propertyPath: m_LocalPosition.x

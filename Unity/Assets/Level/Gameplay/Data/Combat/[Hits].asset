@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6189081570369504284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
+  m_Name: danger-zone
+  m_EditorClassIdentifier: 
+  m_damageAmount: 1
+  m_pushBackDefinition: {fileID: 0}
+--- !u!114 &-3457947807821785213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
+  m_Name: debug-hit
+  m_EditorClassIdentifier: 
+  m_damageAmount: 1
+  m_pushBackDefinition: {fileID: 0}
+--- !u!114 &-2362741987968979966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
+  m_Name: hit-1-dmg
+  m_EditorClassIdentifier: 
+  m_damageAmount: 1
+  m_pushBackDefinition: {fileID: -6166799829306999691, guid: 02248517152ee17488d5f7f6eb4a9f0a,
+    type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb09627459b48148b0d2309b684e4bd, type: 3}
+  m_Name: '[Hits]'
+  m_EditorClassIdentifier: 
+  m_dataDefinitions:
+  - {fileID: -3457947807821785213}
+  - {fileID: -6189081570369504284}
+  - {fileID: 802741678184636707}
+  - {fileID: -2362741987968979966}
+  - {fileID: 185389466719771635}
+  - {fileID: 7977970355913922946}
+--- !u!114 &185389466719771635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
+  m_Name: hit-2-dmg
+  m_EditorClassIdentifier: 
+  m_damageAmount: 1
+  m_pushBackDefinition: {fileID: -5982530220862732387, guid: 02248517152ee17488d5f7f6eb4a9f0a,
+    type: 2}
+--- !u!114 &802741678184636707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
+  m_Name: player-hit
+  m_EditorClassIdentifier: 
+  m_damageAmount: 1
+  m_pushBackDefinition: {fileID: 0}
+--- !u!114 &7977970355913922946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c47c2ec959a822439c3493bcca4f0cb, type: 3}
+  m_Name: hit-3-dmg
+  m_EditorClassIdentifier: 
+  m_damageAmount: 1
+  m_pushBackDefinition: {fileID: -5070713211163877027, guid: 02248517152ee17488d5f7f6eb4a9f0a,
+    type: 2}
