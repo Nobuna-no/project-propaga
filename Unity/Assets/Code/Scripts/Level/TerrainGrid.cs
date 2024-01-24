@@ -42,6 +42,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         public CellState state;
         public int zoneId;
         public CellConnection availableAdjacentCells; // Indicates which direction has an available cell.
+        public TerrainCellDefinition cellDefinition;
     }
 
     [Serializable]
@@ -295,7 +296,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
                     case 3: cellColor = Color.red; break;
                     default: cellColor = Color.white; break;
                 }
-                cellColor.a = 0.1f;
+                cellColor.a = 0.5f;
                 Gizmos.color = cellColor;
                 Vector3 position = GetCellPosition(new Vector2Int(i, j));
                 Gizmos.DrawCube(position, new Vector3(tileSize, 2.0f, tileSize));
@@ -308,7 +309,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
                     default: cellColor = Color.green; break;
                 }
                 Gizmos.color = cellColor;
-                Gizmos.DrawSphere(position, tileSize * 0.025f);
+                Gizmos.DrawSphere(position, tileSize * 0.15f);
 
                 float halfSize = tileSize * 0.5f;
                 Gizmos.color = cells == null || !cells[i, j].availableAdjacentCells.HasFlag(CellConnection.Left) ? Color.red : Color.black;
@@ -334,7 +335,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         {
             Debug.Log("Incompatible size in import terrain data.");
         }
-        
+
         for (int i = 0; i < width; ++i)
         {
             for (int j = 0; j < height; ++j)
