@@ -1,17 +1,10 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TerrainCamera : MonoBehaviour
 {
-    public enum EditMode
-    {
-        ToggleAvailability,
-        SetZone1,
-        SetZone2,
-        SetZone3,
-        Count
-    }
-
     private Camera cam;
     [SerializeField]
     private GameObject otherMode;
@@ -19,19 +12,45 @@ public class TerrainCamera : MonoBehaviour
     private TerrainGrid terrainGrid;
     [SerializeField]
     private Text text;
-    private EditMode currentMode;
+    [SerializeField]
+    private TerrainCellCollection terrainCells;
+    private int currentMode;
+    private string[] baseModes = new string[4]
+    {
+        "Toggle Availability",
+        "Set Zone 1",
+        "Set Zone 2",
+        "Set Zone 3"
+    };
+    private int modeCount;
     const string instruction = " (Scroll to change mode)";
     
     void Start()
     {
+        int definitionCount = terrainCells ? terrainCells.GetData().Count : 0;
+        modeCount = baseModes.Length + definitionCount;
+
         cam = GetComponent<Camera>();
         if (text != null)
-            text.text = currentMode.ToString() + instruction;
+            text.text = GetModeText(currentMode) + instruction;
     }
 
     void OnEnable()
     {
         otherMode.SetActive(false);
+    }
+
+    private string GetModeText(int i)
+    {
+        if (i < baseModes.Length)
+            return baseModes[i];
+
+        i -= baseModes.Length;
+        IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.GetData();
+        if (i >= definitions.Count)
+            return "";
+
+        return "Toggle " + definitions[i].name;
     }
 
     private void Update()
@@ -51,11 +70,10 @@ public class TerrainCamera : MonoBehaviour
 
         if (Input.mouseScrollDelta.y != 0.0f)
         {
-            int modeCount = (int)EditMode.Count;
             int sign = (int)Mathf.Sign(Input.mouseScrollDelta.y);
-            currentMode = (EditMode)((int)(currentMode + sign + modeCount) % modeCount);
+            currentMode = (currentMode + sign + modeCount) % modeCount;
             if (text != null)
-                text.text = currentMode.ToString() + instruction;
+                text.text = GetModeText(currentMode) + instruction;
         }
     } 
 
@@ -63,19 +81,29 @@ public class TerrainCamera : MonoBehaviour
     {
         switch(currentMode)
         {
-            case EditMode.ToggleAvailability:
+            case 0:
                 if (isDown) ToggleAvailability(ref cell, gridPos);
                 break;
-            case EditMode.SetZone1:
+            case 1:
                 SetZone(ref cell, 1);
                 break;
-            case EditMode.SetZone2:
+            case 2:
                 SetZone(ref cell, 2);
                 break;
-            case EditMode.SetZone3:
+            case 3:
                 SetZone(ref cell, 3);
                 break;
+            default:
+                IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.GetData();
+                int index = GetDefinitionIndex();
+                if (isDown) ToggleCellDefinition(ref cell, definitions[index]);
+                break;
         }
+    }
+
+    private int GetDefinitionIndex()
+    {
+        return currentMode - baseModes.Length;;
     }
 
     private void ToggleAvailability(ref TerrainGrid.Cell cell, Vector2Int gridPos)
@@ -88,5 +116,38 @@ public class TerrainCamera : MonoBehaviour
     private void SetZone(ref TerrainGrid.Cell cell, int zoneId)
     {
         cell.zoneId = zoneId;
+    }
+
+    private void ToggleCellDefinition(ref TerrainGrid.Cell cell, TerrainCellDefinition definition)
+    {
+        cell.cellDefinition = cell.cellDefinition == definition ? null : definition;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (currentMode < baseModes.Length || terrainCells == null)
+            return;
+
+        IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.GetData();
+        int index = GetDefinitionIndex();
+        if (definitions == null || index >= definitions.Count)
+            return;
+        
+        TerrainCellDefinition currentCellDefinition = definitions[index];
+
+        for (int x = 0; x < terrainGrid.Width; ++x)
+        {
+            for (int y = 0; y < terrainGrid.Height; ++y)
+            {
+                TerrainGrid.Cell cell = terrainGrid[x, y];
+                if (cell.cellDefinition == null)
+                    continue;
+
+                Gizmos.color = cell.cellDefinition == currentCellDefinition ? Color.magenta : Color.cyan;
+                Vector3 position = terrainGrid.GetCellPosition(new Vector2Int(x, y));
+                float tileSize = terrainGrid.TileSize;
+                Gizmos.DrawWireSphere(position, tileSize * 0.25f);
+            }
+        }
     }
 }

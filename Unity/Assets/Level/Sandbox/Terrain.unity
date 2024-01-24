@@ -140,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 3921455774109955388, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6700002
+      value: 0.67000026
       objectReference: {fileID: 0}
     - target: {fileID: 4948716843515500884, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
@@ -195,7 +195,7 @@ PrefabInstance:
     - target: {fileID: 7540980721613406136, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6700002
+      value: 0.67000026
       objectReference: {fileID: 0}
     - target: {fileID: 8142307745788156948, guid: bac89ebcd62110148b1c022280eb999a,
         type: 3}
@@ -672,11 +672,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dontDestroyOnLoad: 0
   m_onlyDestroyDuplicatedComponent: 1
-  importAsset: {fileID: 4900000, guid: 3fab059536ba7ec42a4edb23e36eb8b1, type: 3}
+  importAsset: {fileID: 4900000, guid: ce534ea4a8a34824ca1033ca91a16c26, type: 3}
   width: 21
   height: 21
   tileSize: 10
   m_drawGizmos: 1
+  m_terrainCells: {fileID: 0}
 --- !u!4 &1001046343
 Transform:
   m_ObjectHideFlags: 0
@@ -914,6 +915,7 @@ MonoBehaviour:
   otherMode: {fileID: 33083892}
   terrainGrid: {fileID: 1001046342}
   text: {fileID: 294411290}
+  terrainCells: {fileID: 11400000, guid: 9f75996ea12a061499dd0898e36068e8, type: 2}
 --- !u!1001 &1100667075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1083,13 +1085,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191698455}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 21, y: 21, z: 21}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1994380370
 GameObject:
   m_ObjectHideFlags: 0
