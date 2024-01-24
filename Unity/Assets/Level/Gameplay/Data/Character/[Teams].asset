@@ -44,3 +44,18 @@ MonoBehaviour:
   m_dataDefinitions:
   - {fileID: -5005627473083841947}
   - {fileID: -8935869680415108629}
+  - {fileID: 8031982487490336725}
+--- !u!114 &8031982487490336725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e26ef3903911c49a4f46cf6bb4033c, type: 3}
+  m_Name: Les mechants!
+  m_EditorClassIdentifier: 
+  m_allies: []
+  m_enemies: []
