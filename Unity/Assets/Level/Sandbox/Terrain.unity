@@ -207,6 +207,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bac89ebcd62110148b1c022280eb999a, type: 3}
+--- !u!1 &33083892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1059775377046745432, guid: bac89ebcd62110148b1c022280eb999a,
+    type: 3}
+  m_PrefabInstance: {fileID: 33083891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &156540306
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1081021769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b189b96680604104cb5a9d6fd9ac193b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherMode: {fileID: 507378848}
+  otherMode: {fileID: 33083892}
   terrainGrid: {fileID: 1001046342}
   text: {fileID: 294411290}
 --- !u!1001 &1100667075

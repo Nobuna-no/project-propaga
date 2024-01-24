@@ -46,12 +46,12 @@ public class FogRenderPass : ScriptableRenderPass
         ConfigureClear(ClearFlag.Color, Color.black);
     }
 
-    private void UpdateFogSettings()
+    private bool UpdateFogSettings()
     {
         // Use the Volume settings or the default settings if no Volume is set.
         var volumeComponent =
             VolumeManager.instance.stack.GetComponent<FogVolumeComponent>();
-        float horizontalFog = volumeComponent.horizontalBlur.overrideState ? 
+        float horizontalFog = volumeComponent.horizontalBlur.overrideState ?
             volumeComponent.horizontalBlur.value : defaultSettings.horizontalBlur;
         float verticalFog = volumeComponent.verticalBlur.overrideState ?
             volumeComponent.verticalBlur.value : defaultSettings.verticalBlur;
@@ -64,6 +64,8 @@ public class FogRenderPass : ScriptableRenderPass
 
         filteringSettings.layerMask = volumeComponent.layerMask.overrideState ?
             volumeComponent.layerMask.value : defaultSettings.layerMask;
+
+        return volumeComponent.isActive.overrideState ? volumeComponent.isActive.value : true;
 	}
 
     private RendererListParams GetRenderingList(ref RenderingData renderingData)
@@ -80,13 +82,16 @@ public class FogRenderPass : ScriptableRenderPass
 	public override void Execute(ScriptableRenderContext context,
         ref RenderingData renderingData)
     {
+        if (!UpdateFogSettings())
+        {
+            return;
+        }
+
         //Get a CommandBuffer from pool.
         CommandBuffer cmd = CommandBufferPool.Get();
 
         RTHandle cameraTargetHandle =
             renderingData.cameraData.renderer.cameraColorTargetHandle;
-
-		UpdateFogSettings();
 
         RenderObjects(cmd, context, ref renderingData);
 

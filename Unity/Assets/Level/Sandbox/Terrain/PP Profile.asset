@@ -39,3 +39,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: -5804841269047307493}
+  - {fileID: 7223135860521344645}
+--- !u!114 &7223135860521344645
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef7fe9fe370d3c4d90af5bcdf8200e1, type: 3}
+  m_Name: FogVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  isActive:
+    m_OverrideState: 1
+    m_Value: 0
+  horizontalBlur:
+    m_OverrideState: 0
+    m_Value: 0.05
+  verticalBlur:
+    m_OverrideState: 0
+    m_Value: 0.05
+  layerMask:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Bits: 0
