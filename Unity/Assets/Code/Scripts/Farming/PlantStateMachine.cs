@@ -57,7 +57,7 @@ public class PlantStateMachine : TaskStateMachine
 
     public void DropObjectFromSocket()
     {
-        storage.FirstItemDrop();
+        storage.ThrowFirstItem();
     }
 
     //public void AddSeedsToStorage()

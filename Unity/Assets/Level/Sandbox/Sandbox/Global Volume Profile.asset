@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 2543278699505205747}
   - {fileID: 746441729331662576}
   - {fileID: -8787177206772175461}
+  - {fileID: 6230571538496043142}
 --- !u!114 &746441729331662576
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -137,3 +138,30 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &6230571538496043142
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef7fe9fe370d3c4d90af5bcdf8200e1, type: 3}
+  m_Name: FogVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  isActive:
+    m_OverrideState: 0
+    m_Value: 1
+  horizontalBlur:
+    m_OverrideState: 1
+    m_Value: 0.03
+  verticalBlur:
+    m_OverrideState: 1
+    m_Value: 0.03
+  layerMask:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Bits: 0
