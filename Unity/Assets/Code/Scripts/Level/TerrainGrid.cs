@@ -68,6 +68,13 @@ public class TerrainGrid : Singleton<TerrainGrid>
     [SerializeField]
     private bool m_drawGizmos = true;
 
+    [Header("Generation")]
+    [SerializeField]
+    private bool generateTiles = true;
+
+    [SerializeField]
+    private Transform generationParent = null;
+
     // The world space origin (0, 0, 0) is the middle of the overall grid
     private float OriginOffsetX => width * 0.5f;
 
@@ -200,13 +207,40 @@ public class TerrainGrid : Singleton<TerrainGrid>
     {
         cells = new Cell[width, height];
         if (importAsset == null)
-            Reset();
+            ResetCells();
         else
             Import();
+
+        if (generateTiles)
+            SpawnTiles();
     }
 
     [Button]
-    private void Reset()
+    private void SpawnTiles()
+    {
+        if (generationParent == null)
+            generationParent = transform;
+
+        for (int i = 0; i < width; ++i)
+        {
+            for (int j = 0; j < height; ++j)
+            {
+                TerrainCellDefinition cellDefinition = cells[i, j].cellDefinition;
+                if (cellDefinition == null)
+                    continue;
+
+                GameObject prefab = cellDefinition.Prefab;
+                if (prefab == null)
+                    continue;
+
+                Vector3 worldPosition = GetCellPosition(new Vector2Int(i, j));
+                Instantiate(prefab, worldPosition, Quaternion.identity, generationParent);
+            }
+        }
+    }
+
+    [Button]
+    private void ResetCells()
     {
         for (int i = 0; i < width; ++i)
         {
@@ -219,6 +253,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
                 connections |= j == 0 ? CellConnection.None : CellConnection.Bottom;
                 connections |= j == height - 1 ? CellConnection.None : CellConnection.Top;
                 cells[i, j].availableAdjacentCells = connections;
+                cells[i, j].cellDefinition = null;
             }
         }
     }
