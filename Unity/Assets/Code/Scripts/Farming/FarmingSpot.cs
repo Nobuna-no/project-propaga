@@ -24,11 +24,6 @@ public class FarmingSpot : MonoBehaviour
     {
         if (m_poolManager == null || obj == null || obj.plantedObject == null)
         {
-            if (obj.plantedObject == m_playerCorpseDefinition)
-            {
-
-                return;
-            }
             Debug.Log($"Can't spawn {obj.name}", this);
             return;
         }
@@ -49,6 +44,7 @@ public class FarmingSpot : MonoBehaviour
                 var character = info.Target as PropagaTransportableCharacter;
                 Debug.Assert(character, this);
                 character.PlantCharacter(transform.position + m_offset);
+                m_interactableBehaviour.gameObject.SetActive(false);
                 return;
             }
 
@@ -56,15 +52,11 @@ public class FarmingSpot : MonoBehaviour
             return;
         }
 
-        PoolableBehaviour poolBehaviour = m_poolManager.SpawnObject(obj.plantedObject, transform.position + m_offset);
-        FarmingObject farmObj = poolBehaviour as FarmingObject;
-        farmObj.Init(this);
-        m_interactableBehaviour.gameObject.SetActive(false);
+        Spawn(info.ObjectDefinition);
     }
 
     public void Despawn(FarmingObject obj)
     {
         m_interactableBehaviour.gameObject.SetActive(true);
-        // obj.GetComponentInChildren<HealthBehaviour>().Kill();
     }
 }
