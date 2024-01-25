@@ -77,18 +77,18 @@ public class FogRenderPass : ScriptableRenderPass
 			materials.blur.SetFloat(verticalBlurId, verticalFog);
 		}
 
-        filteringSettings[0].layerMask = volumeComponent.fullMask.overrideState ?
-            volumeComponent.fullMask.value : defaultSettings.fullMask;
-        filteringSettings[1].layerMask = volumeComponent.halfMask.overrideState ?
+        filteringSettings[0].layerMask = volumeComponent.halfMask.overrideState ?
             volumeComponent.halfMask.value : defaultSettings.halfMask;
+        filteringSettings[1].layerMask = volumeComponent.fullMask.overrideState ?
+            volumeComponent.fullMask.value : defaultSettings.fullMask;
         filteringSettings[2].layerMask = volumeComponent.fogMask.overrideState ?
             volumeComponent.fogMask.value : defaultSettings.fogMask;
 
         strengths = new float[kLayers];
-        strengths[0] = volumeComponent.fullClearStrength.overrideState ?
-            volumeComponent.fullClearStrength.value : defaultSettings.fullClearStrength;
-        strengths[1] = volumeComponent.halfClearStrength.overrideState ?
+        strengths[0] = volumeComponent.halfClearStrength.overrideState ?
             volumeComponent.halfClearStrength.value : defaultSettings.halfClearStrength;
+        strengths[1] = volumeComponent.fullClearStrength.overrideState ?
+            volumeComponent.fullClearStrength.value : defaultSettings.fullClearStrength;
         strengths[2] = volumeComponent.fogStrength.overrideState ?
             volumeComponent.fogStrength.value : defaultSettings.fogStrength;
 

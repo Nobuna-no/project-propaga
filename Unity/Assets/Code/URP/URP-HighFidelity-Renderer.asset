@@ -62,7 +62,7 @@ MonoBehaviour:
     halfMask:
       serializedVersion: 2
       m_Bits: 1024
-    halfClearStrength: 0.5
+    halfClearStrength: 0.2
     fogMask:
       serializedVersion: 2
       m_Bits: 2048
