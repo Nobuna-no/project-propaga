@@ -29,6 +29,7 @@ public class FarmingObject : PoolableBehaviour
     public void Despawn()
     {
         sourceSpot.Despawn(this);
+        sourceSpot = null;
     }
 
     public TransportableObjectBehaviour SpawnSeed(ObjectDefinition obj, Vector3 position)

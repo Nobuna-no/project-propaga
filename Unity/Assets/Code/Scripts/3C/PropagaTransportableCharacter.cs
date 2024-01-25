@@ -8,10 +8,12 @@ public class PropagaTransportableCharacter : PropagaTransportableObject
     [Header("PROPAGA Transportable Character")]
     [SerializeField]
     private HealthBehaviour m_healthBehaviour;
-    [SerializeField] private Transform m_playerPlantTransform;
+    [SerializeField] private FarmingObject m_playerPlant;
     [SerializeField] private Rigidbody m_characterRigidbody;
     [SerializeField] private float m_plantingLerpDurationInSeconds = 1f;
     [SerializeField] private UnityEvent OnCharacterPlanted;
+
+    public FarmingObject PlayerPlant => m_playerPlant;
 
     private float m_currentTime = 0;
 
@@ -52,7 +54,7 @@ public class PropagaTransportableCharacter : PropagaTransportableObject
             m_currentTime += Time.deltaTime / m_plantingLerpDurationInSeconds;
         }
 
-        m_playerPlantTransform.position = m_characterRigidbody.position;
+        m_playerPlant.transform.position = m_characterRigidbody.position;
         OnCharacterPlanted?.Invoke();
     }
 }
