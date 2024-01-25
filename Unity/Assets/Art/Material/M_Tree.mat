@@ -59,7 +59,7 @@ Material:
     - _ClipThreshold: 1
     - _DitherSize: 2
     - _Opacity: 1
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     m_Colors:
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0}
