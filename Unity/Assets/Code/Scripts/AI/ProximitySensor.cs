@@ -10,9 +10,27 @@ public class ProximitySensor : TriggerBehaviour
 {
     [SerializeField] private UnityEvent<Transform> OnNewTargetAcquired;
     [SerializeField] private UnityEvent OnTargetLost;
+    [SerializeField] private UnityEvent OnTargetAtRange;
+    [SerializeField, Range(0, 10)] private float m_atRangeDistanceUnit = 1.0f;
     [SerializeField] private Character m_currentTarget;
     private List<Character> m_targetList = new List<Character>();
     private HealthBehaviour m_targetHealthBehaviour;
+
+    public void TryRaiseAtRangeEvent()
+    {
+        if (m_currentTarget == null)
+        {
+            return;
+        }
+
+        Vector2 diff = new Vector2(transform.position.x - m_currentTarget.Position.x, transform.position.z - m_currentTarget.Position.z);
+
+        Debug.Log($"Try raise at range - diff: {diff}");
+        if (diff.sqrMagnitude < m_atRangeDistanceUnit * m_atRangeDistanceUnit)
+        {
+            OnTargetAtRange?.Invoke();
+        }
+    }
 
     protected override void OnTriggerEnter(Collider other)
     {

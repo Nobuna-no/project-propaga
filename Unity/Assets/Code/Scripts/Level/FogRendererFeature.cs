@@ -42,7 +42,12 @@ public class FogSettings
     [Range(0, 0.4f)] public float horizontalBlur;
     [Range(0, 0.4f)] public float verticalBlur;
 
-	public LayerMask layerMask;
+	public LayerMask fullMask;
+	public float fullClearStrength;
+	public LayerMask halfMask;
+	public float halfClearStrength;
+	public LayerMask fogMask;
+	public float fogStrength;
 }
 
 [Serializable]

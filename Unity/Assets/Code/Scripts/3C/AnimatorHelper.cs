@@ -12,11 +12,21 @@ public class AnimatorHelper : MonoBehaviour
 
     public void SetAnimParamToggleTrue(string animParam)
     {
+        if (!this.enabled)
+        {
+            return;
+        }
+
         m_animator.SetBool(animParam, true);
     }
 
     public void SetAnimParamToggleFalse(string animParam)
     {
+        if (!this.enabled)
+        {
+            return;
+        }
+
         m_animator.SetBool(animParam, false);
     }
 }

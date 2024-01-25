@@ -183,11 +183,30 @@ MonoBehaviour:
   verticalBlur:
     m_OverrideState: 1
     m_Value: 0.05
-  layerMask:
+  fullMask:
     m_OverrideState: 1
     m_Value:
       serializedVersion: 2
       m_Bits: 0
+  fullClearStrength:
+    m_OverrideState: 1
+    m_Value: 1
+  halfMask:
+    m_OverrideState: 1
+    m_Value:
+      serializedVersion: 2
+      m_Bits: 0
+  halfClearStrength:
+    m_OverrideState: 1
+    m_Value: 0.5
+  fogMask:
+    m_OverrideState: 1
+    m_Value:
+      serializedVersion: 2
+      m_Bits: 0
+  fogStrength:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &-1909948792790023093
 MonoBehaviour:
   m_ObjectHideFlags: 3

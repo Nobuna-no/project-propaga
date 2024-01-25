@@ -44,6 +44,7 @@ public class FarmingSpot : MonoBehaviour
                 var character = info.Target as PropagaTransportableCharacter;
                 Debug.Assert(character, this);
                 character.PlantCharacter(transform.position + m_offset);
+                character.PlayerPlant.Init(this);
                 m_interactableBehaviour.gameObject.SetActive(false);
                 return;
             }
