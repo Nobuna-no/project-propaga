@@ -1189,7 +1189,7 @@ MonoBehaviour:
     type: 2}
   m_enterInitialStateOnStart: 1
   m_nextStateOnStateMachineExit: {fileID: 0}
-  m_displayDebug: 1
+  m_displayDebug: 0
 --- !u!114 &7082049179220176845
 MonoBehaviour:
   m_ObjectHideFlags: 0
