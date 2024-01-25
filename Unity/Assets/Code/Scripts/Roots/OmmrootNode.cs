@@ -1,14 +1,13 @@
 using NaughtyAttributes;
 using NobunAtelier;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
+using static UnityEngine.Splines.SplineInstantiate;
 
 public class OmmrootNode : PoolableBehaviour
 {
-    private static Dictionary<Vector2Int, OmmrootNode> s_nodePerCell;
+    private static Dictionary<Vector2Int, OmmrootNode> s_nodePerCell = new Dictionary<Vector2Int, OmmrootNode>();
 
     [Header("Ommroot - Data")]
     [SerializeField] private PoolObjectDefinition m_greenAreaNodeToSpawn;
@@ -25,6 +24,7 @@ public class OmmrootNode : PoolableBehaviour
     private float m_safeZoneExpansionDuration = 1;
 
     [Header("Ommroot - Splines")]
+    [SerializeField] InstantiableItem[] m_ItemsToInstantiate;
     [SerializeField] private SplineInstantiate m_topSplineInstantiate;
     [SerializeField] private SplineInstantiate m_rightSplineInstantiate;
     [SerializeField] private SplineInstantiate m_bottomSplineInstantiate;
@@ -56,15 +56,10 @@ public class OmmrootNode : PoolableBehaviour
         Debug.Assert(m_bottomSplineInstantiate != null);
         Debug.Assert(m_leftSplineInstantiate != null);
 
-        m_topSplineInstantiate.Clear();
-        m_rightSplineInstantiate.Clear();
-        m_bottomSplineInstantiate.Clear();
-        m_leftSplineInstantiate.Clear();
-
-        m_topSplineInstantiate.enabled = false;
-        m_rightSplineInstantiate.enabled = false;
-        m_bottomSplineInstantiate.enabled = false;
-        m_leftSplineInstantiate.enabled = false;
+        // m_topSplineInstantiate.enabled = false;
+        // m_rightSplineInstantiate.enabled = false;
+        // m_bottomSplineInstantiate.enabled = false;
+        // m_leftSplineInstantiate.enabled = false;
 
         // Reset state of the object as prefab spawning sometime behave weirdly...
         //m_visual.SetActive(true);
@@ -87,6 +82,11 @@ public class OmmrootNode : PoolableBehaviour
         s_nodePerCell.Add(gridCoord, this);
         RefreshNodeAndSurroundingNodes(gridCoord);
         enabled = false;
+
+        m_topSplineInstantiate.itemsToInstantiate = new InstantiableItem[] { };
+        m_rightSplineInstantiate.itemsToInstantiate = new InstantiableItem[] { };
+        m_bottomSplineInstantiate.itemsToInstantiate = new InstantiableItem[] { };
+        m_leftSplineInstantiate.itemsToInstantiate = new InstantiableItem[] { };
     }
 
     public bool IsTopRootAccessible()
@@ -136,7 +136,7 @@ public class OmmrootNode : PoolableBehaviour
     [Button]
     public void GrowTopRoot()
     {
-        m_topSplineInstantiate.enabled = true;
+        m_topSplineInstantiate.itemsToInstantiate = m_ItemsToInstantiate;
         m_topSplineInstantiate.Randomize();
 
         SpawnNewNodeAndUpdateGrid(TerrainGrid.Instance.GetGridCoordinates(transform.position) + Vector2Int.up);
@@ -145,7 +145,7 @@ public class OmmrootNode : PoolableBehaviour
     [Button]
     public void GrowBottomRoot()
     {
-        m_bottomSplineInstantiate.enabled = true;
+        m_bottomSplineInstantiate.itemsToInstantiate = m_ItemsToInstantiate;
         m_bottomSplineInstantiate.Randomize();
 
         SpawnNewNodeAndUpdateGrid(TerrainGrid.Instance.GetGridCoordinates(transform.position) + Vector2Int.down);
@@ -154,7 +154,7 @@ public class OmmrootNode : PoolableBehaviour
     [Button]
     public void GrowLeftRoot()
     {
-        m_leftSplineInstantiate.enabled = true;
+        m_leftSplineInstantiate.itemsToInstantiate = m_ItemsToInstantiate;
         m_leftSplineInstantiate.Randomize();
 
         SpawnNewNodeAndUpdateGrid(TerrainGrid.Instance.GetGridCoordinates(transform.position) + Vector2Int.left);
@@ -163,7 +163,7 @@ public class OmmrootNode : PoolableBehaviour
     [Button]
     public void GrowRightRoot()
     {
-        m_rightSplineInstantiate.enabled = true;
+        m_rightSplineInstantiate.itemsToInstantiate = m_ItemsToInstantiate;
         m_rightSplineInstantiate.Randomize();
 
         SpawnNewNodeAndUpdateGrid(TerrainGrid.Instance.GetGridCoordinates(transform.position) + Vector2Int.right);
