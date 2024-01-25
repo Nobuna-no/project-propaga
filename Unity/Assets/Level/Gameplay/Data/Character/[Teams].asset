@@ -29,6 +29,7 @@ MonoBehaviour:
   m_allies: []
   m_enemies:
   - {fileID: -8935869680415108629}
+  - {fileID: 8031982487490336725}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,4 +59,5 @@ MonoBehaviour:
   m_Name: Les mechants!
   m_EditorClassIdentifier: 
   m_allies: []
-  m_enemies: []
+  m_enemies:
+  - {fileID: -5005627473083841947}

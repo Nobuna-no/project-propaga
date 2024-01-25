@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 1015575264742059357}
   - {fileID: 6523788166931917982}
   - {fileID: 5713357216782380246}
+  - {fileID: 5560776341601446741}
 --- !u!114 &1015575264742059357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,22 @@ MonoBehaviour:
   m_poolablePrefab: {fileID: 6783203253779433349, guid: 64b3faed14ebb7a4a862e86b6fdc174b,
     type: 3}
   m_reserveSize: 10
+  m_reserveGrowCount: 10
+--- !u!114 &5560776341601446741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
+  m_Name: Enemy
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 8237278284134217569, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
+    type: 3}
+  m_reserveSize: 20
   m_reserveGrowCount: 10
 --- !u!114 &5713357216782380246
 MonoBehaviour:

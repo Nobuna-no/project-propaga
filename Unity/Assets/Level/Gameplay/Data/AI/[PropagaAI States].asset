@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9145164377669409008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4303c3f8f0c704aa9c5e2202754455, type: 3}
+  m_Name: ai-dead
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6572d348a2f4cd445bf48805d6cebc55, type: 3}
+  m_Name: '[PropagaAI States]'
+  m_EditorClassIdentifier: 
+  m_dataDefinitions:
+  - {fileID: 3909622586697206446}
+  - {fileID: 8398951477889967025}
+  - {fileID: 1073700751699666180}
+  - {fileID: -9145164377669409008}
+  - {fileID: 7183299280903431295}
+  - {fileID: 5472341356933989332}
+--- !u!114 &1073700751699666180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4303c3f8f0c704aa9c5e2202754455, type: 3}
+  m_Name: ai-attack
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &3909622586697206446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4303c3f8f0c704aa9c5e2202754455, type: 3}
+  m_Name: ai-idle
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &5472341356933989332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4303c3f8f0c704aa9c5e2202754455, type: 3}
+  m_Name: ai-hitstun
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &7183299280903431295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4303c3f8f0c704aa9c5e2202754455, type: 3}
+  m_Name: ai-taunt-after-attack
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &8398951477889967025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4303c3f8f0c704aa9c5e2202754455, type: 3}
+  m_Name: ai-idle-follow-target
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}

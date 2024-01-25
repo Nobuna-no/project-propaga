@@ -1,5 +1,6 @@
 using NobunAtelier.Gameplay;
 using UnityEngine;
+using UnityEngine.Events;
 
 public interface IPropagaSpriteProvider
 {
@@ -21,6 +22,9 @@ public class PropagaTransportableObject : TransportableObjectBehaviour, IPropaga
 
     public SpriteRenderer spriteRenderer => m_visual;
 
+    public UnityEvent OnObjectActivation;
+    public UnityEvent OnObjectDeactivation;
+
     public bool CanBeConsumed
     {
         get => m_canBeConsumed;
@@ -37,6 +41,18 @@ public class PropagaTransportableObject : TransportableObjectBehaviour, IPropaga
         }
 
         Debug.Assert(m_visual != null, this);
+    }
+
+    protected override void OnActivation()
+    {
+        base.OnActivation();
+        OnObjectActivation?.Invoke();
+    }
+
+    protected override void OnDeactivation()
+    {
+        base.OnDeactivation();
+        OnObjectDeactivation?.Invoke();
     }
 
 }
