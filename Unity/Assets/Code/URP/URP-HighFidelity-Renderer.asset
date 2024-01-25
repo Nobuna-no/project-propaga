@@ -55,9 +55,18 @@ MonoBehaviour:
   settings:
     horizontalBlur: 0.05
     verticalBlur: 0.05
-    layerMask:
+    fullMask:
       serializedVersion: 2
       m_Bits: 128
+    fullClearStrength: 1
+    halfMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    halfClearStrength: 0.5
+    fogMask:
+      serializedVersion: 2
+      m_Bits: 2048
+    fogStrength: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

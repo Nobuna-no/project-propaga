@@ -9,11 +9,21 @@ public class FogRenderPass : ScriptableRenderPass
         Shader.PropertyToID("_HorizontalBlur");
     private static readonly int verticalBlurId =
         Shader.PropertyToID("_VerticalBlur");
+    private static readonly int clearStrengthId =
+        Shader.PropertyToID("_FogStrength");
 
     private FogSettings defaultSettings;
     private FogMaterialSettings materials;
 	List<ShaderTagId> passNames = new List<ShaderTagId>();
-    FilteringSettings filteringSettings = new FilteringSettings(RenderQueueRange.all);
+
+    private const int kLayers = 3;
+    FilteringSettings[] filteringSettings = new FilteringSettings[kLayers]
+                    {
+                        new FilteringSettings(RenderQueueRange.all),
+                        new FilteringSettings(RenderQueueRange.all),
+                        new FilteringSettings(RenderQueueRange.all)
+                    };
+
 
 	private RenderTextureDescriptor textureDescriptor;
     private RTHandle safeZoneTextureHandle;
@@ -42,11 +52,16 @@ public class FogRenderPass : ScriptableRenderPass
         RenderingUtils.ReAllocateIfNeeded(ref safeZoneTextureHandle, textureDescriptor);
         RenderingUtils.ReAllocateIfNeeded(ref blurTextureHandle, textureDescriptor);
 
+        var volumeComponent =
+            VolumeManager.instance.stack.GetComponent<FogVolumeComponent>();
+
+        float fullFogStrength = volumeComponent.fogStrength.overrideState ? 
+            volumeComponent.fogStrength.value : defaultSettings.fogStrength;
         ConfigureTarget(safeZoneTextureHandle);
-        ConfigureClear(ClearFlag.Color, Color.black);
+        ConfigureClear(ClearFlag.Color, Color.white * fullFogStrength);
     }
 
-    private bool UpdateFogSettings()
+    private bool UpdateFogSettings(out float[] strengths)
     {
         // Use the Volume settings or the default settings if no Volume is set.
         var volumeComponent =
@@ -62,13 +77,25 @@ public class FogRenderPass : ScriptableRenderPass
 			materials.blur.SetFloat(verticalBlurId, verticalFog);
 		}
 
-        filteringSettings.layerMask = volumeComponent.layerMask.overrideState ?
-            volumeComponent.layerMask.value : defaultSettings.layerMask;
+        filteringSettings[0].layerMask = volumeComponent.fullMask.overrideState ?
+            volumeComponent.fullMask.value : defaultSettings.fullMask;
+        filteringSettings[1].layerMask = volumeComponent.halfMask.overrideState ?
+            volumeComponent.halfMask.value : defaultSettings.halfMask;
+        filteringSettings[2].layerMask = volumeComponent.fogMask.overrideState ?
+            volumeComponent.fogMask.value : defaultSettings.fogMask;
+
+        strengths = new float[kLayers];
+        strengths[0] = volumeComponent.fullClearStrength.overrideState ?
+            volumeComponent.fullClearStrength.value : defaultSettings.fullClearStrength;
+        strengths[1] = volumeComponent.halfClearStrength.overrideState ?
+            volumeComponent.halfClearStrength.value : defaultSettings.halfClearStrength;
+        strengths[2] = volumeComponent.fogStrength.overrideState ?
+            volumeComponent.fogStrength.value : defaultSettings.fogStrength;
 
         return volumeComponent.isActive.overrideState ? volumeComponent.isActive.value : true;
 	}
 
-    private RendererListParams GetRenderingList(ref RenderingData renderingData)
+    private RendererListParams[] GetRenderingLists(ref RenderingData renderingData)
 	{
 		ref CullingResults cullingResults = ref renderingData.cullResults;
 		SortingCriteria sortingCriteria = renderingData.cameraData.defaultOpaqueSortFlags;
@@ -76,13 +103,18 @@ public class FogRenderPass : ScriptableRenderPass
         drawingSettings.overrideMaterial = materials.render;
         drawingSettings.overrideMaterialPassIndex = 0;
 
-        return new RendererListParams(cullingResults, drawingSettings, filteringSettings);
+        return new RendererListParams[kLayers]
+        {   new RendererListParams(cullingResults, drawingSettings, filteringSettings[0]),
+            new RendererListParams(cullingResults, drawingSettings, filteringSettings[1]),
+            new RendererListParams(cullingResults, drawingSettings, filteringSettings[2]),
+             };
 	}
 
 	public override void Execute(ScriptableRenderContext context,
         ref RenderingData renderingData)
     {
-        if (!UpdateFogSettings())
+        float[] strengths;
+        if (!UpdateFogSettings(out strengths))
         {
             return;
         }
@@ -93,7 +125,7 @@ public class FogRenderPass : ScriptableRenderPass
         RTHandle cameraTargetHandle =
             renderingData.cameraData.renderer.cameraColorTargetHandle;
 
-        RenderObjects(cmd, context, ref renderingData);
+        RenderObjects(cmd, context, ref renderingData, strengths);
 
         Blur(cmd, safeZoneTextureHandle, safeZoneTextureHandle);
 
@@ -111,12 +143,16 @@ public class FogRenderPass : ScriptableRenderPass
     }
 
     private void RenderObjects(CommandBuffer cmd, ScriptableRenderContext context,
-		ref RenderingData renderingData)
+		ref RenderingData renderingData, float[] strengths)
 	{
-		RendererListParams rendererListParams = GetRenderingList(ref renderingData);
-		RendererList rendererList = context.CreateRendererList(ref rendererListParams);
+		RendererListParams[] rendererListParams = GetRenderingLists(ref renderingData);
 
-        cmd.DrawRendererList(rendererList);
+        for (int i = 0 ; i < kLayers ; ++i)
+        {
+		    RendererList rendererList = context.CreateRendererList(ref rendererListParams[i]);
+            cmd.SetGlobalFloat(clearStrengthId, strengths[i]);
+            cmd.DrawRendererList(rendererList);
+        }
     }
 
     public void Dispose()
