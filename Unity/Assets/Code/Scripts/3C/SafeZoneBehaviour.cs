@@ -86,6 +86,14 @@ public class SafeZoneBehaviour : TriggerBehaviour
         }
     }
 
+    public void TryRaiseDangerZoneEvent()
+    {
+        if (m_isInDangerZone)
+        {
+            OnDangerZoneEntered?.Invoke();
+        }
+    }
+
     private void EnterDangerZone()
     {
         OnDangerZoneEntered?.Invoke();
