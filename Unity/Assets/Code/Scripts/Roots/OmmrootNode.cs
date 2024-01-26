@@ -180,15 +180,15 @@ public class OmmrootNode : PoolableBehaviour
     {
         if (areaId <= 1)
         {
-            OmmrootNodePool.Instance.SpawnObject(m_greenAreaNodeToSpawn, position);
+            PoolManager.Instance.SpawnObject(m_greenAreaNodeToSpawn, position);
         }
         else if (areaId == 2)
         {
-            OmmrootNodePool.Instance.SpawnObject(m_yellowAreaNodeToSpawn, position);
+            PoolManager.Instance.SpawnObject(m_yellowAreaNodeToSpawn, position);
         }
         else
         {
-            OmmrootNodePool.Instance.SpawnObject(m_redAreaNodeToSpawn, position);
+            PoolManager.Instance.SpawnObject(m_redAreaNodeToSpawn, position);
         }
     }
 
