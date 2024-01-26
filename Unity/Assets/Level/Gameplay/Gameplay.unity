@@ -1268,6 +1268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Sandbox_AI (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1875818384209074614, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2775,6 +2780,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Sandbox_AI (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1875818384209074614, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3549,6 +3559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_Sandbox_AI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875818384209074614, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4753,6 +4768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Sandbox_AI (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1875818384209074614, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5159,7 +5179,7 @@ PrefabInstance:
     - target: {fileID: 380147437952855053, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.02
+      value: -11.62
       objectReference: {fileID: 0}
     - target: {fileID: 380147437952855053, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
         type: 3}
@@ -5169,7 +5189,7 @@ PrefabInstance:
     - target: {fileID: 380147437952855053, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.77
+      value: -3.03
       objectReference: {fileID: 0}
     - target: {fileID: 380147437952855053, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
         type: 3}
@@ -5210,6 +5230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_Sandbox_AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875818384209074614, guid: 9f5e6ff4c8a31db47aa8620db369e5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5342,6 +5367,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8112311730811907636, guid: d2c93bfb3af33f54a87ed1af6b353430,
+        type: 3}
+      propertyPath: generateTiles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112311730811907636, guid: d2c93bfb3af33f54a87ed1af6b353430,
+        type: 3}
+      propertyPath: cellCollection
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f75996ea12a061499dd0898e36068e8,
+        type: 2}
     - target: {fileID: 8950676127337786499, guid: d2c93bfb3af33f54a87ed1af6b353430,
         type: 3}
       propertyPath: m_Name

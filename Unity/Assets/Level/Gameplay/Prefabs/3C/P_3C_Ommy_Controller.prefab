@@ -552,7 +552,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6576547620699971781}
   - component: {fileID: 2418967335831489991}
-  - component: {fileID: 4035373902825840098}
   m_Layer: 0
   m_Name: state-struggling
   m_TagString: Untagged
@@ -590,55 +589,12 @@ MonoBehaviour:
   m_Description: Play Struggling animation until dropped or thrown.
   m_stateDefinition: {fileID: 3921332938582189215, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
-  m_stateModules:
-  - {fileID: 4035373902825840098}
-  m_autoCaptureStateModule: 1
+  m_stateModules: []
+  m_autoCaptureStateModule: 0
   m_logDebug: 0
   TransitionType: 1
   m_nextState: {fileID: 0}
   m_stateDurationInSeconds: -1
---- !u!114 &4035373902825840098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722436775529410901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnStateEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AnimatorHelper, Assembly-CSharp
-        m_MethodName: SetAnimParamToggleTrue
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: struggling
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnStateExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AnimatorHelper, Assembly-CSharp
-        m_MethodName: SetAnimParamToggleFalse
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: struggling
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3140780101562265233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,8 +1089,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158aa0559e35bd048bfd153e8bbd7379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Description: Play resurrection animation while waiting 1 second before going
+  m_Description: 'Play resurrection animation while waiting 1 second before going
     back to idle.
+
+    - Reenable Animator helper so Struggling is playing again
+
+'
   m_stateDefinition: {fileID: -981385721254977236, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
   m_stateModules:
@@ -1176,6 +1136,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1410,12 +1382,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158aa0559e35bd048bfd153e8bbd7379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Description: '- Play die animation
+  m_Description: '- Play die animation - disable Animator helper so Struggling stop
+    playing
 
     - Disable storage component
 
-    - Disable
-    interaction component'
+    - Disable interaction component'
   m_stateDefinition: {fileID: -534289748970661565, guid: 1b39bb58bc2141648a02f3e2a070ff57,
     type: 2}
   m_stateModules:
@@ -1476,6 +1448,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnStateExit:
     m_PersistentCalls:
@@ -1687,7 +1671,6 @@ GameObject:
   - component: {fileID: 4680751512098856729}
   - component: {fileID: 207853833458643571}
   - component: {fileID: 4471953686974397536}
-  - component: {fileID: 7216361446807070866}
   m_Layer: 0
   m_Name: state-thrown
   m_TagString: Untagged
@@ -1734,7 +1717,6 @@ MonoBehaviour:
     type: 2}
   m_stateModules:
   - {fileID: 4471953686974397536}
-  - {fileID: 7216361446807070866}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 0
@@ -1810,17 +1792,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &7216361446807070866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7673023572933665065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a2ec854727a18488c2ff4c4bf1f0b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_animator: {fileID: 0}
-  m_animParamName: doDie
