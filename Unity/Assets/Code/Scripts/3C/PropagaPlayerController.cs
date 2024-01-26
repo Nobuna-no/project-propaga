@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerControllerStateMachine))]
-public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPlayer
+public class PropagaPlayerController : NobunAtelier.PlayerController
 {
     [Header("Gameplay")]
     [SerializeField]
@@ -28,9 +28,6 @@ public class PropagaPlayerController : NobunAtelier.PlayerController, IPropagaPl
     [SerializeField, Required] private PlayerControllerStateDefinition m_attackDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_throwDefinition;
     [SerializeField, Required] private PlayerControllerStateDefinition m_rootedDefinition;
-
-    public SocketStorageBehaviour StorageComponent => m_storageComponent;
-
 
     [Header("Debug")]
     [SerializeField, ReadOnly] private bool m_wantToInteract;
