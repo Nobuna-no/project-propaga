@@ -121,8 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
   m_Name: resurrecting
   m_EditorClassIdentifier: 
-  m_description: Play resurrection animation while waiting 1 second before going
+  m_description: 'Play resurrection animation while waiting 1 second before going
     back to idle.
+
+    - Reenable Animator helper so Struggling is playing again
+
+'
   m_requiredPriorState: {fileID: 0}
 --- !u!114 &-534289748970661565
 MonoBehaviour:
@@ -136,12 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
   m_Name: dead
   m_EditorClassIdentifier: 
-  m_description: '- Play die animation
+  m_description: '- Play die animation - disable Animator helper so Struggling stop
+    playing
 
     - Disable storage component
 
-    - Disable
-    interaction component'
+    - Disable interaction component'
   m_requiredPriorState: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -169,6 +173,7 @@ MonoBehaviour:
   - {fileID: -981385721254977236}
   - {fileID: 1410273868820949612}
   - {fileID: 7506685191855557797}
+  - {fileID: 4114787532463267987}
 --- !u!114 &1410273868820949612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +244,20 @@ MonoBehaviour:
   m_Name: struggling
   m_EditorClassIdentifier: 
   m_description: Play Struggling animation until dropped or thrown.
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &4114787532463267987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214b7b45b53823b4d80bb50ef4783db7, type: 3}
+  m_Name: reading-sign
+  m_EditorClassIdentifier: 
+  m_description: 
   m_requiredPriorState: {fileID: 0}
 --- !u!114 &7506685191855557797
 MonoBehaviour:

@@ -36,10 +36,12 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
     public InteractableDefinition Definition => m_definition;
 
 
+
     [Header("Feedback")]
 
     [SerializeField] private SpriteRenderer m_visual;
     public SpriteRenderer spriteRenderer => m_visual;
+    public bool RequireItem => requireItem;
 
     public bool IsInteractable
     {
