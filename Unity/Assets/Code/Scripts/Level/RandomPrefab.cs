@@ -36,7 +36,7 @@ public class RandomPrefab : MonoBehaviour
             Instantiate(possiblities[index]);
         }
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     private static int PickOne(List<RandomTile> prob)
