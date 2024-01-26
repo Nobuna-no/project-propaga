@@ -104,7 +104,6 @@ MonoBehaviour:
   m_modules:
   - {fileID: 5333600348429144202}
   m_autoCaptureModule: 1
-  m_isStandalone: 1
   m_playerInput: {fileID: 5262593710887410704}
   m_actionMapName: Player
 --- !u!114 &5333600348429144202
@@ -149,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4948716843515500884}
   - component: {fileID: 5262593710887410704}
-  - component: {fileID: 5825675347518613226}
+  - component: {fileID: 5003839958699576780}
   m_Layer: 0
   m_Name: P_3C_Player
   m_TagString: Untagged
@@ -210,7 +209,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 8142307745788156948}
---- !u!114 &5825675347518613226
+--- !u!114 &5003839958699576780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,7 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059775377046745432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5af6995065879a49a1740ac01aeb5c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b0c54fb39ce59042b7ef2cd63771450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_controllerReference: {fileID: 0}
