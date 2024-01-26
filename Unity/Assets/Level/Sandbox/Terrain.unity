@@ -682,13 +682,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dontDestroyOnLoad: 0
   m_onlyDestroyDuplicatedComponent: 1
-  importAsset: {fileID: 4900000, guid: ce534ea4a8a34824ca1033ca91a16c26, type: 3}
+  importAsset: {fileID: 4900000, guid: 9a43ea5f51811164d966cd2794536117, type: 3}
   width: 21
   height: 21
   tileSize: 10
   m_drawGizmos: 0
   generateTiles: 1
   generationParent: {fileID: 0}
+  cellCollection: {fileID: 11400000, guid: 9f75996ea12a061499dd0898e36068e8, type: 2}
 --- !u!4 &1001046343
 Transform:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class RandomPrefab : MonoBehaviour
 
     private void Start()
     {
-        int index = PickOne(possiblities);
+        int index = Random.Range(0, possiblities.Count);//PickOne(possiblities);
         if (index < possiblities.Count)
         {
             Instantiate(possiblities[index]);
@@ -60,6 +60,11 @@ public class RandomPrefab : MonoBehaviour
 
     private void Instantiate(RandomTile prob)
     {
+        if (prob.tile == null || prob.tile.prefab == null)
+        {
+            return;
+        }
+
         GameObject obj = Instantiate(prob.tile.prefab, transform.position, transform.rotation, transform.parent);
         SplineInstantiate[] splines = obj.GetComponentsInChildren<SplineInstantiate>(true);
         if (splines != null)
