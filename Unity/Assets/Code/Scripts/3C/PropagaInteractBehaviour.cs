@@ -76,11 +76,14 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
 
                 if (CanInteractWith(interactableObj, out var obj))
                 {
-                    // consume the we picked earlier item
-                    m_storageComponent.ItemTryConsume(out var objRef);
+                    if (interactableObj.RequireItem && obj != null)
+                    {
+                        // consume the we picked earlier item
+                        m_storageComponent.ItemTryConsume(out var objRef);
 
-                    obj.IsActive = false; // Remove the object
-                    interactableObj.Use(obj, obj?.ItemDefinition);
+                        obj.IsActive = false; // Remove the object
+                        interactableObj.Use(obj, obj?.ItemDefinition);
+                    }
 
                     // Raise any target interaction callback.
                     for (int j = 0, c = m_consumptionCallbacks.Length; j < c; j++)

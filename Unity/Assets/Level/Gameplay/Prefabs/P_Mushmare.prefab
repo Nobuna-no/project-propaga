@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 380147437952855053}
   - component: {fileID: 8237278284134217569}
   m_Layer: 0
-  m_Name: P_Sandbox_AI
+  m_Name: P_Mushmare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

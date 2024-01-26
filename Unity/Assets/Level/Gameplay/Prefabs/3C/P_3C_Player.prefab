@@ -1,5 +1,144 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &488582081676450166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5966370516668927143}
+  - component: {fileID: 1460154396781777127}
+  - component: {fileID: 4462391730131232204}
+  - component: {fileID: 6712915902451846738}
+  - component: {fileID: 5333600348429144202}
+  m_Layer: 5
+  m_Name: P_Ommnoob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5966370516668927143
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488582081676450166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5845732051538920034}
+  m_Father: {fileID: 4948716843515500884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &1460154396781777127
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488582081676450166}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 1
+  m_Camera: {fileID: 8142307745788156948}
+  m_PlaneDistance: 4
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &4462391730131232204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488582081676450166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!114 &6712915902451846738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488582081676450166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d085dcf58abe642b5e6f9dccbee69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controlledCharacter: {fileID: 0}
+  m_enableInputBehaviour: 1
+  m_disableInputBehaviour: 0
+  m_modules:
+  - {fileID: 5333600348429144202}
+  m_autoCaptureModule: 1
+  m_isStandalone: 1
+  m_playerInput: {fileID: 5262593710887410704}
+  m_actionMapName: Player
+--- !u!114 &5333600348429144202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488582081676450166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8e9b45487805e4aa03b890f285c7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_exitDirectionActionName: Cancel-Drop
+  m_canvas: {fileID: 1460154396781777127}
+  m_targetImage: {fileID: 8161586897144578194}
+  OnSignExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2652037639890444346}
+        m_TargetAssemblyTypeName: NobunAtelier.StateMachineComponent`2[[PlayerControllerStateDefinition,
+          Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -1996716971183954561, guid: 1b39bb58bc2141648a02f3e2a070ff57,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerControllerStateDefinition, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1059775377046745432
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,7 +156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4948716843515500884
 Transform:
   m_ObjectHideFlags: 0
@@ -34,6 +173,7 @@ Transform:
   - {fileID: 3644272917700284903}
   - {fileID: 7362118641392538459}
   - {fileID: 1625995720508242483}
+  - {fileID: 5966370516668927143}
   - {fileID: 1187734247490970144}
   - {fileID: 8262522841495736812}
   - {fileID: 2289365732137006358}
@@ -171,6 +311,285 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3162317227696614646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5845732051538920034}
+  - component: {fileID: 954348010828060920}
+  - component: {fileID: 8161586897144578194}
+  m_Layer: 5
+  m_Name: SignImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5845732051538920034
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162317227696614646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5966370516668927143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1024, y: 512}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &954348010828060920
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162317227696614646}
+  m_CullTransparentMesh: 1
+--- !u!114 &8161586897144578194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162317227696614646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 0a8d7ab7bffddf346a156d63ea21d8fb, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!1 &3884691745961555274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183680719355210725}
+  - component: {fileID: 4081462703565730447}
+  - component: {fileID: 2893510425456045252}
+  m_Layer: 0
+  m_Name: state-reading-sign
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183680719355210725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884691745961555274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7362118641392538459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4081462703565730447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884691745961555274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90cf2fb496bb2f442a0c5d3828f09069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Description: 
+  m_stateDefinition: {fileID: 4114787532463267987, guid: 1b39bb58bc2141648a02f3e2a070ff57,
+    type: 2}
+  m_stateModules:
+  - {fileID: 2893510425456045252}
+  m_autoCaptureStateModule: 1
+  m_logDebug: 0
+  TransitionType: 1
+  m_nextState: {fileID: 0}
+  m_stateDurationInSeconds: -1
+--- !u!114 &2893510425456045252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884691745961555274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f91ce4bd8cfe4c4494683b4a976881b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5160843829178722965}
+        m_TargetAssemblyTypeName: PropagaPlayerController, Assembly-CSharp
+        m_MethodName: DisableInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4007246678889756733}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.TransportableObjectBehaviour,
+          NobunAtelier.Core
+        m_MethodName: set_IsPickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 90892085235863888}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2981224485170175521}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6344097764768478820}
+        m_TargetAssemblyTypeName: AnimatorHelper, Assembly-CSharp
+        m_MethodName: SetAnimParamToggleTrue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: rooted
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStateExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5160843829178722965}
+        m_TargetAssemblyTypeName: PropagaPlayerController, Assembly-CSharp
+        m_MethodName: EnableInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2273015512232613686}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4007246678889756733}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.TransportableObjectBehaviour,
+          NobunAtelier.Core
+        m_MethodName: set_IsPickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 90892085235863888}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2981224485170175521}
+        m_TargetAssemblyTypeName: NobunAtelier.Gameplay.HealthBehaviour, NobunAtelier.Core
+        m_MethodName: set_IsVulnerable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 6344097764768478820}
+        m_TargetAssemblyTypeName: AnimatorHelper, Assembly-CSharp
+        m_MethodName: SetAnimParamToggleFalse
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: rooted
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &4414220619611571188
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +1107,11 @@ PrefabInstance:
       propertyPath: OnStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8622077581105096955}
+    - target: {fileID: 1203606344285778442, guid: f0abc294dc94eba43a62d465b55cc3a4,
+        type: 3}
+      propertyPath: m_stateModules.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1524326548915888210, guid: f0abc294dc94eba43a62d465b55cc3a4,
         type: 3}
       propertyPath: m_actions.Array.data[0].m_onAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -930,7 +1354,11 @@ PrefabInstance:
       objectReference: {fileID: 2673452452713781029}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5931944794079494507, guid: f0abc294dc94eba43a62d465b55cc3a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1183680719355210725}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0abc294dc94eba43a62d465b55cc3a4, type: 3}
 --- !u!114 &2652037639890444346 stripped
@@ -943,6 +1371,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec38317c04c845440a93b95a94b53d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5160843829178722965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8351643655544191141, guid: f0abc294dc94eba43a62d465b55cc3a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3781334533936108080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197902f6929e3c34fb90058b59ecaf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7362118641392538459 stripped
@@ -1026,6 +1466,37 @@ PrefabInstance:
       objectReference: {fileID: 7632166988781213060}
     - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
         type: 3}
+      propertyPath: m_consumptionCallbacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].m_targets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: 'm_consumptionCallbacks.Array.data[1].m_targets.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1434364986085346053, guid: 0ec77d33ce27c7747b1250f61874a3c7,
+        type: 2}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
       propertyPath: m_consumptionCallbacks.Array.data[0].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2652037639890444346}
@@ -1034,6 +1505,63 @@ PrefabInstance:
       propertyPath: m_consumptionCallbacks.Array.data[0].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1292810563562578458}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2652037639890444346}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5333600348429144202}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetState
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTargetSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NobunAtelier.StateMachineComponent`2[[PlayerControllerStateDefinition,
+        Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: OmmnoobControllerModule, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4114787532463267987, guid: 1b39bb58bc2141648a02f3e2a070ff57,
+        type: 2}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: PlayerControllerStateDefinition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001092105238098, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
+        type: 3}
+      propertyPath: m_consumptionCallbacks.Array.data[1].OnInteraction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3042406968937886770, guid: d004eb28b5b4eca42afa1f1bf2a7af49,
         type: 3}
       propertyPath: m_LocalPosition.x
