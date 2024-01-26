@@ -25,7 +25,7 @@ public class RandomPrefab : MonoBehaviour
 
     public static void Reset()
     {
-        spawnedTiles.Clear();
+        spawnedTiles?.Clear();
     }
 
     private void Start()

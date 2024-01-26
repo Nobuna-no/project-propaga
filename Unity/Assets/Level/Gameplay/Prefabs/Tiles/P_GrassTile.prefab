@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4395081782474621915}
   - component: {fileID: 2109574627681249916}
   m_Layer: 0
-  m_Name: Fake_GrassTile
+  m_Name: P_GrassTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,9 +62,9 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: -0.5
+        x: -3
         y: 0
-        z: 0.25
+        z: 1.5
       TangentIn:
         x: 0
         y: 0
@@ -80,9 +80,9 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: -0.25
+        x: -1.5
         y: 0
-        z: 0.5
+        z: 3
       TangentIn:
         x: 0
         y: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     - Position:
-        x: 0.24999996
+        x: 1.5
         y: 0
-        z: 0.5
+        z: 3
       TangentIn:
         x: 0
         y: 0
@@ -116,9 +116,9 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     - Position:
-        x: 0.49999994
+        x: 3
         y: 0
-        z: 0.25
+        z: 1.5
       TangentIn:
         x: 0
         y: 0
@@ -134,9 +134,9 @@ MonoBehaviour:
           z: 0
           w: 0
     - Position:
-        x: 0.49999997
+        x: 3
         y: 0
-        z: -0.25000003
+        z: -1.5
       TangentIn:
         x: 0
         y: 0
@@ -152,9 +152,9 @@ MonoBehaviour:
           z: 0
           w: -0.00000004371139
     - Position:
-        x: 0.24999996
+        x: 1.5
         y: 0
-        z: -0.5
+        z: -3
       TangentIn:
         x: 0
         y: 0
@@ -170,9 +170,9 @@ MonoBehaviour:
           z: 0
           w: -0.7071068
     - Position:
-        x: -0.25
+        x: -1.5
         y: 0
-        z: -0.49999994
+        z: -3
       TangentIn:
         x: 0
         y: 0
@@ -188,9 +188,9 @@ MonoBehaviour:
           z: 0
           w: -0.70710677
     - Position:
-        x: -0.5
+        x: -3
         y: 0
-        z: -0.24999996
+        z: -1.5
       TangentIn:
         x: 0
         y: 0
@@ -736,22 +736,32 @@ MonoBehaviour:
   m_Container: {fileID: 4395081782474621915}
   m_ItemsToInstantiate:
   - prefab: {fileID: 0}
-    Prefab: {fileID: 3152160752312190029, guid: e3dc7d009ec015a44bfd1e1be5a02dc8,
+    Prefab: {fileID: 7209878335978435745, guid: bfe2c7bcf288b6a4d987cccffaf7a47c,
       type: 3}
     probability: 0
-    Probability: 0
-  m_Method: 1
+    Probability: 33
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 7711824051817947430, guid: 45169ac19fbd2094b9a3969ac67a12e6,
+      type: 3}
+    probability: 0
+    Probability: 33
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 3068177415488369020, guid: c285ff421dd8109448574562d78e392c,
+      type: 3}
+    probability: 0
+    Probability: 33
+  m_Method: 0
   m_Space: 0
-  m_Spacing: {x: 0.5, y: 5}
+  m_Spacing: {x: 10, y: 30}
   m_Up: 1
   m_Forward: 2
   m_PositionOffset:
-    setup: 0
-    min: {x: 0, y: 0, z: 0}
-    max: {x: 0, y: 0, z: 0}
-    randomX: 0
+    setup: 1
+    min: {x: 0, y: 0.5, z: 0}
+    max: {x: 1, y: 0.5, z: 1}
+    randomX: 1
     randomY: 0
-    randomZ: 0
+    randomZ: 1
     space: 0
   m_RotationOffset:
     setup: 0
@@ -764,7 +774,7 @@ MonoBehaviour:
   m_ScaleOffset:
     setup: 0
     min: {x: 0, y: 0, z: 0}
-    max: {x: 0, y: 0, z: 0}
+    max: {x: 1, y: 0, z: 0}
     randomX: 0
     randomY: 0
     randomZ: 0

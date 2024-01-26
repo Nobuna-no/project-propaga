@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Altar
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 767778632330905497, guid: b5f32d5d673bfea449844913cb4d3d9f, type: 3}
   maxCount: 1
 --- !u!114 &-1780133413551721493
 MonoBehaviour:
@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: GreenSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2984573549500404581, guid: b12df52046e07c84abfa548f4bac6eec, type: 3}
   maxCount: 500
 --- !u!114 &11400000
 MonoBehaviour:
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: YellowSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 8115098818902277660, guid: c61fa42c9415d234bae1fcd633138182, type: 3}
   maxCount: 500
 --- !u!114 &3902926245067659850
 MonoBehaviour:
@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: Zone1Decoration
+  m_Name: Zone1Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4753468439924011614, guid: 45caa4a954b3fa142a93c178474d4026, type: 3}
   maxCount: 500
 --- !u!114 &4000381302371690335
 MonoBehaviour:
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: Zone3Decoration
+  m_Name: Zone3Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4753468439924011614, guid: 45caa4a954b3fa142a93c178474d4026, type: 3}
   maxCount: 500
 --- !u!114 &5589141856491325009
 MonoBehaviour:
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: Zone2Decoration
+  m_Name: Zone2Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4753468439924011614, guid: 45caa4a954b3fa142a93c178474d4026, type: 3}
   maxCount: 500
 --- !u!114 &5753557582793062594
 MonoBehaviour:
@@ -131,5 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: RedSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
   maxCount: 500
