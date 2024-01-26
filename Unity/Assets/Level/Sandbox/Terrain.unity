@@ -688,7 +688,7 @@ MonoBehaviour:
   tileSize: 10
   m_drawGizmos: 0
   generateTiles: 1
-  generationParent: {fileID: 0}
+  generationParent: {fileID: 1001046343}
   cellCollection: {fileID: 11400000, guid: 9f75996ea12a061499dd0898e36068e8, type: 2}
 --- !u!4 &1001046343
 Transform:

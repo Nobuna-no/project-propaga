@@ -232,6 +232,9 @@ public class TerrainGrid : Singleton<TerrainGrid>
     {
         RandomPrefab.Reset();
 
+        if (m_cellDefinitionPerName == null)
+            return;
+
         if (generationParent == null)
             generationParent = transform;
 
@@ -241,7 +244,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
             {
                 if (!m_cellDefinitionPerName.TryGetValue(cells[i, j].cellDefinitionName, out var cellDefinition))
                 {
-                    Debug.LogWarning($"Trying to spawn unknown cell definition with name {cells[i, j].cellDefinitionName}", this);
+                    Debug.LogWarning($"Trying to spawn unknown cell definition with name {cells[i, j].cellDefinitionName} at {i}:{j}", this);
                     continue;
                 }
 
