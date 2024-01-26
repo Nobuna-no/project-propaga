@@ -10,10 +10,20 @@ public struct RandomTile
     public float chance;
 }
 
+public enum LastPickMode
+{
+    Nothing,
+    PickMostCommon,
+    PickLeastCommon
+}
+
 public class RandomPrefab : MonoBehaviour
 {
     [SerializeField]
     List<RandomTile> possiblities = new List<RandomTile>();
+
+    [SerializeField, Tooltip("What to do if no possibilities has been found.")]
+    LastPickMode mode = LastPickMode.PickMostCommon;
 
     private static Dictionary<TerrainTileDefinition, int> spawnedTiles;
 
@@ -30,7 +40,7 @@ public class RandomPrefab : MonoBehaviour
 
     private void Start()
     {
-        int index = Random.Range(0, possiblities.Count);//PickOne(possiblities);
+        int index = PickOne(possiblities, mode);
         if (index < possiblities.Count)
         {
             Instantiate(possiblities[index]);
@@ -39,23 +49,47 @@ public class RandomPrefab : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private static int PickOne(List<RandomTile> prob)
+    private static int PickOne(List<RandomTile> prob, LastPickMode mode)
     {
         int index = 0;
         float r = Random.value;
-        for (int i = 0 ; i < prob.Count && r > 0 ; ++i)
+        int firstValidTile = -1;
+        int lastValidTile = -1;
+        for (; index < prob.Count && r > 0 ; ++index)
         {
-            if (spawnedTiles.TryGetValue(prob[i].tile, out int count) && count >= prob[i].tile.maxCount)
+            if (spawnedTiles.TryGetValue(prob[index].tile, out int count) && count >= prob[index].tile.maxCount)
             {
                 continue;
             }
 
-            r -= prob[i].chance;
-            ++index;
-        }
-        index--;
+            if (firstValidTile < 0)
+                firstValidTile = index;
 
-        return index;
+            r -= prob[index].chance;
+            lastValidTile = index;
+        }
+
+        // None of the probabilities have been selected (r > sum of all chances)
+        if (index >= prob.Count)
+        {
+            switch(mode)
+            {
+                case LastPickMode.Nothing:
+                    return index;
+
+                case LastPickMode.PickMostCommon:
+                {
+                    // Make sure not to spawn something above its max count
+                    // If all the tiles have reached their max count, don't spawn anything
+                    return firstValidTile < 0 ? index : firstValidTile;
+                }
+                
+                case LastPickMode.PickLeastCommon:
+                    return lastValidTile;
+            }
+        }
+
+        return --index;
     }
 
     private void Instantiate(RandomTile prob)
@@ -77,5 +111,17 @@ public class RandomPrefab : MonoBehaviour
             spawnedTiles[prob.tile] = value + 1;
         else
             spawnedTiles.Add(prob.tile, 1);
+    }
+
+    private void OnValidate()
+    {
+        if (mode != LastPickMode.Nothing)
+        {
+            possiblities.Sort((RandomTile lhs, RandomTile rhs) =>
+            {
+                float difference = rhs.chance - lhs.chance;
+                return difference == 0.0f ? 0 : (int)Mathf.Sign(difference);
+            });
+        }
     }
 }
