@@ -323,18 +323,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635686392280585431}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Container: {fileID: 4351807894510789838}
-  m_ItemsToInstantiate:
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 2435591569811847476, guid: 4c894f6bd6a7d4545af30c92fb1b9bab,
-      type: 3}
-    probability: 0
-    Probability: 100
+  m_ItemsToInstantiate: []
   m_Method: 0
   m_Space: 2
   m_Spacing: {x: 5, y: 9}
@@ -454,6 +449,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_safeZoneExpansionDuration: 10
+  m_ItemsToInstantiate:
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 2435591569811847476, guid: 4c894f6bd6a7d4545af30c92fb1b9bab,
+      type: 3}
+    probability: 0
+    Probability: 0
   m_topSplineInstantiate: {fileID: 3310404105522975600}
   m_rightSplineInstantiate: {fileID: 5856732612656602950}
   m_bottomSplineInstantiate: {fileID: 6164997972045709738}
@@ -700,18 +701,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757258236868359952}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Container: {fileID: 4903786880347052489}
-  m_ItemsToInstantiate:
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 2435591569811847476, guid: 4c894f6bd6a7d4545af30c92fb1b9bab,
-      type: 3}
-    probability: 0
-    Probability: 100
+  m_ItemsToInstantiate: []
   m_Method: 0
   m_Space: 2
   m_Spacing: {x: 5, y: 9}
@@ -1157,18 +1153,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703926006267962947}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Container: {fileID: 5257561283016082306}
-  m_ItemsToInstantiate:
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 2435591569811847476, guid: 4c894f6bd6a7d4545af30c92fb1b9bab,
-      type: 3}
-    probability: 0
-    Probability: 100
+  m_ItemsToInstantiate: []
   m_Method: 0
   m_Space: 2
   m_Spacing: {x: 5, y: 9}
@@ -1528,18 +1519,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8731165582619903818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Container: {fileID: 7930142334279343027}
-  m_ItemsToInstantiate:
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 2435591569811847476, guid: 4c894f6bd6a7d4545af30c92fb1b9bab,
-      type: 3}
-    probability: 0
-    Probability: 100
+  m_ItemsToInstantiate: []
   m_Method: 0
   m_Space: 2
   m_Spacing: {x: 5, y: 9}

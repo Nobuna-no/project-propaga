@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -42,7 +43,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
         public CellState state;
         public int zoneId;
         public CellConnection availableAdjacentCells; // Indicates which direction has an available cell.
-        public TerrainCellDefinition cellDefinition;
+        public string cellDefinitionName;
     }
 
     [Serializable]
@@ -74,6 +75,11 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     [SerializeField]
     private Transform generationParent = null;
+
+    [SerializeField]
+    private TerrainCellCollection cellCollection;
+
+    private Dictionary<string, TerrainCellDefinition> m_cellDefinitionPerName;
 
     // The world space origin (0, 0, 0) is the middle of the overall grid
     private float OriginOffsetX => width * 0.5f;
@@ -205,6 +211,12 @@ public class TerrainGrid : Singleton<TerrainGrid>
 
     protected override void OnSingletonAwake()
     {
+        m_cellDefinitionPerName = new Dictionary<string, TerrainCellDefinition>();
+        foreach (var cell in cellCollection.GetData())
+        {
+            m_cellDefinitionPerName.Add(cell.name, cell);
+        }
+
         cells = new Cell[width, height];
         if (importAsset == null)
             ResetCells();
@@ -218,6 +230,8 @@ public class TerrainGrid : Singleton<TerrainGrid>
     [Button]
     private void SpawnTiles()
     {
+        RandomPrefab.Reset();
+
         if (generationParent == null)
             generationParent = transform;
 
@@ -225,9 +239,11 @@ public class TerrainGrid : Singleton<TerrainGrid>
         {
             for (int j = 0; j < height; ++j)
             {
-                TerrainCellDefinition cellDefinition = cells[i, j].cellDefinition;
-                if (cellDefinition == null)
+                if (!m_cellDefinitionPerName.TryGetValue(cells[i, j].cellDefinitionName, out var cellDefinition))
+                {
+                    Debug.LogWarning($"Trying to spawn unknown cell definition with name {cells[i, j].cellDefinitionName}", this);
                     continue;
+                }
 
                 GameObject prefab = cellDefinition.Prefab;
                 if (prefab == null)
@@ -253,7 +269,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
                 connections |= j == 0 ? CellConnection.None : CellConnection.Bottom;
                 connections |= j == height - 1 ? CellConnection.None : CellConnection.Top;
                 cells[i, j].availableAdjacentCells = connections;
-                cells[i, j].cellDefinition = null;
+                cells[i, j].cellDefinitionName = string.Empty;
             }
         }
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone3-Default
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 979002804358604932, guid: cab23601bc7650f46a851765b4ea917f, type: 3}
 --- !u!114 &-3439699711404764366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,7 +25,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone3-Deep
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 5170290988383614545, guid: 2c7fa1646d7d5804fb5690062bc95ecf,
+    type: 3}
 --- !u!114 &-3395434544607685909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone1-Default
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 6190396740026433313, guid: 49e688cfcd33651428657c1c9fee3306,
+    type: 3}
 --- !u!114 &-3386588950961580509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone1-Edge
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 8783727617560589472, guid: de18676b0ad8416489ef0c74540214fa,
+    type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone2-Edge
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 4176243304719095390, guid: 93ab038f39bcffe489e0dbfe46f6b9d2,
+    type: 3}
 --- !u!114 &4238527877778535244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,4 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone2-Default
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 4472295859793622969, guid: 55be4d98134aa3944b7029c1b97a200d,
+    type: 3}

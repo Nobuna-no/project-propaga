@@ -24,7 +24,7 @@ public class TerrainCamera : MonoBehaviour
     };
     private int modeCount;
     const string instruction = " (Scroll to change mode)";
-    
+
     void Start()
     {
         int definitionCount = terrainCells ? terrainCells.GetData().Count : 0;
@@ -75,7 +75,7 @@ public class TerrainCamera : MonoBehaviour
             if (text != null)
                 text.text = GetModeText(currentMode) + instruction;
         }
-    } 
+    }
 
     private void DoAction(ref TerrainGrid.Cell cell, Vector2Int gridPos, bool isDown)
     {
@@ -120,7 +120,7 @@ public class TerrainCamera : MonoBehaviour
 
     private void ToggleCellDefinition(ref TerrainGrid.Cell cell, TerrainCellDefinition definition)
     {
-        cell.cellDefinition = cell.cellDefinition == definition ? null : definition;
+        cell.cellDefinitionName = cell.cellDefinitionName == definition.name ? string.Empty : definition.name;
     }
 
     private void OnDrawGizmos()
@@ -132,7 +132,7 @@ public class TerrainCamera : MonoBehaviour
         int index = GetDefinitionIndex();
         if (definitions == null || index >= definitions.Count)
             return;
-        
+
         TerrainCellDefinition currentCellDefinition = definitions[index];
 
         for (int x = 0; x < terrainGrid.Width; ++x)
@@ -140,10 +140,10 @@ public class TerrainCamera : MonoBehaviour
             for (int y = 0; y < terrainGrid.Height; ++y)
             {
                 TerrainGrid.Cell cell = terrainGrid[x, y];
-                if (cell.cellDefinition == null)
+                if (cell.cellDefinitionName == string.Empty)
                     continue;
 
-                Gizmos.color = cell.cellDefinition == currentCellDefinition ? Color.magenta : Color.cyan;
+                Gizmos.color = cell.cellDefinitionName == currentCellDefinition.name ? Color.magenta : Color.cyan;
                 Vector3 position = terrainGrid.GetCellPosition(new Vector2Int(x, y));
                 float tileSize = terrainGrid.TileSize;
                 Gizmos.DrawWireSphere(position, tileSize * 0.25f);

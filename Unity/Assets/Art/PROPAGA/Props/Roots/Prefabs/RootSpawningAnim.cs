@@ -1,5 +1,5 @@
+using NaughtyAttributes;
 using System.Linq;
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -14,7 +14,7 @@ public class RootSpawningAnim : MonoBehaviour
     [SerializeField]
     private Vector3 originOffset = Vector3.zero;
 
-    [SerializeField, MinMaxRangeSlider(0, 10)]
+    [SerializeField, MinMaxSlider(0, 10)]
     private Vector2 m_durationRange = new Vector2(1, 2);
 
     [SerializeField]
@@ -42,6 +42,7 @@ public class RootSpawningAnim : MonoBehaviour
         Debug.Assert(m_spriteSkins != null && m_spriteSkins.Length > 0, this);
 
         m_spriteRenderer.sprite = m_spriteSkins[Random.Range(0, m_spriteSkins.Length)];
+        transform.position += originOffset;
     }
 
     private void Start()
@@ -78,6 +79,7 @@ public class RootSpawningAnim : MonoBehaviour
         if (m_currentTime > 1)
         {
             enabled = false;
+            gameObject.isStatic = true;
         }
     }
 
