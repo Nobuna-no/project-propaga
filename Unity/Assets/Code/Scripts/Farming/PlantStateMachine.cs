@@ -7,7 +7,7 @@ using NaughtyAttributes;
 
 using NobunAtelier;
 using NobunAtelier.Gameplay;
-using System.Net.Sockets;
+using UnityEngine.UIElements;
 
 public class PlantStateMachine : TaskStateMachine
 {
@@ -28,7 +28,11 @@ public class PlantStateMachine : TaskStateMachine
     protected override void Start()
     {
         base.Start();
-        interactable.Condition = ImprovesGrowth;
+
+        if (interactable)
+        {
+            interactable.Condition = ImprovesGrowth;
+        }
     }
 
     public override void ResetProgress()
@@ -117,5 +121,24 @@ public class PlantStateMachine : TaskStateMachine
         //    seedR.Pick();
         //    storage.ItemTryAdd(seedR);
         //}
+    }
+
+    public void PopulateSocketsWithSeeds()
+    {
+        if (!IsDone)
+            return;
+
+        int randomCount = Random.Range(1, storage.Sockets.Count + 1);
+
+        for (int i = 0; i < randomCount; i++)
+        {
+            Transform s = storage.Sockets[i];
+            TransportableObjectBehaviour seed = PoolManager.Instance.SpawnObject(currentSeed.poolObject, s.position) as TransportableObjectBehaviour;
+            if (seed)
+            {
+                seed.Pick();
+                storage.ItemTryAdd(seed);
+            }
+        }
     }
 }

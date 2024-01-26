@@ -120,6 +120,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7041227738684484140, guid: da19fa10ad3bb3140823b3a32f3851a4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 7791449162450076151, guid: da19fa10ad3bb3140823b3a32f3851a4,
         type: 3}
       propertyPath: m_Sprite
