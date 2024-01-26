@@ -234,7 +234,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
             return;
 
         if (generationParent == null)
-            generationParent = transform;
+            generationParent = transform.parent;
 
         TileManager.Reset(width * height);
 
