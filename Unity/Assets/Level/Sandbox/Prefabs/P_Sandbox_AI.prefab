@@ -1078,6 +1078,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_priority: 0
+  m_OnGroundedAndConstraint:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnFallingAndUnconstrained:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &4800965836829781581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1462,7 +1468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_actions:
-  - m_actionDelayInSeconds: {x: 1.5, y: 3}
+  - m_actionDelayInSeconds: {x: 0.5, y: 2}
     m_loopAction: 0
     m_onAction:
       m_PersistentCalls:
