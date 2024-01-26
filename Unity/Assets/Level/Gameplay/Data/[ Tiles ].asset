@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6883417545486048366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
+  m_Name: Zone2RedSeed
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
+  minCount: 3
+  maxCount: 500
+--- !u!114 &-2710064258333228702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
+  m_Name: Zone1YellowSeed
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8115098818902277660, guid: c61fa42c9415d234bae1fcd633138182, type: 3}
+  minCount: 3
+  maxCount: 500
 --- !u!114 &-2662123575795939536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +77,9 @@ MonoBehaviour:
   - {fileID: 4000381302371690335}
   - {fileID: -1780133413551721493}
   - {fileID: 2280541148837917350}
+  - {fileID: -2710064258333228702}
   - {fileID: 5753557582793062594}
+  - {fileID: -6883417545486048366}
   - {fileID: 3902926245067659850}
   - {fileID: 5589141856491325009}
   - {fileID: 5286536172941723674}
