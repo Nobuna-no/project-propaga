@@ -1401,7 +1401,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Diffuse",
     "m_DefaultReferenceName": "_Diffuse",
-    "m_OverrideReferenceName": "_Main_Tex",
+    "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
