@@ -4959,6 +4959,7 @@ MonoBehaviour:
   OnGameModeEnd:
     m_PersistentCalls:
       m_Calls: []
+  playerData: {fileID: 11400000, guid: 9b1b578e83e8c634f83ee9b500dc7586, type: 2}
   OnAllPlayerDead:
     m_PersistentCalls:
       m_Calls:

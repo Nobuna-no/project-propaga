@@ -13,6 +13,12 @@ public class PropagaPlayerController : NobunAtelier.PlayerController
     [Header("Gameplay")]
     [SerializeField]
     private SocketStorageBehaviour m_storageComponent;
+    
+    [Header("Visuals")]
+    [SerializeField]
+    private PlayerIdBehaviour m_playerId;
+
+    public PlayerIdBehaviour PlayerId => m_playerId;
 
     [Header("Input")]
     [SerializeField] private string m_interactActionName;

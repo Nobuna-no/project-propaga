@@ -10,6 +10,9 @@ public class PropagaGameModeManager : GameModeManager
 {
     List<HealthBehaviour> playerHealths = new List<HealthBehaviour>();
 
+    [SerializeField]
+    private PropagaPlayerCollection playerData = null;
+
     public UnityEvent OnAllPlayerDead;
     public UnityEvent OnVictory;
     
@@ -27,6 +30,13 @@ public class PropagaGameModeManager : GameModeManager
         HealthBehaviour health = participant.GetComponentInChildren<HealthBehaviour>();
         if (health)
             playerHealths.Add(health);
+        
+        var player = participant as PropagaParticipant;
+        var controller = participant.Controller as PropagaPlayerController;
+        player.DataDefinition = playerData.GetData()[Participants.Count - 1];
+        if (controller != null)
+            controller.PlayerId?.Set(player.DataDefinition);
+
         return true;
     }
 
