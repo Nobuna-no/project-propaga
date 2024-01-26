@@ -218,6 +218,8 @@ public class TerrainGrid : Singleton<TerrainGrid>
     [Button]
     private void SpawnTiles()
     {
+        RandomPrefab.Reset();
+
         if (generationParent == null)
             generationParent = transform;
 
