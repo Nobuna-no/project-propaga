@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 1851680581694462244}
   - component: {fileID: 8461793704735085773}
   - component: {fileID: 2313371875755316026}
+  - component: {fileID: 3202852107293130347}
   - component: {fileID: 7075112053734962797}
   - component: {fileID: 5772703982080360152}
   - component: {fileID: 7554512534338480057}
@@ -76,7 +77,6 @@ GameObject:
   - component: {fileID: 4461544013323116369}
   - component: {fileID: 5235672214020572295}
   - component: {fileID: 5682624503254515159}
-  - component: {fileID: 3202852107293130347}
   m_Layer: 3
   m_Name: P_3C_Ommy_Character
   m_TagString: Untagged
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_physicsModule: {fileID: 8461793704735085773}
   m_velocityModules:
   - {fileID: 2313371875755316026}
-  - {fileID: 5682624503254515159}
   - {fileID: 3202852107293130347}
+  - {fileID: 5682624503254515159}
   m_rotationModules:
   - {fileID: 7075112053734962797}
   - {fileID: 5772703982080360152}
@@ -175,6 +175,52 @@ MonoBehaviour:
   m_desiredVelocityMaxAcceleration: 50
   m_velocity: {x: 0, y: 0, z: 0}
   m_ignoreThirdAxis: 1
+--- !u!114 &3202852107293130347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313554142022740001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c373188e7640045ac2f708be7aa7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_priority: 3
+  m_ForwardZ: 1
+  m_useAttackerPositionInsteadOfImpactPosition: 1
+  m_velocity: {x: 0, y: 0, z: 0}
+  OnPushBackBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2313371875755316026}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPushBackEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2313371875755316026}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &7075112053734962797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,10 +303,46 @@ MonoBehaviour:
         m_CallState: 2
   OnInvulnerabilityBegin:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnInvulnerabilityEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6355959292972489994}
+        m_TargetAssemblyTypeName: SafeZoneBehaviour, Assembly-CSharp
+        m_MethodName: TryRaiseDangerZoneEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHeal:
     m_PersistentCalls:
       m_Calls: []
@@ -525,51 +607,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_priority: 0
---- !u!114 &3202852107293130347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4313554142022740001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c373188e7640045ac2f708be7aa7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_priority: 3
-  m_ForwardZ: 1
-  m_useAttackerPositionInsteadOfImpactPosition: 1
-  m_velocity: {x: 0, y: 0, z: 0}
-  OnPushBackBegin:
+  m_OnGroundedAndConstraint:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2313371875755316026}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 7251565294493775973}
+        m_TargetAssemblyTypeName: AnimatorHelper, Assembly-CSharp
+        m_MethodName: SetAnimParamToggleFalse
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: struggling
           m_BoolArgument: 0
         m_CallState: 2
-  OnPushBackEnd:
+  m_OnFallingAndUnconstrained:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2313371875755316026}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 7251565294493775973}
+        m_TargetAssemblyTypeName: AnimatorHelper, Assembly-CSharp
+        m_MethodName: SetAnimParamToggleTrue
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_StringArgument: struggling
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5143397073780477448
 GameObject:
@@ -764,8 +830,14 @@ MonoBehaviour:
     type: 2}
   m_canBeConsumed: 0
   m_visual: {fileID: 4092578349221329496}
+  OnObjectActivation:
+    m_PersistentCalls:
+      m_Calls: []
+  OnObjectDeactivation:
+    m_PersistentCalls:
+      m_Calls: []
   m_healthBehaviour: {fileID: 1582752095852171296}
-  m_playerPlantTransform: {fileID: 0}
+  m_playerPlant: {fileID: 0}
   m_characterRigidbody: {fileID: 4461544013323116369}
   m_plantingLerpDurationInSeconds: 0.3
   OnCharacterPlanted:
@@ -860,7 +932,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.6
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!114 &6355959292972489994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1443,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3058003376814801813}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7251565294493775973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679753716155546608, guid: a1bc8429bfdd20d4a8b1c791b87c1f57,
+    type: 3}
+  m_PrefabInstance: {fileID: 3058003376814801813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80cfc4fcd1330c45a35d361c1f2a22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8629069667925136418 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6751081634973046711, guid: a1bc8429bfdd20d4a8b1c791b87c1f57,
