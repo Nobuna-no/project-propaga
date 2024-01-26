@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
 
+using NaughtyAttributes;
+
 [System.Serializable]
-public struct RandomTile
+public class RandomTile
 {
     public TerrainTileDefinition tile;
     public float chance;
@@ -17,6 +19,66 @@ public enum LastPickMode
     PickLeastCommon
 }
 
+public static class TileManager
+{    
+    private static Dictionary<TerrainTileDefinition, int> spawnedTiles;
+    private static int maxTileCount;
+    private static int currentTileCount;
+
+    [RuntimeInitializeOnLoadMethod()]
+    private static void Initialize()
+    {
+        spawnedTiles = new Dictionary<TerrainTileDefinition, int>();
+        currentTileCount = 0;
+    }
+
+    public static void RecordSpawnedTile(TerrainTileDefinition tile)
+    {
+        if (spawnedTiles.TryGetValue(tile, out int value))
+            spawnedTiles[tile] = value + 1;
+        else
+            spawnedTiles.Add(tile, 1);
+    }
+
+    public static void Reset(int maxTiles)
+    {
+        spawnedTiles?.Clear();
+        maxTileCount = maxTiles;
+        currentTileCount = 0;
+    }
+
+    public static bool CanSpawn(TerrainTileDefinition tile)
+    {
+        return spawnedTiles.TryGetValue(tile, out int count) && count >= tile.maxCount;
+    }
+
+    public static int RecordTile(List<RandomTile> tiles)
+    {
+        ++currentTileCount;
+        if (tiles == null || tiles.Count == 0)
+            return -1;
+
+        // There's still half the generation to go, it's ok
+        int remainingTiles = maxTileCount - currentTileCount;
+        float remainingPercent = (float)remainingTiles/maxTileCount;
+        if (remainingPercent > 0.5f)
+            return -1;
+
+        // Check if tiles with minimum have been fulfilled
+        for (int i = 0 ; i < tiles.Count ; ++i)
+        {
+            TerrainTileDefinition tile = tiles[i].tile;
+            int count = spawnedTiles.ContainsKey(tile) ? spawnedTiles[tile] : 0;
+            if (count < tile.minCount)
+            {
+                tiles[i].chance *= 2.0f;
+            }
+        }
+
+        return -1;
+    }
+}
+
 public class RandomPrefab : MonoBehaviour
 {
     [SerializeField]
@@ -25,25 +87,22 @@ public class RandomPrefab : MonoBehaviour
     [SerializeField, Tooltip("What to do if no possibilities has been found.")]
     LastPickMode mode = LastPickMode.PickMostCommon;
 
-    private static Dictionary<TerrainTileDefinition, int> spawnedTiles;
-
-    [RuntimeInitializeOnLoadMethod()]
-    private static void Initialize()
-    {
-        spawnedTiles = new Dictionary<TerrainTileDefinition, int>();
-    }
-
-    public static void Reset()
-    {
-        spawnedTiles?.Clear();
-    }
-
     private void Start()
     {
-        int index = PickOne(possiblities, mode);
-        if (index < possiblities.Count)
+        bool spawned = false;
+        int forcedTileIndex = TileManager.RecordTile(possiblities);
+        if (forcedTileIndex > 0)
         {
-            Instantiate(possiblities[index]);
+            spawned = InstantiateTile(possiblities[forcedTileIndex]);
+        }
+
+        if (!spawned)
+        {
+            int index = PickOne(possiblities, mode);
+            if (index < possiblities.Count)
+            {
+                InstantiateTile(possiblities[index]);
+            }
         }
 
         Destroy(gameObject);
@@ -53,17 +112,17 @@ public class RandomPrefab : MonoBehaviour
     {
         int index = 0;
         float r = Random.value;
-        int firstValidTile = -1;
+        int startIndex = -1;
         int lastValidTile = -1;
         for (; index < prob.Count && r > 0 ; ++index)
         {
-            if (spawnedTiles.TryGetValue(prob[index].tile, out int count) && count >= prob[index].tile.maxCount)
+            if (TileManager.CanSpawn(prob[index].tile))
             {
                 continue;
             }
 
-            if (firstValidTile < 0)
-                firstValidTile = index;
+            if (startIndex < 0)
+                startIndex = index;
 
             r -= prob[index].chance;
             lastValidTile = index;
@@ -81,7 +140,7 @@ public class RandomPrefab : MonoBehaviour
                 {
                     // Make sure not to spawn something above its max count
                     // If all the tiles have reached their max count, don't spawn anything
-                    return firstValidTile < 0 ? index : firstValidTile;
+                    return startIndex < 0 ? index : startIndex;
                 }
                 
                 case LastPickMode.PickLeastCommon:
@@ -92,11 +151,12 @@ public class RandomPrefab : MonoBehaviour
         return --index;
     }
 
-    private void Instantiate(RandomTile prob)
+    private bool InstantiateTile(RandomTile prob)
     {
+        TileManager.RecordSpawnedTile(prob.tile);
         if (prob.tile == null || prob.tile.prefab == null)
         {
-            return;
+            return false;
         }
 
         GameObject obj = Instantiate(prob.tile.prefab, transform.position, transform.rotation, transform.parent);
@@ -107,13 +167,11 @@ public class RandomPrefab : MonoBehaviour
                 splines[i].Randomize();
         }
 
-        if (spawnedTiles.TryGetValue(prob.tile, out int value))
-            spawnedTiles[prob.tile] = value + 1;
-        else
-            spawnedTiles.Add(prob.tile, 1);
+        return true;
     }
 
-    private void OnValidate()
+    [Button]
+    private void Sort()
     {
         if (mode != LastPickMode.Nothing)
         {

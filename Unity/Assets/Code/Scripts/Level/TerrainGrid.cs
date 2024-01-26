@@ -230,13 +230,13 @@ public class TerrainGrid : Singleton<TerrainGrid>
     [Button]
     private void SpawnTiles()
     {
-        RandomPrefab.Reset();
-
         if (m_cellDefinitionPerName == null)
             return;
 
         if (generationParent == null)
             generationParent = transform;
+
+        TileManager.Reset(width * height);
 
         for (int i = 0; i < width; ++i)
         {
