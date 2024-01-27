@@ -31,12 +31,12 @@ public class DitherBehaviour : MonoBehaviour
 
     private void OnFeedbackObjectAddedEvent(DitherFeedback obj)
     {
-        obj.IsObscuring = true;
+        obj.SetObscuring(this, true);
     }
     
     private void OnFeedbackObjectRemovedEvent(DitherFeedback obj)
     {
-        obj.IsObscuring = false;
+        obj.SetObscuring(this, false);
     }
     
     private void FixedUpdate()

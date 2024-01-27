@@ -21,20 +21,35 @@ public class DitherFeedback : MonoBehaviour
 
     private int opacityProperty = Shader.PropertyToID("_Opacity");
 
-    private bool obscuring = false;
+    private bool obscuringAny = false;
+    private HashSet<Object> obscuringObjects = new HashSet<Object>();
     private Coroutine fadeInProgress = null;
 
     public bool IsObscuring
     {
-        get => obscuring;
-        set 
+        get => obscuringAny;
+        private set 
         {
-            if (obscuring == value)
+            if (obscuringAny == value)
                 return;
 
-            obscuring = value;
-            Fade(!obscuring);
+            obscuringAny = value;
+            Fade(!obscuringAny);
         }
+    }
+
+    public void SetObscuring(Object obscuredObject, bool obscure)
+    {
+        if (obscure)
+        {
+            obscuringObjects.Add(obscuredObject);
+        }
+        else
+        {
+            obscuringObjects.Remove(obscuredObject);
+        }
+
+        IsObscuring = obscuringObjects.Count > 0;
     }
 
     private void OnEnable()
