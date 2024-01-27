@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8557214848350507050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
+  m_Name: HardDen
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6074111789065279568, guid: 3716c431c302c7141a5c5506a01bb90e, type: 3}
+  minCount: 0
+  maxCount: 1
 --- !u!114 &-6883417545486048366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +30,21 @@ MonoBehaviour:
   prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
   minCount: 3
   maxCount: 500
+--- !u!114 &-5474860372395514762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
+  m_Name: Enemy
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8449432541554893054, guid: 4c0b4d89238a33449bf74c84afeec30c, type: 3}
+  minCount: 6
+  maxCount: 12
 --- !u!114 &-2710064258333228702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +105,8 @@ MonoBehaviour:
   m_dataDefinitions:
   - {fileID: -2662123575795939536}
   - {fileID: 4000381302371690335}
+  - {fileID: -8557214848350507050}
+  - {fileID: -5474860372395514762}
   - {fileID: -1780133413551721493}
   - {fileID: 2280541148837917350}
   - {fileID: -2710064258333228702}
@@ -125,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Den
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 6592601305422452088, guid: 39f5f329dc89e2548bd1d9a1d5280208, type: 3}
   minCount: 2
   maxCount: 4
 --- !u!114 &5286536172941723674
