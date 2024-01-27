@@ -49,6 +49,8 @@ MonoBehaviour:
     chance: 0.5
   - tile: {fileID: -1780133413551721493, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
     chance: 0.25
+  - tile: {fileID: -6946114134424854901, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+    chance: 0.25
   - tile: {fileID: -5474860372395514762, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
     chance: 0.01
   mode: 1
