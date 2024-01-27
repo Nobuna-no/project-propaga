@@ -11,7 +11,7 @@ public class VideoController : MonoBehaviour
     public UnityEvent OnVideoStarted;
     public UnityEvent OnVideoEndReached;
     private VideoPlayer m_videoPlayer;
-
+    [SerializeField] private int m_startFrame = 0;
     public void LoadVideo()
     {
         m_videoPlayer.Prepare();
@@ -46,6 +46,7 @@ public class VideoController : MonoBehaviour
     void VideoReadyToPlay(VideoPlayer source)
     {
         m_videoPlayer.prepareCompleted -= VideoReadyToPlay;
+        m_videoPlayer.frame = m_startFrame;
         OnVideoLoadingCompleted?.Invoke();
     }
 
