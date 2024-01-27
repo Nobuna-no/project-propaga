@@ -1294,7 +1294,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192542863}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b79f3cb7486648341b0c52574484b774, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 5aae38c79650e6c43b27be836d42539b, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1167802926}
@@ -1394,6 +1394,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_startFrame: 390
 --- !u!114 &1192542868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,7 +2011,6 @@ GameObject:
   - component: {fileID: 2108481925}
   - component: {fileID: 2108481924}
   - component: {fileID: 2108481923}
-  - component: {fileID: 2108481927}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -2107,25 +2107,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 38902569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2108481927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108481922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d84f40c2e70ea748a3f550f53779f2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_dontDestroyOnLoad: 0
-  m_onlyDestroyDuplicatedComponent: 1
-  importAsset: {fileID: 4900000, guid: abc286b2c1808754988e85c8634c1dce, type: 3}
-  width: 21
-  height: 21
-  tileSize: 5
-  m_drawGizmos: 0
 --- !u!1 &2140708076
 GameObject:
   m_ObjectHideFlags: 0
