@@ -14,7 +14,7 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
 {
     [SerializeField, Required]
     private InteractableDefinition m_definition;
-
+    
     [SerializeField]
     private bool m_isInteractable = true;
 
@@ -96,11 +96,6 @@ public class InteractableObjectBehaviour : MonoBehaviour, IPropagaSpriteProvider
     {
         m_isInteractable = true;
     }
-
-    //public void SetActiveInteractionFeedback(bool enable)
-    //{
-    //    m_interactionFeedback.SetActive(enable);
-    //}
 
     private void Awake()
     {

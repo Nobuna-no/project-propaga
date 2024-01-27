@@ -38,21 +38,22 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         if (!m_baseInteractableObjects.Find(x => x.GetComponent<IPropagaSpriteProvider>() == m_lastFeedbackTarget))
         {
             // Seems previous target is no longer available...
-            m_spriteFeedback.enabled = false;
             m_lastFeedbackTarget = null;
-
-            if (CanBeExecuted())
-            {
-                OnInteractableObjectAdded(m_baseInteractableObjects[m_baseInteractableObjects.Count - 1]);
-            }
-            return;
         }
 
-        m_feedbackEnabled = true;
-        m_spriteFeedback.enabled = true;
-        m_spriteFeedback.sprite = m_lastFeedbackTarget.spriteRenderer.sprite;
-        m_spriteFeedback.transform.localScale = m_lastFeedbackTarget.spriteRenderer.transform.lossyScale;
-        m_spriteFeedback.transform.localScale *= m_outlineSize;
+        UdpateFeedbackActivation();
+    }
+
+    private void UdpateFeedbackActivation()
+    {
+        m_feedbackEnabled = m_lastFeedbackTarget != null;
+        m_spriteFeedback.enabled = m_feedbackEnabled;
+        if (m_spriteFeedback.enabled)
+        {
+            m_spriteFeedback.sprite = m_lastFeedbackTarget.spriteRenderer.sprite;
+            m_spriteFeedback.transform.localScale = m_lastFeedbackTarget.spriteRenderer.transform.lossyScale;
+            m_spriteFeedback.transform.localScale *= m_outlineSize;
+        }
     }
 
     [Button]
@@ -137,6 +138,50 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
         TryInteract();
     }
 
+    public void Update()
+    {
+        UpdateFeedbackObject();
+    }
+
+    public void UpdateFeedbackObject()
+    {
+        // Go from the latest object to the oldest
+        for (int i = m_baseInteractableObjects.Count - 1; i >= 0; --i)
+        {
+            var interactableObj = m_baseInteractableObjects[i];
+            var spriteProvider = interactableObj.GetComponent<IPropagaSpriteProvider>();
+            bool shouldBeTarget = false;
+            if (interactableObj.isActiveAndEnabled)
+            {
+                if (CanInteractWith(interactableObj, out var obj))
+                {
+                    shouldBeTarget = true;
+                }
+            }
+        
+            bool isTarget = spriteProvider == m_lastFeedbackTarget;
+            if (isTarget == shouldBeTarget)
+            {
+                if (isTarget)
+                    return;
+                else
+                    continue;
+            }
+
+            if (shouldBeTarget)
+            {
+                m_lastFeedbackTarget = spriteProvider;
+                OnDisplayAvailable?.Invoke();
+                return;
+            }
+            else
+            {
+                m_lastFeedbackTarget = null;
+                UdpateFeedbackActivation();
+            }
+        }
+    }
+
     private bool CanInteractWith(InteractableObjectBehaviour interactableObj, out PropagaTransportableObject obj)
     {
         bool interactAccepted;
@@ -207,15 +252,8 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
             return;
         }
 
-        m_feedbackEnabled = false;
-        m_spriteFeedback.enabled = false;
-        // m_lastFeedbackTarget.SetActiveInteractionFeedback(false);
         m_lastFeedbackTarget = null;
-
-        if (CanBeExecuted())
-        {
-            OnInteractableObjectAddedEvent(m_baseInteractableObjects[m_baseInteractableObjects.Count - 1]);
-        }
+        UdpateFeedbackActivation();
     }
 
     private void LateUpdate()

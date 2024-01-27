@@ -88,7 +88,6 @@ public class PropagaPickupBehaviour : PickupBehaviour, BehaviourWithPriority
 
         m_feedbackEnabled = false;
         m_spriteFeedback.enabled = false;
-        // m_lastFeedbackTarget.SetActiveInteractionFeedback(false);
         m_lastFeedbackTarget = null;
 
         if (CanPickup && GatherableObjects.Count > 0)

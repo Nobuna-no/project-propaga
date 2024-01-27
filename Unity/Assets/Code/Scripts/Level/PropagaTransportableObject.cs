@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public interface IPropagaSpriteProvider
 {
-    // public void SetActiveInteractionFeedback(bool enable);
     public SpriteRenderer spriteRenderer { get; }
 }
 
