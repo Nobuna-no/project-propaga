@@ -25,21 +25,22 @@ public class PropagaPickupBehaviour : PickupBehaviour, BehaviourWithPriority
         if (!GatherableObjects.Find(x => x.GetComponent<IPropagaSpriteProvider>() == m_lastFeedbackTarget))
         {
             // Seems previous target is no longer available...
-            m_spriteFeedback.enabled = false;
             m_lastFeedbackTarget = null;
-
-            if (CanPickup && GatherableObjects.Count > 0)
-            {
-                OnGatherableObjectAddedEvent(GatherableObjects[GatherableObjects.Count - 1]);
-            }
-            return;
         }
 
-        m_feedbackEnabled = true;
-        m_spriteFeedback.enabled = true;
-        m_spriteFeedback.sprite = m_lastFeedbackTarget.spriteRenderer.sprite;
-        m_spriteFeedback.transform.localScale = m_lastFeedbackTarget.spriteRenderer.transform.lossyScale;
-        m_spriteFeedback.transform.localScale *= m_outlineSize;
+        UdpateFeedbackActivation();
+    }
+
+    private void UdpateFeedbackActivation()
+    {
+        m_feedbackEnabled = m_lastFeedbackTarget != null && m_lastFeedbackTarget.spriteRenderer != null;
+        m_spriteFeedback.enabled = m_feedbackEnabled;
+        if (m_spriteFeedback.enabled)
+        {
+            m_spriteFeedback.sprite = m_lastFeedbackTarget.spriteRenderer.sprite;
+            m_spriteFeedback.transform.localScale = m_lastFeedbackTarget.spriteRenderer.transform.lossyScale;
+            m_spriteFeedback.transform.localScale *= m_outlineSize;
+        }
     }
 
     protected override void Awake()
@@ -73,12 +74,6 @@ public class PropagaPickupBehaviour : PickupBehaviour, BehaviourWithPriority
             return;
         }
 
-        if (m_lastFeedbackTarget == null)
-        {
-            m_feedbackEnabled = false;
-            return;
-        }
-
         var feedbackTarget = obj.GetComponent<IPropagaSpriteProvider>();
         if (feedbackTarget != m_lastFeedbackTarget)
         {
@@ -86,13 +81,43 @@ public class PropagaPickupBehaviour : PickupBehaviour, BehaviourWithPriority
             return;
         }
 
-        m_feedbackEnabled = false;
-        m_spriteFeedback.enabled = false;
         m_lastFeedbackTarget = null;
+        UdpateFeedbackActivation();
+    }
 
-        if (CanPickup && GatherableObjects.Count > 0)
+    public void Update()
+    {
+        UpdateFeedbackObject();
+    }
+
+    public void UpdateFeedbackObject()
+    {
+        if (GatherableObjects.Count == 0)
+            return;
+        
+        var pickUpObj = GatherableObjects[GatherableObjects.Count - 1];
+        bool shouldBeTarget = false;
+        var spriteProvider = pickUpObj.GetComponent<IPropagaSpriteProvider>();
+        if (CanPickup)
         {
-            OnGatherableObjectAddedEvent(GatherableObjects[GatherableObjects.Count - 1]);
+            shouldBeTarget = true;
+        }
+        
+        bool isTarget = spriteProvider == m_lastFeedbackTarget;
+        if (isTarget == shouldBeTarget)
+        {
+            return;
+        }
+        
+        if (shouldBeTarget)
+        {
+            m_lastFeedbackTarget = spriteProvider;
+            OnDisplayAvailable?.Invoke();
+        }
+        else
+        {
+            m_lastFeedbackTarget = null;
+            UdpateFeedbackActivation();
         }
     }
 

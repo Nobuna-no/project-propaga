@@ -46,7 +46,7 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
 
     private void UdpateFeedbackActivation()
     {
-        m_feedbackEnabled = m_lastFeedbackTarget != null;
+        m_feedbackEnabled = m_lastFeedbackTarget != null && m_lastFeedbackTarget.spriteRenderer != null;
         m_spriteFeedback.enabled = m_feedbackEnabled;
         if (m_spriteFeedback.enabled)
         {
@@ -236,12 +236,6 @@ public class PropagaInteractBehaviour : TriggerBehaviour, BehaviourWithPriority
     {
         if (!m_feedbackEnabled)
         {
-            return;
-        }
-
-        if (m_lastFeedbackTarget == null)
-        {
-            m_feedbackEnabled = false;
             return;
         }
 

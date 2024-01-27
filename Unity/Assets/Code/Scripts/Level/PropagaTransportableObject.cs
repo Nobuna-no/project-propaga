@@ -38,8 +38,6 @@ public class PropagaTransportableObject : TransportableObjectBehaviour, IPropaga
         {
             m_visual = GetComponentInChildren<SpriteRenderer>();
         }
-
-        Debug.Assert(m_visual != null, this);
     }
 
     protected override void OnActivation()

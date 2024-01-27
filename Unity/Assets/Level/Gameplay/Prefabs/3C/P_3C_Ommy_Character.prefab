@@ -829,7 +829,7 @@ MonoBehaviour:
   itemDefinition: {fileID: 4445279860148716808, guid: aa3e84bfc135e1e439474e1d28833879,
     type: 2}
   m_canBeConsumed: 0
-  m_visual: {fileID: 4092578349221329496}
+  m_visual: {fileID: 0}
   OnObjectActivation:
     m_PersistentCalls:
       m_Calls: []
