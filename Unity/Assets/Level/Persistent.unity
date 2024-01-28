@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[ Screen Fader ]'
       objectReference: {fileID: 0}
+    - target: {fileID: 705007992105406459, guid: a6008c7092b11c944a16bcd0dafc29fd,
+        type: 3}
+      propertyPath: m_logDebug
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3023457945968055693, guid: a6008c7092b11c944a16bcd0dafc29fd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -367,7 +372,7 @@ MonoBehaviour:
   m_nextStateAfterScenesWork: {fileID: -8952896799256983456, guid: 5899d262148d549408816a7044139d0e,
     type: 2}
   m_fadeTrigger: 1
-  m_fadingInMode: 1
+  m_fadingInMode: 2
   m_fadeInDurationInSecond: 1
   m_minimalLoadingDuration: 0.5
   m_fadingOutMode: 0
@@ -625,6 +630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989754612056686998, guid: cab9c83f254f59046a4da47619dffaf4,
+        type: 3}
+      propertyPath: m_persistentScene
+      value: Persistent
       objectReference: {fileID: 0}
     - target: {fileID: 5648769543472511650, guid: cab9c83f254f59046a4da47619dffaf4,
         type: 3}

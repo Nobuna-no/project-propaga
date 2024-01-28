@@ -15,9 +15,12 @@ public class PropagaGameModeManager : GameModeManager
 
     public UnityEvent OnAllPlayerDead;
     public UnityEvent OnVictory;
-    
+
+    private bool m_gameOver = false;
+
     public override void GameModeStart()
     {
+        m_gameOver = false;
         playerHealths.Clear();
         base.GameModeStart();
     }
@@ -30,7 +33,7 @@ public class PropagaGameModeManager : GameModeManager
         HealthBehaviour health = participant.GetComponentInChildren<HealthBehaviour>();
         if (health)
             playerHealths.Add(health);
-        
+
         var player = participant as PropagaParticipant;
         var controller = participant.Controller as PropagaPlayerController;
         player.DataDefinition = playerData.GetData()[Participants.Count - 1];
@@ -53,7 +56,7 @@ public class PropagaGameModeManager : GameModeManager
 
     private void Update()
     {
-        if (playerHealths.Count == 0)
+        if (m_gameOver || playerHealths.Count == 0)
             return;
 
         bool oneAlive = false;
@@ -67,6 +70,7 @@ public class PropagaGameModeManager : GameModeManager
         {
             Debug.Log("All players died");
             OnAllPlayerDead?.Invoke();
+            m_gameOver = true;
         }
     }
 

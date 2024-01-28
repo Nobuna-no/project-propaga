@@ -72,6 +72,13 @@ public class OmmrootNode : PoolableBehaviour
         //enabled = false;
     }
 
+    protected override void OnDeactivation()
+    {
+        Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
+        s_nodePerCell.Remove(gridCoord);
+        base.OnDeactivation();
+    }
+
     protected override void OnActivation()
     {
         m_visual.SetActive(true);
@@ -195,6 +202,8 @@ public class OmmrootNode : PoolableBehaviour
     private void UpdateInteractableUsability()
     {
         m_nodeConnectionCount = 0;
+        var gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
+
         if (!IsTopRootAccessible() && !IsBottomRootAccessible() &&
             !IsLeftRootAccessible() && !IsRightRootAccessible())
         {
@@ -202,10 +211,11 @@ public class OmmrootNode : PoolableBehaviour
 
             m_interactableObject.enabled = false;
             m_visual.SetActive(false);
+            // We can remove this cell from the static dictionary as it won't be accessible anymore.
+            s_nodePerCell.Remove(gridCoord);
             return;
         }
 
-        var gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
         if (s_nodePerCell.TryGetValue(gridCoord, out var lnode))
         {
             m_nodeConnectionCount++;

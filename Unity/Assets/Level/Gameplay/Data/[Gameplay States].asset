@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8449170882395058553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2272840f4cefc6542834d2fa5e6aae90, type: 3}
+  m_Name: gameplay-gameover
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
 --- !u!114 &-1132535207835666933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,6 +44,9 @@ MonoBehaviour:
   - {fileID: -1132535207835666933}
   - {fileID: 7988716637053581}
   - {fileID: 5721512343415098898}
+  - {fileID: 4043767879701953950}
+  - {fileID: -8449170882395058553}
+  - {fileID: 6912194273526176936}
 --- !u!114 &7988716637053581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +61,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_description: 
   m_requiredPriorState: {fileID: 0}
+--- !u!114 &4043767879701953950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2272840f4cefc6542834d2fa5e6aae90, type: 3}
+  m_Name: gameplay-victory
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
 --- !u!114 &5721512343415098898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +86,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2272840f4cefc6542834d2fa5e6aae90, type: 3}
   m_Name: gameplay-pause
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_requiredPriorState: {fileID: 0}
+--- !u!114 &6912194273526176936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2272840f4cefc6542834d2fa5e6aae90, type: 3}
+  m_Name: gameplay-exit
   m_EditorClassIdentifier: 
   m_description: 
   m_requiredPriorState: {fileID: 0}

@@ -106,7 +106,7 @@ public class AltarPlayerDetection : TriggerBehaviour
 
         if (m_targetList.Count == m_modeManager.Participants.Count)
         {
-            m_altarInteraction.IsInteractable = false;
+            m_altarInteraction.IsInteractable = true;
             OnAltarReady?.Invoke();
         }
     }
