@@ -17,11 +17,11 @@ AudioRandomContainer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ARC_Throw
-  m_Volume: -20
+  m_Volume: -10
   m_Pitch: 0
   m_AutomaticTriggerTime: 0
   m_LoopCount: 1
-  m_VolumeRandomizationRange: {x: -10, y: 0}
+  m_VolumeRandomizationRange: {x: -5, y: 0}
   m_PitchRandomizationRange: {x: -100, y: 100}
   m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
   m_LoopCountRandomizationRange: {x: 0, y: 0}

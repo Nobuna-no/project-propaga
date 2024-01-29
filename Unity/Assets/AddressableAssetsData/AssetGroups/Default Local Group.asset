@@ -22,6 +22,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b97389eee94b61f48b9cf9f11b6eb89f
+    m_Address: Assets/Audio/BGM/Jingle_Sad_GameOver.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dca82039ce340ad4bb6d7b0d0a8b0896
+    m_Address: Assets/Audio/BGM/03. A Tenuous Calm_LOOP.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b68654d85af4de44bb569183945eb4b0, type: 2}
   m_SchemaSet:

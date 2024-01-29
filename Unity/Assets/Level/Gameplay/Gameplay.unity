@@ -238,7 +238,6 @@ GameObject:
   m_Component:
   - component: {fileID: 53272766}
   - component: {fileID: 53272767}
-  - component: {fileID: 53272768}
   m_Layer: 0
   m_Name: state-gameplay-exit
   m_TagString: Untagged
@@ -277,27 +276,9 @@ MonoBehaviour:
   m_stateDefinition: {fileID: 6912194273526176936, guid: e92d3e46aadfb7c4998458ed89ae255d,
     type: 2}
   m_stateModules:
-  - {fileID: 53272768}
+  - {fileID: 0}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
---- !u!114 &53272768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53272765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_audioActionTrigger: 1
-  m_delayBeforeAudioActionInSecond: 0
-  m_action: 5
-  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
-    type: 2}
-  m_audioCollection: {fileID: 0}
 --- !u!1 &55779063
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 55779064}
   - component: {fileID: 55779065}
+  - component: {fileID: 55779066}
   m_Layer: 0
   m_Name: fade-pre-video
   m_TagString: Untagged
@@ -375,11 +357,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 55779066}
+        m_TargetAssemblyTypeName: NobunAtelier.StateModule_Audio, NobunAtelier.Core
+        m_MethodName: DoAudioAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_fadingOutMode: 1
   m_fadeOutDurationInSecond: 1
   OnFadeOutDone:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &55779066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55779063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 0
+  m_delayBeforeAudioActionInSecond: 0
+  m_action: 2
+  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
 --- !u!1 &91963933
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +442,7 @@ MonoBehaviour:
     type: 2}
   m_delayBetweenFadeInAndOutInSecond: 1
   m_fadingInMode: 1
-  m_fadeInDurationInSecond: 1
+  m_fadeInDurationInSecond: 2
   OnFadeInDone:
     m_PersistentCalls:
       m_Calls:
@@ -1540,6 +1552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 664872014}
   - component: {fileID: 664872015}
+  - component: {fileID: 664872017}
   - component: {fileID: 664872016}
   m_Layer: 0
   m_Name: state-gameplay-loop
@@ -1579,6 +1592,7 @@ MonoBehaviour:
   m_stateDefinition: {fileID: 7988716637053581, guid: e92d3e46aadfb7c4998458ed89ae255d,
     type: 2}
   m_stateModules:
+  - {fileID: 664872017}
   - {fileID: 664872016}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
@@ -1600,7 +1614,25 @@ MonoBehaviour:
   m_audioActionTrigger: 2
   m_delayBeforeAudioActionInSecond: 0
   m_action: 4
-  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
+  m_audioResourceDefinition: {fileID: -5945208559307718535, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
+--- !u!114 &664872017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664872013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 1
+  m_delayBeforeAudioActionInSecond: 0
+  m_action: 3
+  m_audioResourceDefinition: {fileID: -5945208559307718535, guid: d0afc7eb1a16c0f44a347470e4e65936,
     type: 2}
   m_audioCollection: {fileID: 0}
 --- !u!4 &689148540 stripped
@@ -2345,8 +2377,8 @@ MonoBehaviour:
   m_nextStateAfterFadeIn: {fileID: 6912194273526176936, guid: e92d3e46aadfb7c4998458ed89ae255d,
     type: 2}
   m_delayBetweenFadeInAndOutInSecond: 0
-  m_fadingInMode: 2
-  m_fadeInDurationInSecond: 0.5
+  m_fadingInMode: 1
+  m_fadeInDurationInSecond: 2
   OnFadeInDone:
     m_PersistentCalls:
       m_Calls: []
@@ -2613,6 +2645,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866007283}
   m_CullTransparentMesh: 1
+--- !u!1 &869865005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869865008}
+  - component: {fileID: 869865007}
+  - component: {fileID: 869865006}
+  m_Layer: 5
+  m_Name: ui-blackscreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &869865006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869865005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &869865007
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869865005}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &869865008
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869865005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1437442916}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1001 &905814956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3160,6 +3276,7 @@ GameObject:
   - component: {fileID: 1053438107}
   - component: {fileID: 1053438108}
   - component: {fileID: 1053438109}
+  - component: {fileID: 1053438110}
   m_Layer: 0
   m_Name: state-gameplay-gameover
   m_TagString: Untagged
@@ -3203,6 +3320,7 @@ MonoBehaviour:
   - {fileID: 1053438109}
   - {fileID: 787494838}
   - {fileID: 91963935}
+  - {fileID: 1053438110}
   m_autoCaptureStateModule: 0
   m_logDebug: 0
   TransitionType: 1
@@ -3238,7 +3356,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - m_actionDelayInSeconds: {x: 5, y: 5}
+  - m_actionDelayInSeconds: {x: 6, y: 6}
     m_loopAction: 0
     m_onAction:
       m_PersistentCalls:
@@ -3255,6 +3373,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1053438110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053438106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 1
+  m_delayBeforeAudioActionInSecond: 2
+  m_action: 3
+  m_audioResourceDefinition: {fileID: -378244614049068411, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
 --- !u!1001 &1064681005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4377,6 +4513,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 31144654}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1437442915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437442916}
+  - component: {fileID: 1437442918}
+  - component: {fileID: 1437442917}
+  m_Layer: 5
+  m_Name: panel-black
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1437442916
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437442915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 869865008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1437442917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437442915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1437442918
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437442915}
+  m_CullTransparentMesh: 1
 --- !u!1 &1510410863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4390,6 +4601,8 @@ GameObject:
   - component: {fileID: 1510410867}
   - component: {fileID: 1510410865}
   - component: {fileID: 1510410866}
+  - component: {fileID: 1510410870}
+  - component: {fileID: 1510410869}
   m_Layer: 0
   m_Name: state-gameplay-victory
   m_TagString: Untagged
@@ -4458,6 +4671,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1510410869}
+        m_TargetAssemblyTypeName: NobunAtelier.StateModule_Audio, NobunAtelier.Core
+        m_MethodName: DoAudioAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 869865005}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   m_startFrame: 0
 --- !u!328 &1510410866
@@ -4550,6 +4787,42 @@ MonoBehaviour:
   TransitionType: 1
   m_nextState: {fileID: 0}
   m_stateDurationInSeconds: -1
+--- !u!114 &1510410869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510410863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 0
+  m_delayBeforeAudioActionInSecond: 0
+  m_action: 4
+  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
+--- !u!114 &1510410870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510410863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 1
+  m_delayBeforeAudioActionInSecond: 0
+  m_action: 0
+  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
 --- !u!1001 &1520115276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5307,7 +5580,6 @@ GameObject:
   - component: {fileID: 2138320916}
   - component: {fileID: 2138320918}
   - component: {fileID: 2138320917}
-  - component: {fileID: 2138320919}
   m_Layer: 0
   m_Name: '[ Game Mode Manager ]'
   m_TagString: Untagged
@@ -5528,7 +5800,6 @@ MonoBehaviour:
   m_stateDefinition: {fileID: 0}
   m_stateModules:
   - {fileID: 2138320917}
-  - {fileID: 2138320919}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   m_referenceStateCollection: {fileID: 11400000, guid: e92d3e46aadfb7c4998458ed89ae255d,
@@ -5538,24 +5809,6 @@ MonoBehaviour:
   m_enterInitialStateOnStart: 1
   m_nextStateOnStateMachineExit: {fileID: 0}
   m_displayDebug: 0
---- !u!114 &2138320919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138320914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_audioActionTrigger: 1
-  m_delayBeforeAudioActionInSecond: 0
-  m_action: 2
-  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
-    type: 2}
-  m_audioCollection: {fileID: 0}
 --- !u!1001 &193135917925139660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5785,3 +6038,4 @@ SceneRoots:
   - {fileID: 1670707242}
   - {fileID: 945839125}
   - {fileID: 922258906}
+  - {fileID: 869865008}
