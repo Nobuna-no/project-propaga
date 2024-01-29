@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using NobunAtelier;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Splines;
 using static UnityEngine.Splines.SplineInstantiate;
 
@@ -30,6 +31,9 @@ public class OmmrootNode : PoolableBehaviour
     [SerializeField] private SplineInstantiate m_bottomSplineInstantiate;
     [SerializeField] private SplineInstantiate m_leftSplineInstantiate;
 
+    [Header("Ommroot - Event")]
+    [SerializeField] private UnityEvent m_OnNodeSpawned;
+
     private float m_currentTime = 0;
     private bool m_isGrowing = false;
     private Vector3 m_targetScale;
@@ -37,51 +41,38 @@ public class OmmrootNode : PoolableBehaviour
 
     private int m_nodeConnectionCount = 0;
 
+
     [RuntimeInitializeOnLoadMethod()]
     private static void Initialize()
     {
         s_nodePerCell = new Dictionary<Vector2Int, OmmrootNode>();
     }
 
+    public void InitializeStaticResources()
+    {
+        s_nodePerCell = new Dictionary<Vector2Int, OmmrootNode>();
+    }
+
+    public void ReleaseStaticResources()
+    {
+        s_nodePerCell.Clear();
+        s_nodePerCell = null;
+    }
+
     public void ManualInitialization()
     {
-        OnReset();
         OnActivation();
     }
 
-    protected override void OnReset()
+    protected override void OnActivation()
     {
         Debug.Assert(m_topSplineInstantiate != null);
         Debug.Assert(m_rightSplineInstantiate != null);
         Debug.Assert(m_bottomSplineInstantiate != null);
         Debug.Assert(m_leftSplineInstantiate != null);
 
-        // m_topSplineInstantiate.enabled = false;
-        // m_rightSplineInstantiate.enabled = false;
-        // m_bottomSplineInstantiate.enabled = false;
-        // m_leftSplineInstantiate.enabled = false;
-
-        // Reset state of the object as prefab spawning sometime behave weirdly...
-        //m_visual.SetActive(true);
-        //m_interactableObject.IsInteractable = true;
-
-        //Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        //TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
-        //s_nodePerCell.Add(gridCoord, this);
-        //RefreshNodeAndSurroundingNodes(gridCoord);
-        //enabled = false;
-    }
-
-    protected override void OnDeactivation()
-    {
-        Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
-        s_nodePerCell.Remove(gridCoord);
-        base.OnDeactivation();
-    }
-
-    protected override void OnActivation()
-    {
         m_visual.SetActive(true);
+        m_interactableObject.enabled = true;
         m_interactableObject.IsInteractable = true;
 
         Vector2Int gridCoord = TerrainGrid.Instance.GetGridCoordinates(transform.position);
@@ -178,6 +169,8 @@ public class OmmrootNode : PoolableBehaviour
 
     private void SpawnNewNodeAndUpdateGrid(Vector2Int gridCoord)
     {
+        m_OnNodeSpawned?.Invoke();
+
         TerrainGrid.Instance[gridCoord].state = TerrainGrid.CellState.Occupied;
         TerrainGrid.Instance.UpdateAdjacentCells(gridCoord);
         SpawnNewNode(TerrainGrid.Instance.GetCellPosition(gridCoord), TerrainGrid.Instance[gridCoord].zoneId);

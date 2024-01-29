@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fadeInTrigger: 2
   m_stateChangeTrigger: 1
-  m_nextStateAfterFadeIn: {fileID: -9112346223935337818, guid: ba0ee8ca2679b3e45b0cbec5242af720,
+  m_nextStateAfterFadeIn: {fileID: -7232099890816225303, guid: ba0ee8ca2679b3e45b0cbec5242af720,
     type: 2}
   m_delayBetweenFadeInAndOutInSecond: 0
   m_fadingInMode: 1

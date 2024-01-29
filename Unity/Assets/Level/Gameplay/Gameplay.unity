@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53272766}
   - component: {fileID: 53272767}
+  - component: {fileID: 53272768}
   m_Layer: 0
   m_Name: state-gameplay-exit
   m_TagString: Untagged
@@ -275,9 +276,28 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: 6912194273526176936, guid: e92d3e46aadfb7c4998458ed89ae255d,
     type: 2}
-  m_stateModules: []
+  m_stateModules:
+  - {fileID: 53272768}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
+--- !u!114 &53272768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53272765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 1
+  m_delayBeforeAudioActionInSecond: 0
+  m_action: 5
+  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
 --- !u!1 &55779063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 664872014}
   - component: {fileID: 664872015}
+  - component: {fileID: 664872016}
   m_Layer: 0
   m_Name: state-gameplay-loop
   m_TagString: Untagged
@@ -1557,12 +1578,31 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: 7988716637053581, guid: e92d3e46aadfb7c4998458ed89ae255d,
     type: 2}
-  m_stateModules: []
+  m_stateModules:
+  - {fileID: 664872016}
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 1
   m_nextState: {fileID: 0}
   m_stateDurationInSeconds: -1
+--- !u!114 &664872016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664872013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff34ec158a16c4694d9b48d8642475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioActionTrigger: 2
+  m_delayBeforeAudioActionInSecond: 0
+  m_action: 4
+  m_audioResourceDefinition: {fileID: 4328807034294593447, guid: d0afc7eb1a16c0f44a347470e4e65936,
+    type: 2}
+  m_audioCollection: {fileID: 0}
 --- !u!4 &689148540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4911474453551028293, guid: 740b0ad509b21b3418df408ef70b1f88,
@@ -5528,9 +5568,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1802337195}
+        m_TargetAssemblyTypeName: OmmrootNode, Assembly-CSharp
+        m_MethodName: InitializeStaticResources
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStateExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1802337195}
+        m_TargetAssemblyTypeName: OmmrootNode, Assembly-CSharp
+        m_MethodName: ReleaseStaticResources
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2138320918
 MonoBehaviour:
   m_ObjectHideFlags: 0

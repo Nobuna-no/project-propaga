@@ -8,20 +8,34 @@ public class AltarPlayerDetection : TriggerBehaviour
 {
     [SerializeField] private Sprite m_defaultAltarTorch;
     [SerializeField] private SpriteRenderer[] m_altarTorches;
+    [SerializeField] private UnityEvent OnAltarNotReady;
     [SerializeField] private UnityEvent OnAltarReady;
     [SerializeField] private InteractableObjectBehaviour m_altarInteraction;
 
     private PropagaGameModeManager m_modeManager;
+    private PlayerManager m_playerManager;
     private List<Character> m_targetList = new List<Character>();
 
     private void Start()
     {
         m_modeManager = PropagaGameModeManager.Instance as PropagaGameModeManager;
+        m_playerManager = PlayerManager.Instance;
+
         Debug.Assert(m_modeManager, this);
+        Debug.Assert(m_playerManager, this);
         Debug.Assert(m_altarTorches.Length > 0, this);
+
+        m_playerManager.OnParticipantJoinedEvent.AddListener(RefreshAltarTorch);
+        m_playerManager.OnParticipantLeftEvent.AddListener(RefreshAltarTorch);
 
         m_altarInteraction.IsInteractable = false;
         RefreshAltarTorch();
+    }
+
+    private void OnDestroy()
+    {
+        m_playerManager.OnParticipantJoinedEvent.RemoveListener(RefreshAltarTorch);
+        m_playerManager.OnParticipantLeftEvent.RemoveListener(RefreshAltarTorch);
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -104,10 +118,14 @@ public class AltarPlayerDetection : TriggerBehaviour
 
         }
 
-        if (m_targetList.Count == m_modeManager.Participants.Count)
+        if (m_targetList.Count > 0 && m_targetList.Count == m_modeManager.Participants.Count)
         {
             m_altarInteraction.IsInteractable = true;
             OnAltarReady?.Invoke();
+        }
+        else
+        {
+            OnAltarNotReady?.Invoke();
         }
     }
 }
