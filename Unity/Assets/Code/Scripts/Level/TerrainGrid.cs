@@ -1,10 +1,12 @@
 using NaughtyAttributes;
+using NobunAtelier;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <example>
 ///Vector2Int gridCoord = terrainGrid.GetGridCoordinates(position);
@@ -74,12 +76,10 @@ public class TerrainGrid : Singleton<TerrainGrid>
     private bool generateTiles = true;
 
     [SerializeField]
-    private Transform generationParent = null;
-
-    [SerializeField]
     private TerrainCellCollection cellCollection;
 
     private Dictionary<string, TerrainCellDefinition> m_cellDefinitionPerName;
+    private Dictionary<TerrainCellDefinition, List<Vector2Int>> m_cellPerDefinitions;
 
     // The world space origin (0, 0, 0) is the middle of the overall grid
     private float OriginOffsetX => width * 0.5f;
@@ -217,6 +217,8 @@ public class TerrainGrid : Singleton<TerrainGrid>
             m_cellDefinitionPerName.Add(cell.name, cell);
         }
 
+        m_cellPerDefinitions.Clear();
+        m_cellPerDefinitions.EnsureCapacity(m_cellDefinitionPerName.Count);
         cells = new Cell[width, height];
         if (importAsset == null)
             ResetCells();
@@ -233,29 +235,91 @@ public class TerrainGrid : Singleton<TerrainGrid>
         if (m_cellDefinitionPerName == null)
             return;
 
-        if (generationParent == null)
-            generationParent = transform.parent;
+        bool[,] spawnedPositions = new bool[width, height];
 
-        TileManager.Reset(width * height);
+        foreach (var cellDefinition in m_cellPerDefinitions)
+        {
+            SpawnTilesByRange(cellDefinition.Key, spawnedPositions, cellDefinition.Value);
+        }
 
         for (int i = 0; i < width; ++i)
         {
             for (int j = 0; j < height; ++j)
             {
+                if (spawnedPositions[i, j])
+                    continue;
+                
                 if (!m_cellDefinitionPerName.TryGetValue(cells[i, j].cellDefinitionName, out var cellDefinition))
-                {
-                    Debug.LogWarning($"Trying to spawn unknown cell definition with name {cells[i, j].cellDefinitionName} at {i}:{j}", this);
                     continue;
-                }
-
-                GameObject prefab = cellDefinition.Prefab;
-                if (prefab == null)
-                    continue;
-
-                Vector3 worldPosition = GetCellPosition(new Vector2Int(i, j));
-                Instantiate(prefab, worldPosition, Quaternion.identity, generationParent);
+                
+                SpawnTilesByChance(cellDefinition, new Vector2Int(i, j));
             }
         }
+    }
+
+    // Assumes spawned positions and possible positions don't overlap
+    private void SpawnTilesByRange(TerrainCellDefinition cellDefinition, bool[,] spawnedPositions, List<Vector2Int> possiblePositions)
+    {
+        for (int i = 0 ; i < cellDefinition.tiles.Length ; ++i)
+        {
+            TerrainTileDefinition tileDefinition = cellDefinition.tiles[i];
+            if (tileDefinition == null || !tileDefinition.useRange)
+                continue;
+                
+            int count = Random.Range(tileDefinition.minCount, tileDefinition.maxCount + 1);
+            for (int j = 0 ; j < count ; ++j)
+            {
+                int gridCoordIndex = Random.Range(0, possiblePositions.Count);
+                Vector2Int gridCoord = possiblePositions[gridCoordIndex];
+                Debug.Assert(!spawnedPositions[gridCoord.x, gridCoord.y], $"Tile position is already spawned at {gridCoord.x};{gridCoord.y}");
+
+                SpawnTile(tileDefinition, gridCoord);
+                spawnedPositions[gridCoord.x, gridCoord.y] = true;
+                possiblePositions.RemoveAt(gridCoordIndex);
+            }
+        }
+    }
+
+    private void SpawnTilesByChance(TerrainCellDefinition cellDefinition, Vector2Int gridCoords)
+    {
+        float chanceSum = 0.0f;
+        for (int i = 0 ; i < cellDefinition.tiles.Length ; ++i)
+        {
+            TerrainTileDefinition tileDefinition = cellDefinition.tiles[i];
+            if (tileDefinition == null || tileDefinition.useRange)
+                continue;
+            chanceSum += tileDefinition.chance;
+        }
+
+        if (chanceSum <= 0.0f)
+        {
+            Debug.LogWarning($"No chance based tiles for cell definition {cellDefinition.name} at {gridCoords.x}:{gridCoords.y}");
+            return;
+        }
+
+        float originalValue = Random.value * chanceSum;
+        float r = originalValue;
+        int index = 0;
+        for (; index < cellDefinition.tiles.Length && r > 0.0f ; ++index)
+        {
+            TerrainTileDefinition tileDefinition = cellDefinition.tiles[index];
+            if (tileDefinition == null || tileDefinition.useRange)
+                continue;
+            
+            r -= tileDefinition.chance;
+        }
+
+        Debug.Assert(r > 0.0f, $"Random index out of range {originalValue} for cell definition {cellDefinition.name} at {gridCoords.x}:{gridCoords.y}");   
+        SpawnTile(cellDefinition.tiles[index], gridCoords);
+    }
+
+    private void SpawnTile(TerrainTileDefinition tile, Vector2Int gridCoords)
+    {
+        if (tile == null)
+            return;
+
+        Vector3 worldPosition = GetCellPosition(gridCoords);
+        PoolManager.Instance.SpawnObject(tile.prefab, worldPosition);
     }
 
     [Button]
@@ -395,6 +459,20 @@ public class TerrainGrid : Singleton<TerrainGrid>
             for (int j = 0; j < height; ++j)
             {
                 cells[i, j] = importData.cells[i * height + j];
+                
+                if (!m_cellDefinitionPerName.TryGetValue(cells[i, j].cellDefinitionName, out var cellDefinition))
+                {
+                    Debug.LogWarning($"Trying to import unknown cell definition with name {cells[i, j].cellDefinitionName} at {i}:{j}", this);
+                    continue;
+                }
+
+                Vector2Int gridCoord = new Vector2Int(i, j);
+                if (!m_cellPerDefinitions.TryGetValue(cellDefinition, out var positions))
+                {
+                    m_cellPerDefinitions.Add(cellDefinition, new List<Vector2Int>() {gridCoord});
+                    continue;
+                }
+                positions.Add(gridCoord);
             }
         }
     }
