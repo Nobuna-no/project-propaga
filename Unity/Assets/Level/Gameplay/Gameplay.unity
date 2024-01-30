@@ -275,8 +275,7 @@ MonoBehaviour:
   m_Description: 
   m_stateDefinition: {fileID: 6912194273526176936, guid: e92d3e46aadfb7c4998458ed89ae255d,
     type: 2}
-  m_stateModules:
-  - {fileID: 0}
+  m_stateModules: []
   m_autoCaptureStateModule: 1
   m_logDebug: 0
 --- !u!1 &55779063

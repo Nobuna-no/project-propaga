@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1181216360349406876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone2-grass
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -2365610833540859940, guid: d8dcc11c9581f6f4e940928d2af5e460,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
+--- !u!114 &-784499591170318165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone1-seed
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 1203727459482286990, guid: b12df52046e07c84abfa548f4bac6eec,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 0
+--- !u!114 &-429565320246542269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone1-grass
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 7352114859121117820, guid: 45caa4a954b3fa142a93c178474d4026,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559d86868b8185e4abadfee243fade5e, type: 3}
+  m_Name: '[ Tiles Definition ]'
+  m_EditorClassIdentifier: 
+  m_dataDefinitions:
+  - {fileID: -429565320246542269}
+  - {fileID: 1037935626704682835}
+  - {fileID: -784499591170318165}
+  - {fileID: -1181216360349406876}
+--- !u!114 &1037935626704682835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone1-wildplant
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 4703834372533568183, guid: a64b3683f25f92a40bed4d01922c483b,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 0

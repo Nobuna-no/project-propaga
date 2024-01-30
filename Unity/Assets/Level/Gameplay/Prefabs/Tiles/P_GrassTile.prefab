@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5620500066977934490}
   - component: {fileID: 4395081782474621915}
   - component: {fileID: 2109574627681249916}
+  - component: {fileID: 7352114859121117820}
   m_Layer: 0
   m_Name: P_GrassTile
   m_TagString: Untagged
@@ -791,6 +792,22 @@ MonoBehaviour:
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
   m_Seed: -145878
+--- !u!114 &7352114859121117820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753468439924011614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729cacd7dd58b054abf34e22dc633cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_staticException: []
+  OnTileActivation:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8986317342338209769
 GameObject:
   m_ObjectHideFlags: 0

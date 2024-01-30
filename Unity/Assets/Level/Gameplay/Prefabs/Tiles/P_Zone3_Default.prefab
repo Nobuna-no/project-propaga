@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8545386138715943172}
   - component: {fileID: 5724183404191088856}
+  - component: {fileID: -4926360216314833405}
   m_Layer: 0
   m_Name: P_Zone3_Default
   m_TagString: Untagged
@@ -56,3 +57,19 @@ MonoBehaviour:
   - tile: {fileID: -5474860372395514762, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
     chance: 0.1
   mode: 1
+--- !u!114 &-4926360216314833405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979002804358604932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729cacd7dd58b054abf34e22dc633cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_staticException: []
+  OnTileActivation:
+    m_PersistentCalls:
+      m_Calls: []

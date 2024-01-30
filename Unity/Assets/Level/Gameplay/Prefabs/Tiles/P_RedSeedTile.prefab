@@ -17,7 +17,7 @@ PrefabInstance:
     - target: {fileID: 2984573549500404581, guid: b12df52046e07c84abfa548f4bac6eec,
         type: 3}
       propertyPath: m_Name
-      value: P_RedSeedTile Variant
+      value: P_RedSeedTile
       objectReference: {fileID: 0}
     - target: {fileID: 8115865598110564320, guid: b12df52046e07c84abfa548f4bac6eec,
         type: 3}
@@ -72,5 +72,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2984573549500404581, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5763246557628840488}
   m_SourcePrefab: {fileID: 100100000, guid: b12df52046e07c84abfa548f4bac6eec, type: 3}
+--- !u!1 &2433312828662100039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2984573549500404581, guid: b12df52046e07c84abfa548f4bac6eec,
+    type: 3}
+  m_PrefabInstance: {fileID: 625869457267467042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5763246557628840488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2433312828662100039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729cacd7dd58b054abf34e22dc633cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_staticException: []
+  OnTileActivation:
+    m_PersistentCalls:
+      m_Calls: []

@@ -5,35 +5,31 @@ using UnityEngine;
 
 public class TileSpawnerBehaviour : PoolableBehaviour
 {
-    [SerializeField] private PoolObjectDefinition m_poolableToSpawn;
-    public PoolObjectDefinition PoolableToSpawn => m_poolableToSpawn;
-
-    [SerializeField] private bool m_proximitySpawning = false;
-
-    [SerializeField, Layer, ShowIf("m_spawnOnProximity")]
-    private int m_spawnTriggerLayer;
-
+    [SerializeField] private TileDefinition m_tileDefinitionToSpawn;
     private TriggerBehaviour m_triggerBehaviour;
 
     protected override void OnReset()
     {
-        if (m_proximitySpawning)
-        {
-            gameObject.layer = m_spawnTriggerLayer;
-            gameObject.isStatic = true;
-            m_triggerBehaviour = GetComponent<TriggerBehaviour>();
-            m_triggerBehaviour.OnTriggerEnterEvent += OnTriggerEnterEvent;
-        }
-    }
-
-    protected override void OnActivation()
-    {
-        if (m_proximitySpawning)
+        if (!m_tileDefinitionToSpawn.SpawnBasedOnProximity)
         {
             return;
         }
 
-        PoolManager.Instance.SpawnObject(m_poolableToSpawn, transform.position);
+        gameObject.layer = m_tileDefinitionToSpawn.TriggerLayer;
+        gameObject.isStatic = true;
+        m_triggerBehaviour = GetComponent<TriggerBehaviour>();
+        Debug.Assert(m_triggerBehaviour != null, this);
+        m_triggerBehaviour.OnTriggerEnterEvent += OnTriggerEnterEvent;
+    }
+
+    protected override void OnActivation()
+    {
+        if (m_tileDefinitionToSpawn.SpawnBasedOnProximity)
+        {
+            return;
+        }
+
+        PoolManager.Instance.SpawnObject(m_tileDefinitionToSpawn, transform.position);
 
 #if UNITY_EDITOR
         DestroyImmediate(gameObject);
@@ -44,13 +40,13 @@ public class TileSpawnerBehaviour : PoolableBehaviour
 
     private void OnTriggerEnterEvent()
     {
-        if (!m_proximitySpawning)
+        if (!m_tileDefinitionToSpawn.SpawnBasedOnProximity)
         {
             return;
         }
 
         m_triggerBehaviour.OnTriggerEnterEvent -= OnTriggerEnterEvent;
-        PoolManager.Instance.SpawnObject(PoolableToSpawn, transform.position);
+        PoolManager.Instance.SpawnObject(m_tileDefinitionToSpawn, transform.position);
 
 #if UNITY_EDITOR
         DestroyImmediate(gameObject);
