@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HardDen
   m_EditorClassIdentifier: 
   prefab: {fileID: 6074111789065279568, guid: 3716c431c302c7141a5c5506a01bb90e, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 1
 --- !u!114 &-6946114134424854901
@@ -28,6 +30,8 @@ MonoBehaviour:
   m_Name: WildGreen
   m_EditorClassIdentifier: 
   prefab: {fileID: 6798795837539441906, guid: b36ac29a56464cb4487de9b617bd5e5f, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 1
   maxCount: 5
 --- !u!114 &-6883417545486048366
@@ -43,6 +47,8 @@ MonoBehaviour:
   m_Name: Zone2RedSeed
   m_EditorClassIdentifier: 
   prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 3
   maxCount: 500
 --- !u!114 &-5474860372395514762
@@ -58,6 +64,8 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   prefab: {fileID: 8449432541554893054, guid: 4c0b4d89238a33449bf74c84afeec30c, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 6
   maxCount: 12
 --- !u!114 &-5228969623382480119
@@ -73,6 +81,8 @@ MonoBehaviour:
   m_Name: WildYellow
   m_EditorClassIdentifier: 
   prefab: {fileID: 3521918887090561121, guid: cb615ee2896612640a9ec0973a76cb1e, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 1
   maxCount: 5
 --- !u!114 &-2710064258333228702
@@ -88,6 +98,8 @@ MonoBehaviour:
   m_Name: Zone1YellowSeed
   m_EditorClassIdentifier: 
   prefab: {fileID: 8115098818902277660, guid: c61fa42c9415d234bae1fcd633138182, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 3
   maxCount: 500
 --- !u!114 &-2662123575795939536
@@ -102,7 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Altar
   m_EditorClassIdentifier: 
-  prefab: {fileID: 767778632330905497, guid: b5f32d5d673bfea449844913cb4d3d9f, type: 3}
+  prefab: {fileID: 0}
+  useRange: 0
+  chance: 1
   minCount: 1
   maxCount: 1
 --- !u!114 &-1780133413551721493
@@ -118,6 +132,8 @@ MonoBehaviour:
   m_Name: GreenSeed
   m_EditorClassIdentifier: 
   prefab: {fileID: 2984573549500404581, guid: b12df52046e07c84abfa548f4bac6eec, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 3
   maxCount: 500
 --- !u!114 &11400000
@@ -161,6 +177,8 @@ MonoBehaviour:
   m_Name: WildRed
   m_EditorClassIdentifier: 
   prefab: {fileID: 3521918887090561121, guid: 5634719c42be65f4498b55a70fcc5e2c, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 1
   maxCount: 5
 --- !u!114 &2280541148837917350
@@ -176,6 +194,8 @@ MonoBehaviour:
   m_Name: YellowSeed
   m_EditorClassIdentifier: 
   prefab: {fileID: 8115098818902277660, guid: c61fa42c9415d234bae1fcd633138182, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 3
   maxCount: 500
 --- !u!114 &3902926245067659850
@@ -191,6 +211,8 @@ MonoBehaviour:
   m_Name: Zone1Grass
   m_EditorClassIdentifier: 
   prefab: {fileID: 4753468439924011614, guid: 45caa4a954b3fa142a93c178474d4026, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 500
 --- !u!114 &4000381302371690335
@@ -206,6 +228,8 @@ MonoBehaviour:
   m_Name: Den
   m_EditorClassIdentifier: 
   prefab: {fileID: 6592601305422452088, guid: 39f5f329dc89e2548bd1d9a1d5280208, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 2
   maxCount: 4
 --- !u!114 &5286536172941723674
@@ -221,6 +245,8 @@ MonoBehaviour:
   m_Name: Zone3Grass
   m_EditorClassIdentifier: 
   prefab: {fileID: 1067629510711797367, guid: 197cfc5e093bd304db357e8d633e7f48, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 500
 --- !u!114 &5589141856491325009
@@ -236,6 +262,8 @@ MonoBehaviour:
   m_Name: Zone2Grass
   m_EditorClassIdentifier: 
   prefab: {fileID: 2153949123952684643, guid: d8dcc11c9581f6f4e940928d2af5e460, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 500
 --- !u!114 &5753557582793062594
@@ -251,5 +279,7 @@ MonoBehaviour:
   m_Name: RedSeed
   m_EditorClassIdentifier: 
   prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
+  useRange: 0
+  chance: 1
   minCount: 3
   maxCount: 500
