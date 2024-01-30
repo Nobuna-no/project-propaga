@@ -60,10 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765560cbb25d73543b64194333ecd362, type: 3}
   m_Name: T-Enemy
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: 8456270204891272807, guid: a0f01d324e73c4d499ea0256c0a2119d,
+  m_poolablePrefab: {fileID: 6443282457921175543, guid: 4c0b4d89238a33449bf74c84afeec30c,
     type: 3}
-  m_reserveSize: 30
-  m_reserveGrowCount: 10
+  m_reserveSize: 3
+  m_reserveGrowCount: 5
 --- !u!114 &-2196374238242095150
 MonoBehaviour:
   m_ObjectHideFlags: 0

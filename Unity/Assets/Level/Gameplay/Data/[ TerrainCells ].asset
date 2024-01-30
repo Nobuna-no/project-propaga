@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone3-Default
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 5286536172941723674, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 5753557582793062594, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 444974169631420629, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
 --- !u!114 &-3439699711404764366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,7 +28,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone3-Deep
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: -2662123575795939536, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -8557214848350507050, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 4000381302371690335, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 5286536172941723674, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
 --- !u!114 &-3395434544607685909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +46,8 @@ MonoBehaviour:
   m_Name: Zone1-Default
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 0}
+  - {fileID: -1780133413551721493, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 3902926245067659850, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
 --- !u!114 &-3386588950961580509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,7 +60,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone1-Edge
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 3902926245067659850, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -2710064258333228702, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -1780133413551721493, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -6946114134424854901, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone2-Edge
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 2280541148837917350, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 5589141856491325009, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -6883417545486048366, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -5228969623382480119, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 4000381302371690335, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
 --- !u!114 &4238527877778535244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,4 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42719dd54af267844a88e42d823b1cc6, type: 3}
   m_Name: Zone2-Default
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 2280541148837917350, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: 5589141856491325009, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
+  - {fileID: -5474860372395514762, guid: 8839e0f9eb179af4880957fe25215ff2, type: 2}
