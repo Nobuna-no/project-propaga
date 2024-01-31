@@ -19,6 +19,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_RedSeedTile
       objectReference: {fileID: 0}
+    - target: {fileID: 6276815535585891744, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 1262867876870904730, guid: 22ec2c2575398fe4495e8fb7ba330c34,
+        type: 3}
     - target: {fileID: 8115865598110564320, guid: b12df52046e07c84abfa548f4bac6eec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,7 +75,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 2979543911058060245, guid: a409ee2db95537141b8bc24ccaf19b53,
+        type: 3}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 4074635065082252758, guid: 9aec65ca4149f854aaa2eb54082e0dfd,
+        type: 3}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[2].Prefab
+      value: 
+      objectReference: {fileID: 3932389687825622755, guid: 80bd8ad5bd74b3f4198a8a9d423ca178,
+        type: 3}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[0].InRangeSpawnCount.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[0].InRangeSpawnCount.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[1].InRangeSpawnCount.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[1].InRangeSpawnCount.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[2].InRangeSpawnCount.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[2].InRangeSpawnCount.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088778058212380988, guid: b12df52046e07c84abfa548f4bac6eec,
+        type: 3}
+      propertyPath: m_objectToSpawn.Array.data[3].InRangeSpawnCount.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2086473738979275014, guid: b12df52046e07c84abfa548f4bac6eec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

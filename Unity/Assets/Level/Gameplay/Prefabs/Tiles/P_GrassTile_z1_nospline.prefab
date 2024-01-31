@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2984573549500404581
+--- !u!1 &774112814040332206
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,97 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8115865598110564320}
-  - component: {fileID: 1203727459482286990}
+  - component: {fileID: 3227048781588598865}
+  - component: {fileID: 1165056319669438432}
+  - component: {fileID: 2820536927855305545}
+  - component: {fileID: 1609717359714646743}
   m_Layer: 0
-  m_Name: P_GreenSeedTile
+  m_Name: spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8115865598110564320
+--- !u!4 &3227048781588598865
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2984573549500404581}
+  m_GameObject: {fileID: 774112814040332206}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7399501832619763835}
-  - {fileID: 4066424148971045198}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1203727459482286990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2984573549500404581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729cacd7dd58b054abf34e22dc633cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_staticException: []
-  OnTileActivation:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &3377759964358829951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7399501832619763835}
-  - component: {fileID: 5142571824730217816}
-  - component: {fileID: 1752798069799696143}
-  - component: {fileID: 9088778058212380988}
-  m_Layer: 0
-  m_Name: spawner (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7399501832619763835
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3377759964358829951}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 8115865598110564320}
+  m_Father: {fileID: 4649125359148649195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5142571824730217816
+--- !u!33 &1165056319669438432
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3377759964358829951}
+  m_GameObject: {fileID: 774112814040332206}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1752798069799696143
+--- !u!23 &2820536927855305545
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3377759964358829951}
+  m_GameObject: {fileID: 774112814040332206}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -136,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9088778058212380988
+--- !u!114 &1609717359714646743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3377759964358829951}
+  m_GameObject: {fileID: 774112814040332206}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3e02db5540a91a4fbdceb484ba1585d, type: 3}
@@ -178,7 +128,7 @@ MonoBehaviour:
   spawnOnStart: 0
   m_useRandomRotation: 0
   InSceneParent: {fileID: 0}
---- !u!1 &5056711928127350332
+--- !u!1 &7198162225723917465
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,51 +136,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4066424148971045198}
-  - component: {fileID: 6276815535585891744}
+  - component: {fileID: 4649125359148649195}
+  - component: {fileID: 5492493946144370736}
   m_Layer: 0
-  m_Name: spawner
+  m_Name: P_GrassTile_z1_nospline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4066424148971045198
+--- !u!4 &4649125359148649195
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5056711928127350332}
+  m_GameObject: {fileID: 7198162225723917465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8115865598110564320}
+  m_Children:
+  - {fileID: 3227048781588598865}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6276815535585891744
+--- !u!114 &5492493946144370736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5056711928127350332}
+  m_GameObject: {fileID: 7198162225723917465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e02db5540a91a4fbdceb484ba1585d, type: 3}
+  m_Script: {fileID: 11500000, guid: 729cacd7dd58b054abf34e22dc633cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objectToSpawn:
-  - Prefab: {fileID: 1262867876870904730, guid: da19fa10ad3bb3140823b3a32f3851a4,
-      type: 3}
-    InRangeSpawnCount: {x: 1, y: 2}
-    PreviewColor: {r: 1, g: 0.13477108, b: 0, a: 0}
-    PreviewSize: 0
-  m_spawnAxisScales: {x: 1, y: 0, z: 1}
-  m_spawnOffset: {x: 0, y: 0.5, z: 0}
-  m_spawnRadius: 2.5
-  spawnOnStart: 0
-  m_useRandomRotation: 0
-  InSceneParent: {fileID: 0}
+  m_staticException: []
+  OnTileActivation:
+    m_PersistentCalls:
+      m_Calls: []

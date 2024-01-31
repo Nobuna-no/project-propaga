@@ -378,8 +378,9 @@ MonoBehaviour:
   tileSize: 5
   m_drawGizmos: 0
   generateTiles: 1
-  generationParent: {fileID: 0}
   cellCollection: {fileID: 11400000, guid: 9f75996ea12a061499dd0898e36068e8, type: 2}
+  tileSpawner: {fileID: 1335753690396132528, guid: 10a86555ab792d744a82e89dcc07e8f6,
+    type: 3}
 --- !u!1 &8975437185361870691
 GameObject:
   m_ObjectHideFlags: 0

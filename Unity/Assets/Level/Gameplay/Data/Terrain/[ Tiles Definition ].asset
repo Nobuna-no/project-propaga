@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5902557545236229491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: altar
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 3987785543933173399, guid: b5f32d5d673bfea449844913cb4d3d9f,
+    type: 3}
+  m_reserveSize: 1
+  m_reserveGrowCount: 1
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 7
+--- !u!114 &-5819608466483742272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: wildplant-red
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 761507431527461728, guid: 93987d9873b12e948abfcc26a961b3fa,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
+--- !u!114 &-5032382022024086574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone3-grass
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 7473955462819722078, guid: c6e39d313dd84c54f9787b0212dcd8eb,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
+--- !u!114 &-3797697528889103773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: wildplant-yellow
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 5388134531701867772, guid: 817c59ede15a54e42b426d0a83496522,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
 --- !u!114 &-1181216360349406876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: zone2-grass
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: -2365610833540859940, guid: d8dcc11c9581f6f4e940928d2af5e460,
+  m_poolablePrefab: {fileID: 7473955462819722078, guid: 695d6aa4b03f74b45ac9aa021b91096c,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
@@ -28,14 +100,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
-  m_Name: zone1-seed
+  m_Name: zone1-seed-green
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 1203727459482286990, guid: b12df52046e07c84abfa548f4bac6eec,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
   m_proximitySpawning: 0
-  m_spawnTriggerLayer: 0
+  m_spawnTriggerLayer: 7
 --- !u!114 &-429565320246542269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,12 +120,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: zone1-grass
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: 7352114859121117820, guid: 45caa4a954b3fa142a93c178474d4026,
+  m_poolablePrefab: {fileID: 5492493946144370736, guid: 1532dfc689124a8459d15da145241c78,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
   m_proximitySpawning: 0
   m_spawnTriggerLayer: 0
+--- !u!114 &-318430892711499809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: den-5
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -8178469770683407324, guid: 3716c431c302c7141a5c5506a01bb90e,
+    type: 3}
+  m_reserveSize: 5
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,9 +158,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dataDefinitions:
   - {fileID: -429565320246542269}
-  - {fileID: 1037935626704682835}
+  - {fileID: 1445613027188866145}
   - {fileID: -784499591170318165}
+  - {fileID: 6823809814201849763}
   - {fileID: -1181216360349406876}
+  - {fileID: -5032382022024086574}
+  - {fileID: 1037935626704682835}
+  - {fileID: -3797697528889103773}
+  - {fileID: -5819608466483742272}
+  - {fileID: 8687058355170697981}
+  - {fileID: 7039920499240141619}
+  - {fileID: -5902557545236229491}
+  - {fileID: 2377306993388895056}
+  - {fileID: 5837288314957043565}
+  - {fileID: -318430892711499809}
 --- !u!114 &1037935626704682835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,11 +182,119 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
-  m_Name: zone1-wildplant
+  m_Name: wildplant-green
   m_EditorClassIdentifier: 
   m_poolablePrefab: {fileID: 4703834372533568183, guid: a64b3683f25f92a40bed4d01922c483b,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
   m_proximitySpawning: 0
-  m_spawnTriggerLayer: 0
+  m_spawnTriggerLayer: 7
+--- !u!114 &1445613027188866145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone1-grass-variant
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 5492493946144370736, guid: 1532dfc689124a8459d15da145241c78,
+    type: 3}
+  m_reserveSize: 5
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 7
+--- !u!114 &2377306993388895056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: enemy
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -1713236065691095412, guid: 4c0b4d89238a33449bf74c84afeec30c,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
+--- !u!114 &5837288314957043565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: den-3
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -3576533418815436900, guid: 39f5f329dc89e2548bd1d9a1d5280208,
+    type: 3}
+  m_reserveSize: 5
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
+--- !u!114 &6823809814201849763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone1-seed-yellow
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -1470124730911041650, guid: c61fa42c9415d234bae1fcd633138182,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 7
+--- !u!114 &7039920499240141619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: seed-red
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -5763246557628840488, guid: a0f01d324e73c4d499ea0256c0a2119d,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7
+--- !u!114 &8687058355170697981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: seed-yellow
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: -1470124730911041650, guid: c61fa42c9415d234bae1fcd633138182,
+    type: 3}
+  m_reserveSize: 10
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 1
+  m_spawnTriggerLayer: 7

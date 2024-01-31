@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: HardDen
+  m_Name: Den-5
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6074111789065279568, guid: 3716c431c302c7141a5c5506a01bb90e, type: 3}
+  tile: {fileID: -318430892711499809, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 0
   maxCount: 1
 --- !u!114 &-6946114134424854901
@@ -27,9 +29,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: WildGreen
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6798795837539441906, guid: b36ac29a56464cb4487de9b617bd5e5f, type: 3}
+  tile: {fileID: 1037935626704682835, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 1
-  maxCount: 5
+  maxCount: 3
 --- !u!114 &-6883417545486048366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,11 +44,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: Zone2RedSeed
+  m_Name: Zone2-RedSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
-  minCount: 3
-  maxCount: 500
+  tile: {fileID: 7039920499240141619, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
+  minCount: 2
+  maxCount: 4
 --- !u!114 &-5474860372395514762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +63,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8449432541554893054, guid: 4c0b4d89238a33449bf74c84afeec30c, type: 3}
+  tile: {fileID: 2377306993388895056, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 0
+  chance: 0.25
   minCount: 6
   maxCount: 12
 --- !u!114 &-5228969623382480119
@@ -72,9 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: WildYellow
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3521918887090561121, guid: cb615ee2896612640a9ec0973a76cb1e, type: 3}
+  tile: {fileID: -3797697528889103773, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 1
-  maxCount: 5
+  maxCount: 3
 --- !u!114 &-2710064258333228702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,11 +95,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: Zone1YellowSeed
+  m_Name: Zone1-YellowSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8115098818902277660, guid: c61fa42c9415d234bae1fcd633138182, type: 3}
-  minCount: 3
-  maxCount: 500
+  tile: {fileID: 6823809814201849763, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
+  minCount: 2
+  maxCount: 4
 --- !u!114 &-2662123575795939536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Altar
   m_EditorClassIdentifier: 
-  prefab: {fileID: 767778632330905497, guid: b5f32d5d673bfea449844913cb4d3d9f, type: 3}
+  tile: {fileID: -5902557545236229491, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 1
   maxCount: 1
 --- !u!114 &-1780133413551721493
@@ -117,8 +131,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: GreenSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2984573549500404581, guid: b12df52046e07c84abfa548f4bac6eec, type: 3}
+  tile: {fileID: -784499591170318165, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 3
+  maxCount: 5
+--- !u!114 &-786039355809722593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
+  m_Name: Zone1Grass_variant
+  m_EditorClassIdentifier: 
+  tile: {fileID: 1445613027188866145, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 0
+  chance: 1
+  minCount: 0
   maxCount: 500
 --- !u!114 &11400000
 MonoBehaviour:
@@ -138,16 +171,17 @@ MonoBehaviour:
   - {fileID: -8557214848350507050}
   - {fileID: -5474860372395514762}
   - {fileID: -1780133413551721493}
-  - {fileID: 2280541148837917350}
   - {fileID: -2710064258333228702}
-  - {fileID: 5753557582793062594}
+  - {fileID: 2280541148837917350}
   - {fileID: -6883417545486048366}
-  - {fileID: 3902926245067659850}
+  - {fileID: 5753557582793062594}
   - {fileID: 5589141856491325009}
   - {fileID: 5286536172941723674}
   - {fileID: -6946114134424854901}
   - {fileID: -5228969623382480119}
   - {fileID: 444974169631420629}
+  - {fileID: 3902926245067659850}
+  - {fileID: -786039355809722593}
 --- !u!114 &444974169631420629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,9 +194,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: WildRed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3521918887090561121, guid: 5634719c42be65f4498b55a70fcc5e2c, type: 3}
+  tile: {fileID: -5819608466483742272, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 1
-  maxCount: 5
+  maxCount: 3
 --- !u!114 &2280541148837917350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,11 +209,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: YellowSeed
+  m_Name: Zone2-YellowSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8115098818902277660, guid: c61fa42c9415d234bae1fcd633138182, type: 3}
+  tile: {fileID: 8687058355170697981, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 3
-  maxCount: 500
+  maxCount: 8
 --- !u!114 &3902926245067659850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Zone1Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4753468439924011614, guid: 45caa4a954b3fa142a93c178474d4026, type: 3}
+  tile: {fileID: -429565320246542269, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 500
 --- !u!114 &4000381302371690335
@@ -203,9 +243,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: Den
+  m_Name: Den-3
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6592601305422452088, guid: 39f5f329dc89e2548bd1d9a1d5280208, type: 3}
+  tile: {fileID: 5837288314957043565, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 2
   maxCount: 4
 --- !u!114 &5286536172941723674
@@ -220,7 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Zone3Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1067629510711797367, guid: 197cfc5e093bd304db357e8d633e7f48, type: 3}
+  tile: {fileID: -5032382022024086574, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 500
 --- !u!114 &5589141856491325009
@@ -235,7 +279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
   m_Name: Zone2Grass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2153949123952684643, guid: d8dcc11c9581f6f4e940928d2af5e460, type: 3}
+  tile: {fileID: -1181216360349406876, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 0
+  chance: 1
   minCount: 0
   maxCount: 500
 --- !u!114 &5753557582793062594
@@ -248,8 +294,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
-  m_Name: RedSeed
+  m_Name: Zone3-RedSeed
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2433312828662100039, guid: a0f01d324e73c4d499ea0256c0a2119d, type: 3}
+  tile: {fileID: 7039920499240141619, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 1
+  chance: 1
   minCount: 3
-  maxCount: 500
+  maxCount: 8

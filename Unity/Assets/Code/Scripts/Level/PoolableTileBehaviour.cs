@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Splines;
 
 public class PoolableTileBehaviour : PoolableBehaviour
 {
@@ -9,6 +10,7 @@ public class PoolableTileBehaviour : PoolableBehaviour
 
     [SerializeField] private UnityEvent OnTileActivation;
 
+    [Button]
     protected override void OnReset()
     {
         gameObject.isStatic = true;
@@ -23,8 +25,32 @@ public class PoolableTileBehaviour : PoolableBehaviour
         }
     }
 
+    [Button]
     protected override void OnActivation()
     {
         OnTileActivation?.Invoke();
+
+        var splines = GetComponentsInChildren<SplineInstantiate>();
+        foreach(var spline in splines)
+        {
+            spline.enabled = true;
+            spline.Clear();
+            spline.UpdateInstances();
+            spline.Randomize();
+            spline.SetDirty();
+
+            spline.Randomize();
+            spline.Clear();
+            spline.SetDirty();
+            spline.UpdateInstances();
+        }
+
+        var spawners = GetComponentsInChildren<Spawner>();
+        foreach (var spawner in spawners)
+        {
+            spawner.InSceneParent = transform;
+            spawner.Randomize();
+            spawner.SpawnAndDestroySpawner();
+        }
     }
 }

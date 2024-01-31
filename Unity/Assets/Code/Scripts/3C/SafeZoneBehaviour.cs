@@ -52,7 +52,7 @@ public class SafeZoneBehaviour : TriggerBehaviour
     protected override void OnTriggerEnter(Collider other)
     {
         // No. Other player are not safe zone :D
-        if (other.GetComponent<SafeZoneBehaviour>() != null)
+        if (other.isTrigger || other.GetComponent<SafeZoneBehaviour>() != null)
         {
             return;
         }
@@ -67,7 +67,7 @@ public class SafeZoneBehaviour : TriggerBehaviour
 
     protected override void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<SafeZoneBehaviour>() != null)
+        if (other.isTrigger || other.GetComponent<SafeZoneBehaviour>() != null)
         {
             return;
         }

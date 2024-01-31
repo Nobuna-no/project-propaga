@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_autoCaptureStateModule: 1
   m_logDebug: 0
   TransitionType: 0
-  m_nextState: {fileID: 2974955711177142285, guid: 5899d262148d549408816a7044139d0e,
+  m_nextState: {fileID: -5279566794588525482, guid: 5899d262148d549408816a7044139d0e,
     type: 2}
   m_stateDurationInSeconds: 0.5
 --- !u!114 &8198691184123723934
