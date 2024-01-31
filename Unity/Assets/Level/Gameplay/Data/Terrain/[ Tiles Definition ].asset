@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dataDefinitions:
   - {fileID: -429565320246542269}
+  - {fileID: 1445613027188866145}
   - {fileID: -784499591170318165}
   - {fileID: 6823809814201849763}
   - {fileID: -1181216360349406876}
@@ -189,6 +190,24 @@ MonoBehaviour:
   m_reserveGrowCount: 5
   m_proximitySpawning: 0
   m_spawnTriggerLayer: 0
+--- !u!114 &1445613027188866145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
+  m_Name: zone1-grass-variant
+  m_EditorClassIdentifier: 
+  m_poolablePrefab: {fileID: 5492493946144370736, guid: 1532dfc689124a8459d15da145241c78,
+    type: 3}
+  m_reserveSize: 5
+  m_reserveGrowCount: 5
+  m_proximitySpawning: 0
+  m_spawnTriggerLayer: 7
 --- !u!114 &2377306993388895056
 MonoBehaviour:
   m_ObjectHideFlags: 0

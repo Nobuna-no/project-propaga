@@ -136,6 +136,23 @@ MonoBehaviour:
   chance: 1
   minCount: 3
   maxCount: 5
+--- !u!114 &-786039355809722593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cce8dc639484ec4e8e2a6250d01a170, type: 3}
+  m_Name: Zone1Grass_variant
+  m_EditorClassIdentifier: 
+  tile: {fileID: 1445613027188866145, guid: 9d2ef7d874dc70d4f96b253cf5050c03, type: 2}
+  useRange: 0
+  chance: 1
+  minCount: 0
+  maxCount: 500
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,12 +175,13 @@ MonoBehaviour:
   - {fileID: 2280541148837917350}
   - {fileID: -6883417545486048366}
   - {fileID: 5753557582793062594}
-  - {fileID: 3902926245067659850}
   - {fileID: 5589141856491325009}
   - {fileID: 5286536172941723674}
   - {fileID: -6946114134424854901}
   - {fileID: -5228969623382480119}
   - {fileID: 444974169631420629}
+  - {fileID: 3902926245067659850}
+  - {fileID: -786039355809722593}
 --- !u!114 &444974169631420629
 MonoBehaviour:
   m_ObjectHideFlags: 0
