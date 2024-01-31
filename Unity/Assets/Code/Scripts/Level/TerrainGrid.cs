@@ -250,10 +250,10 @@ public class TerrainGrid : Singleton<TerrainGrid>
             {
                 if (spawnedPositions[i, j])
                     continue;
-                
+
                 if (!m_cellDefinitionPerName.TryGetValue(cells[i, j].cellDefinitionName, out var cellDefinition))
                     continue;
-                
+
                 SpawnTilesByChance(cellDefinition, new Vector2Int(i, j));
             }
         }
@@ -267,7 +267,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
             TerrainTileDefinition tileDefinition = cellDefinition.tiles[i];
             if (tileDefinition == null || !tileDefinition.useRange)
                 continue;
-                
+
             int count = Random.Range(tileDefinition.minCount, tileDefinition.maxCount + 1);
             for (int j = 0 ; j < count ; ++j)
             {
@@ -307,11 +307,12 @@ public class TerrainGrid : Singleton<TerrainGrid>
             TerrainTileDefinition tileDefinition = cellDefinition.tiles[index];
             if (tileDefinition == null || tileDefinition.useRange)
                 continue;
-            
+
             r -= tileDefinition.chance;
         }
 
-        Debug.Assert(r > 0.0f, $"Random index out of range {originalValue} for cell definition {cellDefinition.name} at {gridCoords.x}:{gridCoords.y}");   
+        // As the index is going to increment before the loop condition is checked, we need to decrement once.
+        index -= 1;
         SpawnTile(cellDefinition.tiles[index], gridCoords);
     }
 
@@ -462,7 +463,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
             for (int j = 0; j < height; ++j)
             {
                 cells[i, j] = importData.cells[i * height + j];
-                
+
                 if (!m_cellDefinitionPerName.TryGetValue(cells[i, j].cellDefinitionName, out var cellDefinition))
                 {
                     Debug.LogWarning($"Trying to import unknown cell definition with name {cells[i, j].cellDefinitionName} at {i}:{j}", this);

@@ -1,46 +1,33 @@
-using NaughtyAttributes;
 using NobunAtelier;
 using NobunAtelier.Gameplay;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class TileSpawnerBehaviour : MonoBehaviour
 {
     private TriggerBehaviour m_triggerBehaviour;
 
-    public TileDefinition TileDefinition
-    {
-        get; set;
-    }
+    public TileDefinition TileDefinition { get; set; }
 
-    protected void Awake()
+    private IEnumerator Start()
     {
-        if (TileDefinition == null || !TileDefinition.SpawnBasedOnProximity)
+        yield return null;
+
+        Debug.Assert(TileDefinition != null, this);
+
+        if (!TileDefinition.SpawnBasedOnProximity)
         {
-            return;
+            PoolManager.Instance.SpawnObject(TileDefinition, transform.position);
+            Destroy(gameObject);
         }
-
-        gameObject.layer = TileDefinition.TriggerLayer;
-        gameObject.isStatic = true;
-        m_triggerBehaviour = GetComponent<TriggerBehaviour>();
-        Debug.Assert(m_triggerBehaviour != null, this);
-        m_triggerBehaviour.OnTriggerEnterEvent += OnTriggerEnterEvent;
-    }
-
-    protected void Start()
-    {
-        if (TileDefinition.SpawnBasedOnProximity)
+        else
         {
-            return;
+            gameObject.layer = TileDefinition.TriggerLayer;
+            gameObject.isStatic = true;
+            m_triggerBehaviour = GetComponent<TriggerBehaviour>();
+            Debug.Assert(m_triggerBehaviour != null, this);
+            m_triggerBehaviour.OnTriggerEnterEvent += OnTriggerEnterEvent;
         }
-
-        PoolManager.Instance.SpawnObject(TileDefinition, transform.position);
-
-#if UNITY_EDITOR
-        DestroyImmediate(gameObject);
-#else
-        Destroy(gameObject);
-#endif
     }
 
     private void OnTriggerEnterEvent()
@@ -51,12 +38,14 @@ public class TileSpawnerBehaviour : MonoBehaviour
         }
 
         m_triggerBehaviour.OnTriggerEnterEvent -= OnTriggerEnterEvent;
-        PoolManager.Instance.SpawnObject(TileDefinition, transform.position);
+        StartCoroutine(SpawnAndDestroy_Coroutine());
+    }
 
-#if UNITY_EDITOR
-        DestroyImmediate(gameObject);
-#else
+    private IEnumerator SpawnAndDestroy_Coroutine()
+    {
+        yield return new WaitForFixedUpdate();
+
+        PoolManager.Instance.SpawnObject(TileDefinition, transform.position);
         Destroy(gameObject);
-#endif
     }
 }
