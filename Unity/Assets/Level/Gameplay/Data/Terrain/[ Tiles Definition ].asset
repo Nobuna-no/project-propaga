@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: wildplant-red
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: 4999953569784656138, guid: 800b02cca0eaac143aab0c0e379f9965,
+  m_poolablePrefab: {fileID: 761507431527461728, guid: 93987d9873b12e948abfcc26a961b3fa,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: zone3-grass
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: -1354159489402424846, guid: 197cfc5e093bd304db357e8d633e7f48,
+  m_poolablePrefab: {fileID: 7473955462819722078, guid: c6e39d313dd84c54f9787b0212dcd8eb,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: wildplant-yellow
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: -5384272742977247604, guid: 7f11deb7da2df2c4f906cc812bbf925e,
+  m_poolablePrefab: {fileID: 5388134531701867772, guid: 817c59ede15a54e42b426d0a83496522,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: zone2-grass
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: -2365610833540859940, guid: d8dcc11c9581f6f4e940928d2af5e460,
+  m_poolablePrefab: {fileID: 7473955462819722078, guid: 695d6aa4b03f74b45ac9aa021b91096c,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_reserveSize: 10
   m_reserveGrowCount: 5
   m_proximitySpawning: 0
-  m_spawnTriggerLayer: 0
+  m_spawnTriggerLayer: 7
 --- !u!114 &-429565320246542269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493a3354e848f584cb95d3053393f72c, type: 3}
   m_Name: zone1-grass
   m_EditorClassIdentifier: 
-  m_poolablePrefab: {fileID: 7352114859121117820, guid: 45caa4a954b3fa142a93c178474d4026,
+  m_poolablePrefab: {fileID: 5492493946144370736, guid: 1532dfc689124a8459d15da145241c78,
     type: 3}
   m_reserveSize: 10
   m_reserveGrowCount: 5
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_reserveSize: 10
   m_reserveGrowCount: 5
   m_proximitySpawning: 0
-  m_spawnTriggerLayer: 0
+  m_spawnTriggerLayer: 7
 --- !u!114 &1445613027188866145
 MonoBehaviour:
   m_ObjectHideFlags: 0

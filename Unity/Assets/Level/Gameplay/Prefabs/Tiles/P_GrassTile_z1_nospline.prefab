@@ -123,7 +123,7 @@ MonoBehaviour:
     PreviewColor: {r: 0.5660378, g: 0.28426218, b: 0.09878961, a: 1}
     PreviewSize: 0.2
   m_spawnAxisScales: {x: 1, y: 0, z: 1}
-  m_spawnOffset: {x: 0, y: 0.5, z: 0}
+  m_spawnOffset: {x: 0, y: 0, z: 0}
   m_spawnRadius: 2.5
   spawnOnStart: 0
   m_useRandomRotation: 0
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4649125359148649195}
   - component: {fileID: 5492493946144370736}
   m_Layer: 0
-  m_Name: P_GrassTile_variant
+  m_Name: P_GrassTile_z1_nospline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

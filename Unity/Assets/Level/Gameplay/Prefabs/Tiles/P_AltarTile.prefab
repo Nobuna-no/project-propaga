@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Forward: 2
   m_PositionOffset:
     setup: 1
-    min: {x: 0, y: 0.5, z: 0}
+    min: {x: 0, y: 0.3, z: 0}
     max: {x: 1, y: 0.5, z: 1}
     randomX: 1
     randomY: 0

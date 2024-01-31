@@ -741,17 +741,21 @@ MonoBehaviour:
     Prefab: {fileID: 2979543911058060245, guid: a409ee2db95537141b8bc24ccaf19b53,
       type: 3}
     probability: 0
-    Probability: 33
+    Probability: 30
   - prefab: {fileID: 0}
     Prefab: {fileID: 4074635065082252758, guid: 9aec65ca4149f854aaa2eb54082e0dfd,
       type: 3}
     probability: 0
-    Probability: 33
+    Probability: 30
   - prefab: {fileID: 0}
     Prefab: {fileID: 3932389687825622755, guid: 80bd8ad5bd74b3f4198a8a9d423ca178,
       type: 3}
     probability: 0
-    Probability: 33
+    Probability: 30
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 558871487357210337, guid: 7196ab868d4b5df428da608789c10154, type: 3}
+    probability: 0
+    Probability: 10
   m_Method: 0
   m_Space: 0
   m_Spacing: {x: 5, y: 10}
@@ -759,7 +763,7 @@ MonoBehaviour:
   m_Forward: 2
   m_PositionOffset:
     setup: 1
-    min: {x: 0, y: 0.5, z: 0}
+    min: {x: 0, y: 0, z: 0}
     max: {x: 1, y: 0.5, z: 1}
     randomX: 1
     randomY: 0
@@ -1539,20 +1543,24 @@ MonoBehaviour:
     Prefab: {fileID: 2979543911058060245, guid: a409ee2db95537141b8bc24ccaf19b53,
       type: 3}
     probability: 0
-    Probability: 33
+    Probability: 45
   - prefab: {fileID: 0}
     Prefab: {fileID: 6175773384424422056, guid: 570ff96de5f883b47b715f1e09d1a955,
       type: 3}
     probability: 0
-    Probability: 33
+    Probability: 45
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 558871487357210337, guid: 7196ab868d4b5df428da608789c10154, type: 3}
+    probability: 0
+    Probability: 10
   m_Method: 0
   m_Space: 0
-  m_Spacing: {x: 5, y: 5}
+  m_Spacing: {x: 0.1, y: 5}
   m_Up: 1
   m_Forward: 2
   m_PositionOffset:
     setup: 1
-    min: {x: 0, y: 0.5, z: 0}
+    min: {x: 0, y: 0, z: 0}
     max: {x: 0.5, y: 0.5, z: 0.5}
     randomX: 1
     randomY: 0
@@ -1576,4 +1584,4 @@ MonoBehaviour:
     space: 0
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
-  m_Seed: -145878
+  m_Seed: 1082690922

@@ -33,7 +33,16 @@ public class PoolableTileBehaviour : PoolableBehaviour
         var splines = GetComponentsInChildren<SplineInstantiate>();
         foreach(var spline in splines)
         {
+            spline.enabled = true;
+            spline.Clear();
+            spline.UpdateInstances();
             spline.Randomize();
+            spline.SetDirty();
+
+            spline.Randomize();
+            spline.Clear();
+            spline.SetDirty();
+            spline.UpdateInstances();
         }
 
         var spawners = GetComponentsInChildren<Spawner>();
