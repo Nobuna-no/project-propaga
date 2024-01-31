@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using NobunAtelier;
 using NobunAtelier.Gameplay;
 using UnityEngine;
+using System.Collections;
 
 public class TileSpawnerBehaviour : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class TileSpawnerBehaviour : MonoBehaviour
 
     protected void Awake()
     {
-        if (!TileDefinition.SpawnBasedOnProximity)
+        if (TileDefinition == null || !TileDefinition.SpawnBasedOnProximity)
         {
             return;
         }

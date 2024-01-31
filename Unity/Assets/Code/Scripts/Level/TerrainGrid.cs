@@ -220,8 +220,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
             m_cellDefinitionPerName.Add(cell.name, cell);
         }
 
-        m_cellPerDefinitions.Clear();
-        m_cellPerDefinitions.EnsureCapacity(m_cellDefinitionPerName.Count);
+        m_cellPerDefinitions = new Dictionary<TerrainCellDefinition, List<Vector2Int>>(m_cellDefinitionPerName.Count);
         cells = new Cell[width, height];
         if (importAsset == null)
             ResetCells();
