@@ -3,33 +3,37 @@ using NobunAtelier;
 using NobunAtelier.Gameplay;
 using UnityEngine;
 
-public class TileSpawnerBehaviour : PoolableBehaviour
+public class TileSpawnerBehaviour : MonoBehaviour
 {
-    [SerializeField] private TileDefinition m_tileDefinitionToSpawn;
     private TriggerBehaviour m_triggerBehaviour;
 
-    protected override void OnReset()
+    public TileDefinition TileDefinition
     {
-        if (!m_tileDefinitionToSpawn.SpawnBasedOnProximity)
+        get; set;
+    }
+
+    protected void Awake()
+    {
+        if (!TileDefinition.SpawnBasedOnProximity)
         {
             return;
         }
 
-        gameObject.layer = m_tileDefinitionToSpawn.TriggerLayer;
+        gameObject.layer = TileDefinition.TriggerLayer;
         gameObject.isStatic = true;
         m_triggerBehaviour = GetComponent<TriggerBehaviour>();
         Debug.Assert(m_triggerBehaviour != null, this);
         m_triggerBehaviour.OnTriggerEnterEvent += OnTriggerEnterEvent;
     }
 
-    protected override void OnActivation()
+    protected void Start()
     {
-        if (m_tileDefinitionToSpawn.SpawnBasedOnProximity)
+        if (TileDefinition.SpawnBasedOnProximity)
         {
             return;
         }
 
-        PoolManager.Instance.SpawnObject(m_tileDefinitionToSpawn, transform.position);
+        PoolManager.Instance.SpawnObject(TileDefinition, transform.position);
 
 #if UNITY_EDITOR
         DestroyImmediate(gameObject);
@@ -40,13 +44,13 @@ public class TileSpawnerBehaviour : PoolableBehaviour
 
     private void OnTriggerEnterEvent()
     {
-        if (!m_tileDefinitionToSpawn.SpawnBasedOnProximity)
+        if (!TileDefinition.SpawnBasedOnProximity)
         {
             return;
         }
 
         m_triggerBehaviour.OnTriggerEnterEvent -= OnTriggerEnterEvent;
-        PoolManager.Instance.SpawnObject(m_tileDefinitionToSpawn, transform.position);
+        PoolManager.Instance.SpawnObject(TileDefinition, transform.position);
 
 #if UNITY_EDITOR
         DestroyImmediate(gameObject);

@@ -78,6 +78,9 @@ public class TerrainGrid : Singleton<TerrainGrid>
     [SerializeField]
     private TerrainCellCollection cellCollection;
 
+    [SerializeField]
+    private TileSpawnerBehaviour tileSpawner;
+
     private Dictionary<string, TerrainCellDefinition> m_cellDefinitionPerName;
     private Dictionary<TerrainCellDefinition, List<Vector2Int>> m_cellPerDefinitions;
 
@@ -313,13 +316,14 @@ public class TerrainGrid : Singleton<TerrainGrid>
         SpawnTile(cellDefinition.tiles[index], gridCoords);
     }
 
-    private void SpawnTile(TerrainTileDefinition tile, Vector2Int gridCoords)
+    private void SpawnTile(TerrainTileDefinition tileDefinition, Vector2Int gridCoords)
     {
-        if (tile == null)
+        if (tileDefinition == null)
             return;
 
         Vector3 worldPosition = GetCellPosition(gridCoords);
-        PoolManager.Instance.SpawnObject(tile.prefab, worldPosition);
+        TileSpawnerBehaviour tile = Instantiate(tileSpawner, worldPosition, Quaternion.identity, transform);
+        tile.TileDefinition = tileDefinition.tile;
     }
 
     [Button]

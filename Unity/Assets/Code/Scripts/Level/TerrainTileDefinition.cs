@@ -6,7 +6,7 @@ using NobunAtelier;
 
 public class TerrainTileDefinition : DataDefinition
 {
-    public PoolObjectDefinition prefab;
+    public TileDefinition tile;
     public bool useRange = false;
     [HideIf("useRange"), Range(0f, 1f)]
     public float chance = 1.0f;
