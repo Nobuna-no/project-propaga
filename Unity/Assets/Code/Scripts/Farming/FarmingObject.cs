@@ -20,7 +20,7 @@ public class FarmingObject : PoolableBehaviour
         m_OnInit?.Invoke();
     }
 
-    protected override void OnReset()
+    protected override void OnCreation()
     {
         m_OnReset?.Invoke();
         sourceSpot = null;

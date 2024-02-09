@@ -36,7 +36,7 @@ public class PropagaGameModeManager : GameModeManager
 
         var player = participant as PropagaParticipant;
         var controller = participant.Controller as PropagaPlayerController;
-        player.DataDefinition = playerData.GetData()[Participants.Count - 1];
+        player.DataDefinition = playerData.Definitions[Participants.Count - 1];
         if (controller != null)
             controller.PlayerId?.Set(player.DataDefinition);
 

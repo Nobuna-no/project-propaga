@@ -27,7 +27,7 @@ public class TerrainCamera : MonoBehaviour
 
     void Start()
     {
-        int definitionCount = terrainCells ? terrainCells.GetData().Count : 0;
+        int definitionCount = terrainCells ? terrainCells.Definitions.Count : 0;
         modeCount = baseModes.Length + definitionCount;
 
         cam = GetComponent<Camera>();
@@ -46,7 +46,7 @@ public class TerrainCamera : MonoBehaviour
             return baseModes[i];
 
         i -= baseModes.Length;
-        IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.GetData();
+        IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.Definitions;
         if (i >= definitions.Count)
             return "";
 
@@ -94,7 +94,7 @@ public class TerrainCamera : MonoBehaviour
                 SetZone(ref cell, 3);
                 break;
             default:
-                IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.GetData();
+                IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.Definitions;
                 int index = GetDefinitionIndex();
                 if (isDown) ToggleCellDefinition(ref cell, definitions[index]);
                 break;
@@ -128,7 +128,7 @@ public class TerrainCamera : MonoBehaviour
         if (currentMode < baseModes.Length || terrainCells == null)
             return;
 
-        IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.GetData();
+        IReadOnlyList<TerrainCellDefinition> definitions = terrainCells.Definitions;
         int index = GetDefinitionIndex();
         if (definitions == null || index >= definitions.Count)
             return;

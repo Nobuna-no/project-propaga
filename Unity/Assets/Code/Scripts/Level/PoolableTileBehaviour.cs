@@ -11,7 +11,7 @@ public class PoolableTileBehaviour : PoolableBehaviour
     [SerializeField] private UnityEvent OnTileActivation;
 
     [Button]
-    protected override void OnReset()
+    protected override void OnCreation()
     {
         gameObject.isStatic = true;
         for (int i = transform.childCount - 1; i >= 0; i--)

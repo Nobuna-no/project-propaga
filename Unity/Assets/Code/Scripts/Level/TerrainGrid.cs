@@ -215,7 +215,7 @@ public class TerrainGrid : Singleton<TerrainGrid>
     protected override void OnSingletonAwake()
     {
         m_cellDefinitionPerName = new Dictionary<string, TerrainCellDefinition>();
-        foreach (var cell in cellCollection.GetData())
+        foreach (var cell in cellCollection.Definitions)
         {
             m_cellDefinitionPerName.Add(cell.name, cell);
         }
